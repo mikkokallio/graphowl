@@ -24,11 +24,3 @@ class TestMaksukortti(unittest.TestCase):
         testi = self.maksukortti.ota_rahaa(1700)
         self.assertFalse(testi)
         self.assertEqual(str(self.maksukortti), "saldo: 10.0")
-
-
-
-#Rahan lataaminen kasvattaa saldoa oikein
-#Rahan ottaminen toimii
-#Saldo vähenee oikein, jos rahaa on tarpeeksi
-#Saldo ei muutu, jos rahaa ei ole tarpeeksi
-#Metodi palauttaa True, jos rahat riittivät ja muuten False
