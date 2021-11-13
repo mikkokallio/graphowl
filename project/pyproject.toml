@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "GraphOwl"
+version = "0.1.0"
+description = "A dashboard application for displaying time series data as graphs."
+authors = ["Mikko Kallio"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+invoke = "^1.6.0"
+pymongo = {extras = ["srv"], version = "^3.12.1"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+coverage = "^6.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
