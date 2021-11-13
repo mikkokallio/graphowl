@@ -8,6 +8,7 @@ authors = ["Mikko Kallio"]
 python = "^3.10"
 invoke = "^1.6.0"
 pymongo = {extras = ["srv"], version = "^3.12.1"}
+PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

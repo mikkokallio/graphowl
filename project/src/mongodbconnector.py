@@ -8,9 +8,7 @@ class MongoDbConnector:
         self.client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=cert)
         self.db = self.client[db]
         
-
-    def get_data(self, colname) -> None:
+    def get_data(self, colname) -> str:
         col = self.db[colname]
 
-        for x in col.find():
-            print(x)
+        return col.find()
