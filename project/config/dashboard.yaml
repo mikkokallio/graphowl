@@ -1,0 +1,23 @@
+name: Measurements
+timespan: 12 hours
+interval: 5 minutes
+
+sources:
+  - name: Mongo
+    connector: mongodb
+    uri: yyy
+    cert: mongo-x509.pem
+    database: sensors
+graphs:
+  - title: Temperature
+    connector: Mongo
+    table: sensors
+    time: time
+    value: temperature
+    name: name
+  - title: Moisture
+    connector: Mongo
+    table: sensors
+    time: time
+    value: temperature
+    name: name
