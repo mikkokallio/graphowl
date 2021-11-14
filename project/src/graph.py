@@ -10,4 +10,4 @@ class Graph:
         self.name = name
     
     def load(self):
-        return self.connector.get_data(self.collection)
+        return self.connector.get_data(self.collection, time=self.time, value=self.value, name=self.name)

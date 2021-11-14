@@ -17,3 +17,6 @@ class Dashboard:
         
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['time'], graph['value'], graph['name']))
+
+    def load(self):
+        return [graph.load() for graph in self.graphs]
