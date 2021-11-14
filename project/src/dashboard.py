@@ -5,8 +5,9 @@ from graph import Graph
 class Dashboard:
     """Contains all graphs and other configuration and data"""
 
-    def __init__(self, title, timespan, interval, sources, graphs):
+    def __init__(self, title, layout, timespan, interval, sources, graphs):
         self.title = title
+        self.layout = layout
         self.timespan = timespan
         self.interval = interval
         self.sources = {}
@@ -18,5 +19,5 @@ class Dashboard:
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['time'], graph['value'], graph['name']))
 
-    def load(self):
+    def load_all(self):
         return [graph.load() for graph in self.graphs]

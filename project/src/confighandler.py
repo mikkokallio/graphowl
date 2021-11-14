@@ -12,4 +12,4 @@ class ConfigHandler:
         file = open(self.filepath, 'r')
         config = yaml.safe_load(file)
 
-        return Dashboard(config['name'], config['timespan'], config['interval'], config['sources'], config['graphs'])
+        return Dashboard(config['name'], config['layout'], config['timespan'], config['interval'], config['sources'], config['graphs'])
