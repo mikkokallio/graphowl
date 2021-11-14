@@ -21,11 +21,3 @@ class MongoDbConnector:
         rawdata = [{time: row[time], 'value': row[value], name: row[name]} for row in result]
         pre_processed = sorted(rawdata, key=lambda row: row['name'])
         return self.transform(pre_processed)
-
-    def get_names(self) -> list:
-        """Get the names of all time series in the graph"""
-        return [series['name'] for series in self.series]
-
-    def inith(self, jsn) -> None:
-        """Instantiate a time series from json"""
-        self.series = []
