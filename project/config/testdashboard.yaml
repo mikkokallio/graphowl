@@ -1,0 +1,32 @@
+name: Test
+timespan: 12 hours
+interval: 5 minutes
+layout:
+  x: 3
+  y: 2
+
+sources:
+  - name: Mongo
+    connector: mongodb
+    uri: fakeconnectionstring
+    cert: mongo-x509.pem
+    database: sensors
+graphs:
+  - title: Temperature
+    connector: Mongo
+    collection: measurements
+    time: time
+    value: temperature
+    name: name
+  - title: Moisture
+    connector: Mongo
+    collection: measurements
+    time: time
+    value: moisture
+    name: name
+  - title: Pressure
+    connector: Mongo
+    collection: measurements
+    time: time
+    value: pressure
+    name: name
