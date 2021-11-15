@@ -14,4 +14,4 @@ Vaatimusmäärittely: [reqs.md](https://github.com/mikkokallio/ot-harkka/blob/ma
 
 Tuntikirjanpito: [hours.md](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/hours.md)
 
-Screenshot tämänhetkisestä projektin vaiheesta sekä esimerkki [konfiguraatiosta](https://github.com/mikkokallio/ot-harkka/blob/master/project/config/testdashboard.yaml), jonka pohjalta dashboardeja voi generoida.
+[Screenshot](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/Screenshot%202021-11-15%20212921.png) tämänhetkisestä projektin vaiheesta sekä esimerkki [konfiguraatiosta](https://github.com/mikkokallio/ot-harkka/blob/master/project/config/testdashboard.yaml), jonka pohjalta dashboardeja voi generoida.
