@@ -2,7 +2,7 @@
 
 ## Description
 
-GraphOwl is a dashboard application for displaying time series data, such as temperature measurements, as graphs. The app has two modes: view mode, in which the UI offers , and edit mode, in which the user can change the configuration.
+GraphOwl is a dashboard application for displaying time series data, such as temperature measurements, as graphs. The app has two modes: view mode, in which the UI shows graphs and some statistical information about the graphs, and edit mode, in which the user can change the configuration.
 
 Initially, the goal is to create a minimum viable product (MVP) as outlined below, and expand from there, adding as many additional features as possible before time runs out.
 
