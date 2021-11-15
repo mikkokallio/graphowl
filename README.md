@@ -10,4 +10,5 @@ Kurssin _laskarit_ eli viikkotehtävät sekä kurssin pääasia eli **harjoitust
 
 ## Viikko 2
 
-TBA
+[reqs.md](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/reqs.md)
+[hours.md](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/hours.md)
