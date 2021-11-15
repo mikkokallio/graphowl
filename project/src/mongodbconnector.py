@@ -47,5 +47,5 @@ class MongoDbConnector:
 
         coll = self._db[collname]
         result = coll.find({},{ '_id': 0, time: 1, value: 1, name: 1 })
-        data = [{time: row[time], 'value': row[value], name: row[name]} for row in result]
+        data = [{time: row[time], 'value': row[value], 'name': row[name]} for row in result]
         return self._transform(data)
