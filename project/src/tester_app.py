@@ -5,6 +5,8 @@ from matplotlib.figure import Figure
 from matplotlib import patheffects
 from mongodbconnector import MongoDbConnector
 from confighandler import ConfigHandler
+from graphwidget import GraphWidget
+from constants import *
 
 class UI:
     def __init__(self, root):
@@ -13,17 +15,18 @@ class UI:
     def draw_graph_widget(self):
         pass
 
+    def draw_coordinates(self, ax):
+        ax.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
+        ax.grid(color=COLOR_GRID)
+        [x.set_color(COLOR_LITE) for x in [ax.spines.top, ax.spines.bottom, ax.spines.left, ax.spines.right]]
+        return ax
+
     def draw_graphs(self, dashboard):
-        COLOR_DARKER='#1E2744'
-        COLOR_DARK='#212946'
-        COLOR_GRID='#2A3459'
-        COLOR_LITE='#3A4469'
-        COLOR_BRITE='#7A84A9'
         layout = {'x': dashboard.layout['x'], 'y': dashboard.layout['y']}
 
         fig = Figure(figsize=(12, 8), dpi=100, facecolor=COLOR_DARKER, edgecolor=COLOR_GRID, linewidth=1.0)
         gs = fig.add_gridspec(layout['y'], layout['x'], hspace=0.5)
-        ax = [[None for _ in range(layout['x'])] for _ in range(layout['y'])]
+        axs = [[None for _ in range(layout['x'])] for _ in range(layout['y'])]
 
         data = dashboard.load_all()
 
@@ -31,15 +34,11 @@ class UI:
 
         for y in range(layout['y']):
             for x in range(layout['x']):
-                ax[y][x] = fig.add_subplot(gs[y, x], polar=False, frameon=True, facecolor=COLOR_DARK)
-                ax[y][x].tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
-                ax[y][x].grid(color=COLOR_GRID)
-                ax[y][x].spines.top.set_color(COLOR_LITE)
-                ax[y][x].spines.bottom.set_color(COLOR_LITE)
-                ax[y][x].spines.left.set_color(COLOR_LITE)
-                ax[y][x].spines.right.set_color(COLOR_LITE)
+                #ax[y][x] = self.draw_graph_widget()
+                ax = fig.add_subplot(gs[y, x], polar=False, frameon=True, facecolor=COLOR_DARK)
                 if graph_n >= len(data): continue
-                ax[y][x].set_title(data[graph_n][0], fontdict={'color':'white','size':10})
+                ax.set_title(data[graph_n][0], fontdict={'color':'white','size':10})
+                ax = self.draw_coordinates(ax)
 
                 mini, maxi = 100000, 0
                 for plot in data[graph_n][1].values():
@@ -48,11 +47,12 @@ class UI:
 
                 for graph in data[graph_n][1]:
                     plot = data[graph_n][1][graph]
-                    ax[y][x].plot(plot[0], plot[1], marker='o', markersize=2.5, path_effects=[patheffects.SimpleLineShadow(),
+                    ax.plot(plot[0], plot[1], marker='o', markersize=2.5, path_effects=[patheffects.SimpleLineShadow(),
                        patheffects.Normal()], label=graph)
-                    ax[y][x].fill_between(x=plot[0], y1=plot[1], y2=mini, alpha=0.025)
+                    ax.fill_between(x=plot[0], y1=plot[1], y2=mini, alpha=0.025)
+                ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), labelcolor='white', facecolor='black', framealpha=0.3, edgecolor='none', ncol=3)
+                axs[y][x] = ax
                 graph_n += 1
-                ax[y][x].legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), labelcolor='white', facecolor='black', framealpha=0.3, edgecolor='none', ncol=3)
 
 
         return FigureCanvasTkAgg(fig, master=self._root)
