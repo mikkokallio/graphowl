@@ -20,4 +20,4 @@ class Dashboard:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
 
     def load_all(self):
-        return [(graph.title, graph.load()) for graph in self.graphs]
+        return [{'title': graph.title, 'plots': graph.load()} for graph in self.graphs]
