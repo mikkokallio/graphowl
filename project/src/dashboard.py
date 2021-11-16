@@ -21,7 +21,7 @@ class Dashboard:
         self.title = title
         self.layout = layout
         self.timespan = self.parse_time_config(timespan)
-        self.interval = interval
+        self.interval = self.parse_time_config(interval)
         self.sources = {}
         self.graphs = []
 
@@ -38,8 +38,13 @@ class Dashboard:
             timestring (str): An expression of an amount of time, such as "5 minutes" or "2 hours"
         """
         
-        n, units = timestring.split(' ')
-        return int(n) * TIME_EXP[units]
+        try:
+            n, units = timestring.split(' ')
+            return int(n) * TIME_EXP[units] if int(n) > 0 else None
+        except KeyError:
+            return None
+        except ValueError:
+            return None
 
     def load_all(self):
         """Requests all graphs in the dashboard to pull data from their connectors.
