@@ -32,8 +32,9 @@ class TestMongoDbConnector(unittest.TestCase):
             {'_id':'61904052274919d5fbb57293','time':'1020','temperature':'23.96','moisture':"32.32","pressure":"999.78","name":"kitchen"}
             ]
         self.collection.insert_many(objs)
+        fields = { 'time': 'time', 'value': 'temperature', 'name': 'name'}
 
-        result = self.source.get_data(collname, 'time', 'temperature', 'name')
+        result = self.source.get_data(collname, fields)
         #desired_result = {'balcony': ([1000, 1010, 1020], [3.78, 3.53, 2.99]), 'kitchen': ([1000, 1010, 1020], [24.21, 24.17, 23.96])}
         desired_result = {'balcony': (['1000', '1010', '1020'], ['3.78', '3.53', '2.99']), 'kitchen': (['1000', '1010', '1020'], ['24.21', '24.17', '23.96'])}
 

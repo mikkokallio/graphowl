@@ -17,7 +17,7 @@ class Dashboard:
             self.sources.update({source['name']: MongoDbConnector(source['uri'], f'certs/{source["cert"]}', source['database'])})
         
         for graph in graphs:
-            self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['time'], graph['value'], graph['name']))
+            self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
 
     def load_all(self):
         return [(graph.title, graph.load()) for graph in self.graphs]

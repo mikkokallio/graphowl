@@ -14,19 +14,29 @@ sources:
 graphs:
   - title: Temperature
     connector: Mongo
-    collection: measurements
-    time: time
-    value: temperature
-    name: name
-  - title: Moisture
+    collection: ruuvitags
+    fields:
+      time: time
+      value: temperature
+      name: alias
+  - title: Humidity
     connector: Mongo
-    collection: measurements
-    time: time
-    value: moisture
-    name: name
+    collection: ruuvitags
+    fields:
+      time: time
+      value: humidity
+      name: alias
   - title: Pressure
     connector: Mongo
-    collection: measurements
-    time: time
-    value: pressure
-    name: name
+    collection: ruuvitags
+    fields:
+      time: time
+      value: pressure
+      name: alias
+  - title: Acceleration
+    connector: Mongo
+    collection: ruuvitags
+    fields:
+      time: time
+      value: acceleration
+      name: alias

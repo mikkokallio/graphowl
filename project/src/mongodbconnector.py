@@ -32,20 +32,18 @@ class MongoDbConnector:
             plots[row['name']][1].append(row['value'])
         return plots
         
-    def get_data(self, collname: str, time: str, value: str, name: str) -> dict:
+    def get_data(self, collname: str, fields: dict) -> dict:
         """Fetches data from the database.
 
         Args:
             collname (str): Collection from where data is fetched.
-            time (str): Name of the timestamp (x) column.
-            value (str): Name of the value (y) column.
-            name (str): Name of the column plot name column.
+            fields (dict): Names of the columns (e.g. timestamp, measurement, sensor_name).
 
         Returns:
             dict: Data in a format suitable for matplotlib.
         """
 
         coll = self._db[collname]
-        result = coll.find({},{ '_id': 0, time: 1, value: 1, name: 1 })
-        data = [{time: row[time], 'value': row[value], 'name': row[name]} for row in result]
+        result = coll.find({},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
+        data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
         return self._transform(data)
