@@ -1,5 +1,6 @@
 from mongodbconnector import MongoDbConnector
 from graph import Graph
+from constants import TIME_EXP
 
 
 class Dashboard:
@@ -19,7 +20,7 @@ class Dashboard:
 
         self.title = title
         self.layout = layout
-        self.timespan = timespan
+        self.timespan = self.parse_time_config(timespan)
         self.interval = interval
         self.sources = {}
         self.graphs = []
@@ -30,10 +31,20 @@ class Dashboard:
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
 
+    def parse_time_config(self, timestring: str):
+        """Converts time strings to seconds.
+
+        Args:
+            timestring (str): An expression of an amount of time, such as "5 minutes" or "2 hours"
+        """
+        
+        n, units = timestring.split(' ')
+        return int(n) * TIME_EXP[units]
+
     def load_all(self):
         """Requests all graphs in the dashboard to pull data from their connectors.
 
         Returns:
             list: List where each item contains data for one graph.
         """
-        return [{'title': graph.title, 'plots': graph.load()} for graph in self.graphs]
+        return [{'title': graph.title, 'plots': graph.load(self.timespan)} for graph in self.graphs]

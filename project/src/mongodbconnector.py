@@ -1,4 +1,5 @@
 import pymongo
+import time
 
 
 class MongoDbConnector:
@@ -32,7 +33,7 @@ class MongoDbConnector:
             plots[row['name']][1].append(row['value'])
         return plots
         
-    def get_data(self, collname: str, fields: dict) -> dict:
+    def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 
         Args:
@@ -44,6 +45,7 @@ class MongoDbConnector:
         """
 
         coll = self._db[collname]
-        result = coll.find({},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
+        start_time = 1000 * (time.time()-timespan)
+        result = coll.find({fields['time']:{'$gt':start_time}},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
         data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
         return self._transform(data)

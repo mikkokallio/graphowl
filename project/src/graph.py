@@ -15,10 +15,10 @@ class Graph:
         self.collection = collection
         self.fields = fields
     
-    def load(self):
+    def load(self, timespan):
         """Uses the connector to pull data from the data source.
 
         Returns:
             [dict]: Data to show in the corresponding UI widget.
         """
-        return self.connector.get_data(self.collection, self.fields)
+        return self.connector.get_data(self.collection, self.fields, timespan)
