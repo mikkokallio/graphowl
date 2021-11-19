@@ -1,6 +1,7 @@
 /.pytest_cache
 /src/__pycache__/
 /src/tests/__pycache__/
+/src/connectors/__pycache__/
 /.coverage
 /htmlcov
 /temp
