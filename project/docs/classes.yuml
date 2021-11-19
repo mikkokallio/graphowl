@@ -1,0 +1,10 @@
+// {type:class}
+// {direction:topDown}
+[UI]-[ConfigHandler]
+[UI]-[Dashboard]
+[ConfigHandler]creates-.->[Dashboard]
+[Dashboard]++-*>[Graph]
+[Graph]<>-1>[Connector]
+[Dashboard]++-*>[Connector]
+[MongoDbConnector]-^[Connector]
+[SQLiteConnector]-^[Connector]
