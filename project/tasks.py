@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python src/tester_app.py")
+    ctx.run("python src/index.py")
 
 @task
 def test(ctx):
