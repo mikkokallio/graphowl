@@ -9,7 +9,7 @@ import time
 class TestMongoDbConnector(unittest.TestCase):
     def setUp(self):
         with patch('pymongo.MongoClient', mongomock.MongoClient):
-            self.source = MongoDbConnector('uri', 'cert', 'db')
+            self.source = MongoDbConnector('mock', 'uri', 'cert', 'db')
 
     def test_constructor_creates_connector_with_client_and_db(self):
         self.assertNotEqual(self.source, None)
