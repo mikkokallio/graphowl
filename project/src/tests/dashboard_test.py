@@ -7,8 +7,6 @@ from graph import Graph
 
 class TestDashboard(unittest.TestCase):
     def setUp(self):
-        pass
-        #self.dashboard = Dashboard(config['name'], config['layout'], config['timespan'], config['interval'], config['sources'], config['graphs'])
         self.loader = ConfigHandler('config/testdashboard.yaml')
         self.dummy_dashboard = Dashboard('Dummy', {'x':2,'y':2}, '8 hours', '10 minutes', [], [])
 
@@ -19,6 +17,8 @@ class TestDashboard(unittest.TestCase):
         self.assertEqual(dashboard.interval, 300)
         self.assertEqual(dashboard.layout['x'], 3)
         self.assertEqual(dashboard.layout['y'], 2)
+        self.assertEqual(len(dashboard.graphs), 4)
+        self.assertEqual(len(dashboard.sources), 1)
     
     def test_parsing_negatives_returns_none(self):
         result = self.dummy_dashboard.parse_time_config('-5 hours')
@@ -44,11 +44,5 @@ class TestDashboard(unittest.TestCase):
         result = self.dummy_dashboard.parse_time_config('0124 xxxse mins')
         self.assertEqual(result, None)
     
-    def test_connectors_are_created_correctly(self):
-        pass
-
-    def test_graphs_are_created_correctly(self):
-        pass
-
     def test_layout_has_negative_or_zero_dimension(self):
         pass
