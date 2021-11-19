@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import patch
 from graph import Graph
-from connector import Connector
+from connectors.connector import Connector
 
 
 class TestGraph(unittest.TestCase):
     def setUp(self):
-        self.sources = {'mocky': Connector('mocky')}
+        self.sources = {'mocky': Connector('mocky', 'path')}
         self.orig = {'title': 'Example-Graph', 
                  'connector': 'mocky', 
                  'collection': 'metrics', 

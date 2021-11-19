@@ -1,6 +1,8 @@
-from mongodbconnector import MongoDbConnector
+from connectors.mongodbconnector import MongoDbConnector
+from connectors.sqliteconnector import SQLiteConnector
 from graph import Graph
 from constants import TIME_EXP
+from connectors.connector import Connector
 
 
 class Dashboard:
@@ -24,9 +26,10 @@ class Dashboard:
         self.interval = self.parse_time_config(interval)
         self.sources = {}
         self.graphs = []
-
+                
         for source in sources:
-            self.sources.update({source['name']: MongoDbConnector(source['name'], source['uri'], f'certs/{source["cert"]}', source['database'])})
+            self.sources.update({source['name']: globals()[source['connector']](
+                source['name'], source['uri'], f'certs/{source["cert"]}', source['database'])})
         
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))

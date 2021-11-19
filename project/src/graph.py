@@ -1,4 +1,4 @@
-from connector import Connector
+from connectors.connector import Connector
 
 class Graph:
     """A data handling object representing a graph widget in the dashboard"""

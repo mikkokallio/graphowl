@@ -7,7 +7,7 @@ layout:
 
 sources:
   - name: Mongo
-    connector: mongodb
+    connector: MongoDbConnector
     uri: fakeconnectionstring
     cert: mongo-x509.pem
     database: sensors

@@ -11,9 +11,6 @@ class UI:
     def __init__(self, root):
         self._root = root
 
-    def draw_graph_widget(self):
-        pass
-
     def draw_coordinates(self, ax, data):
         """Draw background for the graph widget"""
         ax.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)

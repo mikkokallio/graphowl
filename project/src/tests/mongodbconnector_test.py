@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 import mongomock
-from mongodbconnector import MongoDbConnector
+from connectors.mongodbconnector import MongoDbConnector
 from constants import TIME_EXP
 import time
 
