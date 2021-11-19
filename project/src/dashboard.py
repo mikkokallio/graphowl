@@ -26,7 +26,7 @@ class Dashboard:
         self.graphs = []
 
         for source in sources:
-            self.sources.update({source['name']: MongoDbConnector(source['uri'], f'certs/{source["cert"]}', source['database'])})
+            self.sources.update({source['name']: MongoDbConnector(source['name'], source['uri'], f'certs/{source["cert"]}', source['database'])})
         
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))

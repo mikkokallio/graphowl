@@ -1,11 +1,11 @@
 import pymongo
-import time
+from connector import Connector
 
 
-class MongoDbConnector:
+class MongoDbConnector(Connector):
     """Establishes connection to MongoDb and loads data into appropriate format"""
 
-    def __init__(self, uri: str, cert: str, db: str) -> None:
+    def __init__(self, name: str, uri: str, cert: str, db: str) -> None:
         """Creates a connection to a particular database in a MongoDb instance.
 
         Args:
@@ -13,7 +13,8 @@ class MongoDbConnector:
             cert (str): Path to authentication certificate.
             db (str): Database name.
         """
-
+        
+        super().__init__(name)
         self._client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=cert)
         self._db = self._client[db]
 
@@ -45,7 +46,7 @@ class MongoDbConnector:
         """
 
         coll = self._db[collname]
-        start_time = 1000 * (time.time()-timespan)
+        start_time = self.get_start_time(timespan)
         result = coll.find({fields['time']:{'$gt':start_time}},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
         data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
         return self._transform(data)
