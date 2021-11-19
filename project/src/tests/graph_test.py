@@ -26,4 +26,5 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(self.orig, restored)
     
     def test_load_gets_data(self):
-        self.graph.load()
+        data = self.graph.load()
+        self.assertEqual(type(data), dict)
