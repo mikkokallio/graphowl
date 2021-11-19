@@ -25,7 +25,7 @@ class UI:
             smallest = min([min(plot[1]) for plot in data['plots'].values()])
 
             for title, plot in data['plots'].items():
-                ax.plot(plot[0], plot[1], marker='o', markersize=2.5, path_effects=[patheffects.SimpleLineShadow(),
+                ax.plot(plot[0], plot[1], marker='', markersize=1.0, path_effects=[patheffects.SimpleLineShadow(),
                     patheffects.Normal()], label=title)
                 ax.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.025)
             ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), labelcolor='white', facecolor='black', framealpha=0.3, edgecolor='none', ncol=3)
@@ -34,6 +34,7 @@ class UI:
     def draw_graphs(self, rows, cols, graphdata):
         """Uses a generator to yield one graph at a time to put into the layout"""
         fig = Figure(figsize=(12, 8), dpi=100, facecolor=COLOR_DARKER, edgecolor=COLOR_GRID, linewidth=1.0)
+        fig.autofmt_xdate()
         gs = fig.add_gridspec(cols, rows, hspace=0.5)
 
         graph_gen = (graph for graph in graphdata)
@@ -69,11 +70,3 @@ class UI:
         canvas.get_tk_widget().grid(row=1, rowspan=6, column=3, padx=5, pady=5)
 
         self._root.grid_columnconfigure(1, weight=1, minsize=100)
-
-window = Tk()
-window.title("GraphOwl")
-
-ui = UI(window)
-ui.start()
-
-window.mainloop()
