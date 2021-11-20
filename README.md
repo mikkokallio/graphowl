@@ -4,7 +4,7 @@ GraphOwl displays time series data as graphs in a dashboard. To get you started,
 
 You can configure the app to connect to various data sources (such as MongoDb or SQLite) and show the data as multi-plot graphs. The data should contain *time* and *value* columns, which are used as the x and y coordinates on the graphs, and a *name* column, which determines which data points belong to the same plot. This column could contain, for example, the names of sensors that were used to collect the data.
 
-[Screenshot](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/Screenshot%202021-11-15%20212921.png) tämänhetkisestä projektin vaiheesta sekä esimerkki 
+![Dashboard example](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/Screenshot.png "Sensor readings")
 
 ## Documentation
 
