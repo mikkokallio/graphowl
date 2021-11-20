@@ -12,7 +12,7 @@ class Connector:
         pass
     
     def _get_start_time(self, timespan: int) -> int:
-        return 1000 * (time.time()-timespan)
+        return 1000 * (time.time()-timespan) if timespan is not None else 0
     
     def _transform(self, data: dict) -> dict:
         """Transforms raw MongoDb data into a dictionary with arrays that UI widgets can use to show graphs with matplotlib.
