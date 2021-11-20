@@ -9,7 +9,10 @@ You can configure the app to connect to various data sources (such as MongoDb or
 ## Documentation
 
 The following docs describe the app further:
+* User instructions (TO BE ADDED)
 * [Requirement specification](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/reqs.md)
+* Architecture (TO BE ADDED)
+* Testing documentation (TO BE ADDED)
 * [UML class diagram](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/classes.yuml)
 * [Work tracking sheet](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/hours.md)
 
