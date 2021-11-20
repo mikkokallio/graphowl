@@ -6,5 +6,5 @@
 [Dashboard]++-*>[Graph]
 [Graph]<>-1>[Connector]
 [Dashboard]++-*>[Connector]
-[MongoDbConnector]-^[Connector]
-[SQLiteConnector]-^[Connector]
+[MongoDbConnector]extends-^[Connector]
+[SQLiteConnector]extends-^[Connector]
