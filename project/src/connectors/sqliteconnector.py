@@ -5,18 +5,16 @@ from connectors.connector import Connector
 class SQLiteConnector(Connector):
     """Establishes connection to SQLite and loads data into appropriate format"""
 
-    def __init__(self, name: str, uri: str, cert: str, db: str) -> None:
+    def __init__(self, name: str, uri: str, **kwargs) -> None:
         """Creates a connection to a particular database in a SQLite instance.
 
         Args:
             uri (str): Connection string for the database.
-            cert (str): Path to authentication certificate.
-            db (str): Database name.
         """
         
         super().__init__(name, uri)
         
-    def get_data(self, table: str, fields: dict, timespan: int) -> dict:
+    def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 
         Args:
@@ -30,11 +28,14 @@ class SQLiteConnector(Connector):
         start_time = self._get_start_time(timespan)
         con = sqlite3.connect(self.uri)
         cur = con.cursor()
-        cur.execute('select :time, :value, :name from :table where :time>:start', 
-                    {'time': fields['time'], 'value': fields['value'], 'name': fields['name'], 'table': table, 'start': start_time})
+        # TODO: sanitize fields - parametrized query not possible
+        if timespan is None:
+            cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}')
+        else:
+            cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname} WHERE {fields["time"]} > {start_time}')
+        
         result = cur.fetchall()
         con.close()
 
-        print(result)
-        data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
+        data = [{fields['time']: row[0], 'value': row[1], 'name': row[2]} for row in result]
         return self._transform(data)

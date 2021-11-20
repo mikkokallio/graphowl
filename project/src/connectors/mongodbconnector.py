@@ -5,7 +5,7 @@ from connectors.connector import Connector
 class MongoDbConnector(Connector):
     """Establishes connection to MongoDb and loads data into appropriate format"""
 
-    def __init__(self, name: str, uri: str, cert: str, db: str) -> None:
+    def __init__(self, name: str, uri: str, cert: str, database: str, **kwargs) -> None:
         """Creates a connection to a particular database in a MongoDb instance.
 
         Args:
@@ -19,7 +19,7 @@ class MongoDbConnector(Connector):
             self._client = pymongo.MongoClient(uri, tls=False)
         else:
             self._client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
-        self._db = self._client[db]
+        self._db = self._client[database]
         
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.

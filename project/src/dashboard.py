@@ -28,8 +28,7 @@ class Dashboard:
         self.graphs = []
                 
         for source in sources:
-            self.sources.update({source['name']: globals()[source['connector']](
-                source['name'], source['uri'], source["cert"], source['database'])})
+            self.sources.update({source['name']: globals()[source['connector']](**source)})
         
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
