@@ -5,11 +5,11 @@ description = "A dashboard application for displaying time series data as graphs
 authors = ["Mikko Kallio"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.6"
 invoke = "^1.6.0"
 pymongo = {extras = ["srv"], version = "^3.12.1"}
 PyYAML = "^6.0"
-matplotlib = "^3.4.3"
+matplotlib = "^3.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

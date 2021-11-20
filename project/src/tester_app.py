@@ -4,7 +4,6 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 from matplotlib import patheffects
 from confighandler import ConfigHandler
-from graphwidget import GraphWidget
 from constants import *
 
 class UI:
@@ -15,7 +14,7 @@ class UI:
         """Draw background for the graph widget"""
         ax.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
         ax.grid(color=COLOR_GRID)
-        [x.set_color(COLOR_LITE) for x in [ax.spines.top, ax.spines.bottom, ax.spines.left, ax.spines.right]]
+        [x.set_color(COLOR_LITE) for x in [ax.spines['top'], ax.spines['bottom'], ax.spines['left'], ax.spines['right']]]
 
         if data is not None:
             ax.set_title(data['title'], fontdict={'color':'white','size':10})
