@@ -15,7 +15,10 @@ class MongoDbConnector(Connector):
         """
         
         super().__init__(name, uri)
-        self._client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=cert)
+        if cert is None:
+            self._client = pymongo.MongoClient(uri, tls=False)
+        else:
+            self._client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
         self._db = self._client[db]
         
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
