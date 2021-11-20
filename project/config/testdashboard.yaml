@@ -9,7 +9,7 @@ sources:
   - name: Mongo
     connector: MongoDbConnector
     uri: fakeconnectionstring
-    cert: mongo-x509.pem
+    cert: 
     database: sensors
 graphs:
   - title: Temperature
