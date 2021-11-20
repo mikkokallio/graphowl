@@ -29,7 +29,7 @@ class Dashboard:
                 
         for source in sources:
             self.sources.update({source['name']: globals()[source['connector']](
-                source['name'], source['uri'], f'certs/{source["cert"]}', source['database'])})
+                source['name'], source['uri'], source["cert"], source['database'])})
         
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
