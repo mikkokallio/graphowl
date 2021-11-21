@@ -21,7 +21,7 @@ class Dashboard:
         """
 
         self.title = title
-        self.layout = layout
+        self.layout = self.validate_layout(layout)
         self.timespan = self.parse_time_config(timespan)
         self.interval = self.parse_time_config(interval)
         self.sources = {}
@@ -33,6 +33,10 @@ class Dashboard:
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
 
+    def validate_layout(self, layout: dict):
+        """Turns layout dimensions into 1 if they aren't positive integers"""
+        return {k:(v if type(v) is int and v>0 else 1) for k,v in layout.items()}
+    
     def parse_time_config(self, timestring: str):
         """Converts time strings to seconds.
 
