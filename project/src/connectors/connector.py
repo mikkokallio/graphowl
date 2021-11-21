@@ -4,7 +4,7 @@ import time
 class Connector:
     """Abstract connector class for actual connectors to inherit"""
     
-    def __init__(self, name: str, uri: str):
+    def __init__(self, name: str, uri: str, **kwargs):
         self.name = name
         self.uri = uri
     
