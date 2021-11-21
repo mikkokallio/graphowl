@@ -11,7 +11,7 @@ class MongoDbConnector(Connector):
         Args:
             uri (str): Connection string for the database.
             cert (str): Path to authentication certificate.
-            db (str): Database name.
+            database (str): Database name.
         """
         
         super().__init__(name, uri)
