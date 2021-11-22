@@ -13,7 +13,11 @@ class SQLiteConnector(Connector):
         """
         
         super().__init__(name, uri)
+        self.config = kwargs
         
+    def asdict(self):
+        return {'name': self.name, 'uri': self.uri, **self.config}
+    
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 

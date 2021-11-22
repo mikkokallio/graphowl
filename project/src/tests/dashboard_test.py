@@ -21,6 +21,16 @@ class TestDashboard(unittest.TestCase):
         self.assertEqual(len(dashboard.graphs), 4)
         self.assertEqual(len(dashboard.sources), 1)
     
+    def test_asdict_returns_the_same_config(self):
+        config = {'name': 'Measurements', 'timespan': 'none', 'interval': 'none', 'layout': {'x': 2, 'y': 2},
+                  'sources': [{'name': 'SQLite', 'connector': 'SQLiteConnector', 'uri': 'config/demo_db.sqlite'}],
+                  'graphs': [{'title': 'Temperature', 'connector': 'SQLite', 'collection': 'ruuvitags', 'fields': {'time': 'time', 'value': 'temperature', 'name': 'name'}}, {'title': 'Humidity', 'connector': 'SQLite', 'collection': 'ruuvitags', 'fields': {'time': 'time', 'value': 'humidity', 'name': 'name'}}]}
+        dashboard = Dashboard(config['name'], config['layout'], config['timespan'], config['interval'], config['sources'], config['graphs'])
+        restored = dashboard.asdict()
+        self.assertEqual(config, restored)
+        #self.assertEqual(restored['graphs'], config['graphs'])
+        #self.assertEqual(restored['sources'], config['sources'])
+    
     def test_parsing_negatives_returns_none(self):
         result = self.dashboard.parse_time_config('-5 hours')
         self.assertEqual(result, None)

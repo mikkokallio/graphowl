@@ -8,14 +8,19 @@ import time
 
 class TestMongoDbConnector(unittest.TestCase):
     def setUp(self):
+        self.config = {'name': 'Mongo', 'connector': 'MongoDbConnector', 'uri': 'mongodb://mock', 'cert': 'mock.pem', 'database': 'values'}
         with patch('pymongo.MongoClient', mongomock.MongoClient):
-            self.source = MongoDbConnector('mock', 'uri', 'cert', 'db')
+            self.source = MongoDbConnector(**self.config)
 
     def test_constructor_creates_connector_with_client_and_db(self):
         self.assertNotEqual(self.source, None)
         self.assertNotEqual(self.source._client, None)
         self.assertNotEqual(self.source._db, None)
 
+    def test_asdict_converts_back_to_config(self):
+        restored = self.source.asdict()
+        self.assertEqual(restored, self.config)
+    
     def test_data_is_fetched_from_database(self):
         collname = 'dummycoll'
         self.collection = self.source._db[collname]
