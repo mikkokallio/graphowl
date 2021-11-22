@@ -1,16 +1,10 @@
-from tkinter import Tk
-from tester_app import UI
+from ui.app import App
 
 
 def main():
-    window = Tk()
-    window.title('GraphOwl')
-
-    ui = UI(window)
-    ui.start()
-
-    window.mainloop()
-
+    app = App()
+    app.title('GraphOwl')
+    app.mainloop()
 
 if __name__ == '__main__':
     main()
