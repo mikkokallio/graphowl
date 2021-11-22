@@ -1,6 +1,4 @@
 import unittest
-import sqlite3
-from unittest.mock import patch
 from connectors.sqliteconnector import SQLiteConnector
 from constants import TIME_EXP
 import time
