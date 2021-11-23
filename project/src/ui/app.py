@@ -9,13 +9,13 @@ from ui.editsourcespage import EditSourcesPage
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
-        
+
         leftpane = Frame(self, bg=COLOR_DARK)
         main = Frame(self, bg=COLOR_DARKER)
         leftpane.pack(side='left')
-        main.pack(side='right')        
-        
-        self.pages = {} 
+        main.pack(side='right')
+
+        self.pages = {}
 
         for Page in (DashboardPage, EditConfigPage, EditGraphsPage, EditSourcesPage):
             page = Page(main, self)
@@ -23,10 +23,10 @@ class App(Tk):
             page.grid(row = 0, column = 0, sticky ="nsew")
 
         self.show_page(DashboardPage)
-        
+
         st = ttk.Style()
-        st.configure('W.TButton', background=COLOR_DARK, foreground=COLOR_DARKER, font=('Arial', 11), activebackground=COLOR_LITE)
-        
+        st.configure('W.TButton', background=COLOR_DARK, foreground=COLOR_BRITE, font=('Arial', 11), activebackground=COLOR_LITE)
+
         ttk.Button(leftpane, text='Main', style='W.TButton',
                        command = lambda : self.show_page(DashboardPage)).pack(padx=10, pady=15)
         ttk.Button(leftpane, text='config', style='W.TButton',
