@@ -16,7 +16,7 @@ The MVP consists of:
 * [X] User can configure the dashboard using a YAML file. This includes:
 - [X] A title for the dashboard.
 - [X] Grid layout using x (rows) and y (columns). 
-- [ ] Time span, i.e. how many hours or days worth of data is queried and displayed.
+- [X] Time span, i.e. how many hours or days worth of data is queried and displayed.
 - [ ] Update interval in minutes.
 - [X] Database connector configuration, such as name, data source type, and connection string. 
 - [X] Graph configuration, such as graph titles, table names to fetch the data from, and column name mappings.
