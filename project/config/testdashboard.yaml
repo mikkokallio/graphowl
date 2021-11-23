@@ -1,10 +1,9 @@
-name: Test
+title: Test
 timespan: 12 hours
 interval: 5 minutes
 layout:
   x: 3
   y: 2
-
 sources:
   - name: Mongo
     connector: MongoDbConnector

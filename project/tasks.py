@@ -7,6 +7,10 @@ def start(ctx):
 @task
 def test(ctx):
     ctx.run("pytest src")
+    
+@task
+def lint(ctx):
+    ctx.run("pylint src")
 
 @task
 def coverage(ctx):

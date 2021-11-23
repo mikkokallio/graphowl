@@ -1,5 +1,5 @@
 from ui.app import App
-from constants import *
+from constants import COLOR_DARK
 
 
 def main():

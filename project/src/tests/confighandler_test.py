@@ -9,7 +9,7 @@ class TestConfigHandler(unittest.TestCase):
 
     def test_constructor_stores_filepath(self):
         self.assertEqual(self.loader.filepath, 'config/testdashboard.yaml')
-        
+
     def test_handler_load_creates_dashboard(self):
         dashboard = self.loader.load()
         self.assertEqual(type(dashboard), Dashboard)

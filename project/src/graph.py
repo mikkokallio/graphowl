@@ -1,5 +1,6 @@
 from connectors.connector import Connector
 
+
 class Graph:
     """A data handling object representing a graph widget in the dashboard"""
 
@@ -16,7 +17,7 @@ class Graph:
         self.connector = connector
         self.collection = collection
         self.fields = fields
-    
+
     def asdict(self) -> dict:
         """Converts the graph back to a saveable format.
 
@@ -24,7 +25,7 @@ class Graph:
             dict: A dictionary representation of the graph object.
         """
         return {'title': self.title, 'connector': self.connector.name, 'collection': self.collection, 'fields': self.fields}
-    
+
     def load(self, timespan=None):
         """Uses the connector to pull data from the data source.
 

@@ -13,7 +13,7 @@ class MongoDbConnector(Connector):
             cert (str): Path to authentication certificate.
             database (str): Database name.
         """
-        
+
         super().__init__(name, uri)
         self.cert = cert
         self.database = database
@@ -26,7 +26,7 @@ class MongoDbConnector(Connector):
 
     def asdict(self):
         return {'name': self.name, 'uri': self.uri, 'cert': self.cert, 'database': self.database, **self.config}
-        
+
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 

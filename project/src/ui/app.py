@@ -1,5 +1,5 @@
 from tkinter import Frame, Tk, ttk
-from constants import *
+from constants import COLOR_DARK, COLOR_DARKER, COLOR_BRITE, COLOR_LITE
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
 from ui.editgraphspage import EditGraphsPage
@@ -24,8 +24,10 @@ class App(Tk):
 
         self.show_page(DashboardPage)
 
-        st = ttk.Style()
-        st.configure('W.TButton', background=COLOR_DARK, foreground=COLOR_BRITE, font=('Arial', 11), activebackground=COLOR_LITE)
+        style = ttk.Style()
+        style.configure('W.TButton',
+                        background=COLOR_DARK, foreground=COLOR_BRITE,
+                        font=('Arial', 11), activebackground=COLOR_LITE)
 
         ttk.Button(leftpane, text='Main', style='W.TButton',
                        command = lambda : self.show_page(DashboardPage)).pack(padx=10, pady=15)
