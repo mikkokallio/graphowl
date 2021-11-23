@@ -13,12 +13,12 @@ class DashboardPage(Frame):
         self._root = root
         loader = ConfigHandler('config/dashboard.yaml')
         dashboard = loader.load()
-        canvas = self.draw_graphs(dashboard.layout['y'], dashboard.layout['x'], dashboard.load_all(), self)
+        canvas = self.draw_layout(dashboard.layout['y'], dashboard.layout['x'], dashboard.load_all(), self)
         canvas.draw()
         canvas.get_tk_widget().grid(row = 0, column = 0, sticky ="nsew")
 
-    def draw_coordinates(self, ax, data):
-        """Draw background for the graph widget"""
+    def draw_graph(self, ax, data):
+        """Draw one graph widget"""
         ax.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
         ax.grid(color=COLOR_GRID)
         [x.set_color(COLOR_LITE) for x in [ax.spines['top'], ax.spines['bottom'], ax.spines['left'], ax.spines['right']]]
@@ -34,7 +34,7 @@ class DashboardPage(Frame):
             ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), labelcolor='white', facecolor='black', framealpha=0.3, edgecolor='none', ncol=3)
         return ax
 
-    def draw_graphs(self, rows, cols, graphdata, master):
+    def draw_layout(self, rows, cols, graphdata, master):
         """Uses a generator to yield one graph at a time to put into the layout"""
         fig = Figure(figsize=(12, 8), dpi=100, facecolor=COLOR_DARKER, edgecolor=COLOR_GRID, linewidth=1.0)
         fig.autofmt_xdate()
@@ -45,5 +45,5 @@ class DashboardPage(Frame):
         for y in range(rows):
             for x in range(cols):
                 ax = fig.add_subplot(gs[y, x], frameon=True, facecolor=COLOR_DARK)
-                self.draw_coordinates(ax, next(graph_gen, None))
+                self.draw_graph(ax, next(graph_gen, None))
         return FigureCanvasTkAgg(fig, master)
