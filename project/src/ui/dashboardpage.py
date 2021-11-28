@@ -31,9 +31,9 @@ class DashboardPage(Frame):
 
             for title, plot in data['plots'].items():
                 color = next(color_gen, None)
-                ax.plot(plot[0], plot[1], marker='', markersize=1.0, linewidth=0.5, path_effects=[patheffects.Normal()], label=title, color=color)
-                [ax.plot(plot[0], plot[1], marker='', alpha=0.025, linewidth=2+1.05*n, color=color) for n in range(8)]
-                ax.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.025, color=color)
+                ax.plot(plot[0], plot[1], marker='', markersize=1.0, linewidth=0.75, path_effects=[patheffects.Normal()], label=title, color=color)
+                [ax.plot(plot[0], plot[1], marker='', alpha=0.025, linewidth=2+1.15*n, color=color) for n in range(8)]
+                ax.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.035, color=color)
             ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), labelcolor='white', facecolor='black', framealpha=0.3, edgecolor='none', ncol=3)
         return ax
 
