@@ -1,4 +1,5 @@
-from tkinter import Frame, Tk, ttk
+from tkinter import Frame, Tk, ttk, PhotoImage, Button
+from PIL import Image
 from constants import COLOR_DARK, COLOR_DARKER, COLOR_BRITE, COLOR_LITE
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
@@ -23,20 +24,17 @@ class App(Tk):
             page.grid(row = 0, column = 0, sticky ="nsew")
 
         self.show_page(DashboardPage)
-
-        style = ttk.Style()
-        style.configure('W.TButton',
-                        background=COLOR_DARK, foreground=COLOR_BRITE,
-                        font=('Arial', 11), activebackground=COLOR_LITE)
-
-        ttk.Button(leftpane, text='Main', style='W.TButton',
-                       command = lambda : self.show_page(DashboardPage)).pack(padx=10, pady=15)
-        ttk.Button(leftpane, text='config', style='W.TButton',
-                       command = lambda : self.show_page(EditConfigPage)).pack(padx=5, pady=15)
-        ttk.Button(leftpane, text='graphs', style='W.TButton',
-                       command = lambda : self.show_page(EditGraphsPage)).pack(padx=5, pady=15)
-        ttk.Button(leftpane, text='sources', style='W.TButton',
-                       command = lambda : self.show_page(EditSourcesPage)).pack(padx=5, pady=15)
+        
+        buttons = [('owl', DashboardPage), ('cog', EditConfigPage), ('graph', EditGraphsPage), ('plug', EditSourcesPage)]
+        for button in buttons:
+            print(button[1])
+            img = PhotoImage(file=f'src/ui/{button[0]}.png')
+            img = img.subsample(5,5)
+            btn = Button(leftpane, image=img, border=0, height=80, width=80, 
+                         background=COLOR_DARKER, highlightcolor='blue', activebackground='black',
+                         command = lambda button=button: self.show_page(button[1]))
+            btn.pack(padx=10, pady=15)
+            btn.image = img # Necessary
 
     def show_page(self, controller):
         page = self.pages[controller]
