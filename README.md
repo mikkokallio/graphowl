@@ -22,7 +22,7 @@ The following docs describe the app further:
 
 ## Usage
 
-**Note:** The app has been tested with Python `3.6`. The project was originally `3.8`, but the department's virtual desktop environment has `3.6`, and running the app there required downgrading libraries, which in turn caused some portions of code to break.
+**Note:** The app has been tested with Python `3.8`.
 
 Run the following commands in the `project` folder.
 
@@ -30,6 +30,6 @@ Run the following commands in the `project` folder.
 * To start the app, run `poetry run invoke start`.
 * To run tests, run `poetry run invoke test`.
 * For test coverage report, run `poetry run invoke coverage-report`.
-* To run the linter, run `poetry run invoke lint`. TO BE ADDED!
+* To run the linter, run `poetry run invoke lint`.
 
 TO BE ADDED: Build phase
