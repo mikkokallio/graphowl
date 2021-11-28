@@ -1,6 +1,5 @@
-from tkinter import Frame, Tk, ttk, PhotoImage, Button
-from PIL import Image
-from constants import COLOR_DARK, COLOR_DARKER, COLOR_BRITE, COLOR_LITE
+from tkinter import Frame, Tk, PhotoImage, Button
+from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
 from ui.editgraphspage import EditGraphsPage
@@ -26,12 +25,12 @@ class App(Tk):
         self.show_page(DashboardPage)
         
         buttons = [('owl', DashboardPage), ('cog', EditConfigPage), ('graph', EditGraphsPage), ('plug', EditSourcesPage)]
+        
         for button in buttons:
-            print(button[1])
             img = PhotoImage(file=f'src/ui/{button[0]}.png')
-            img = img.subsample(5,5)
-            btn = Button(leftpane, image=img, border=0, height=80, width=80, 
-                         background=COLOR_DARKER, highlightcolor='blue', activebackground='black',
+            img = img.subsample(6,6)
+            btn = Button(leftpane, image=img, border=0, height=60, width=60, 
+                         background=COLOR_DARKER, highlightcolor='blue', activebackground=COLOR_DARKEST,
                          command = lambda button=button: self.show_page(button[1]))
             btn.pack(padx=10, pady=15)
             btn.image = img # Necessary
