@@ -1,8 +1,12 @@
 // {type:class}
 // {direction:topDown}
-[UI]-[ConfigHandler]
-[UI]-[Dashboard]
-[ConfigHandler]creates-.->[Dashboard]
+[App]-[DashboardPage]
+[App]-[EditConfigPage]
+[App]-[EditGraphsPage]
+[App]-[EditSourcesPage]
+[DashboardPage]++-1>[ConfigHandler]
+[DashboardPage]++-1>[Dashboard]
+[ConfigHandler]loads-.->[Dashboard]
 [Dashboard]++-*>[Graph]
 [Graph]<>-1>[Connector]
 [Dashboard]++-*>[Connector]
