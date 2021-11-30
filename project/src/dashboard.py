@@ -1,19 +1,19 @@
 from connectors.mongodbconnector import MongoDbConnector
 from connectors.sqliteconnector import SQLiteConnector
+from connectors.connector import Connector
 from graph import Graph
 from constants import TIME_EXP
-from connectors.connector import Connector
 
 
 class Dashboard:
     """Contains all graphs and other configuration and data"""
 
     def __init__(self, title: str, layout: dict, timespan: str, interval: str, sources: list, graphs: list):
-        """Creates a dashboard data object, which is the interface between the UI and data collection.
+        """Creates a dashboard object, which is the interface between the UI and data collection.
 
         Args:
             title (str): Title for the entire dashboard.
-            layout (dict): Indicates how many graphs are stacked horizontally (x) and vertically (y).
+            layout (dict): How many graphs are stacked horizontally (x) and vertically (y).
             timespan (str): How many hours/days worth of data is fecthed and displayed.
             interval (str): How often the graphs update.
             sources (list): Databases and other sources to fetch data from.
@@ -41,8 +41,10 @@ class Dashboard:
         """
 
         # TODO: Refactor away name vs title disparity
-        return {'name':self.title, 'timespan':self.timestring, 'interval':self.intervalstring, 'layout':self.layout,
-                'sources':[source.asdict() for source in self.sources.values()], 'graphs':[graph.asdict() for graph in self.graphs]}
+        return {'name':self.title, 'timespan':self.timestring,
+                'interval':self.intervalstring, 'layout':self.layout,
+                'sources':[source.asdict() for source in self.sources.values()],
+                'graphs':[graph.asdict() for graph in self.graphs]}
 
     def validate_layout(self, layout: dict):
         """Turns layout dimensions into 1 if they aren't positive integers"""

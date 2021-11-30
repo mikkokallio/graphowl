@@ -1,4 +1,4 @@
-from tkinter import Frame, Tk, ttk
+from tkinter import Frame, ttk
 
 
 class EditConfigPage(Frame):

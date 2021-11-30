@@ -23,14 +23,17 @@ class App(Tk):
             page.grid(row = 0, column = 0, sticky ="nsew")
 
         self.show_page(DashboardPage)
-        
-        buttons = [('owl', DashboardPage), ('cog', EditConfigPage), ('graph', EditGraphsPage), ('plug', EditSourcesPage)]
-        
+
+        buttons = [('owl', DashboardPage), ('cog', EditConfigPage),
+                   ('graph', EditGraphsPage), ('plug', EditSourcesPage)]
+
         for button in buttons:
             img = PhotoImage(file=f'src/ui/{button[0]}.png')
             img = img.subsample(6,6)
-            btn = Button(leftpane, image=img, border=0, height=60, width=60, 
-                         background=COLOR_DARKER, highlightcolor='blue', activebackground=COLOR_DARKEST,
+            btn = Button(leftpane, image=img, border=0, height=60, width=60,
+                         background=COLOR_DARKER,
+                         highlightcolor='blue',
+                         activebackground=COLOR_DARKEST,
                          command = lambda button=button: self.show_page(button[1]))
             btn.pack(padx=10, pady=15)
             btn.image = img # Necessary

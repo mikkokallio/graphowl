@@ -21,7 +21,6 @@ class ConfigHandler:
             Dashboard: The resulting dashboard data object.
         """
 
-        file = open(self.filepath, 'r')
-        config = yaml.safe_load(file)
-
-        return Dashboard(**config)
+        with open(self.filepath, 'r', encoding='utf8') as file:
+            config = yaml.safe_load(file)
+            return Dashboard(**config)

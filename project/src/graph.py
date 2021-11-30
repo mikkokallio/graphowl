@@ -5,7 +5,7 @@ class Graph:
     """A data handling object representing a graph widget in the dashboard"""
 
     def __init__(self, title: str, connector: Connector, collection: str, fields: dict):
-        """Creates a graph data object with all metadata necessary for pulling data and displaying it in a graph widget.
+        """Creates an object capable of pulling data to display in a graph.
 
         Args:
             title (str): Name of the graph widget.
@@ -24,7 +24,8 @@ class Graph:
         Returns:
             dict: A dictionary representation of the graph object.
         """
-        return {'title': self.title, 'connector': self.connector.name, 'collection': self.collection, 'fields': self.fields}
+        return {'title': self.title, 'connector': self.connector.name,
+                'collection': self.collection, 'fields': self.fields}
 
     def load(self, timespan=None):
         """Uses the connector to pull data from the data source.

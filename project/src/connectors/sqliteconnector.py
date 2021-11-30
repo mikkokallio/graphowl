@@ -11,13 +11,13 @@ class SQLiteConnector(Connector):
         Args:
             uri (str): Connection string for the database.
         """
-        
+
         super().__init__(name, uri)
         self.config = kwargs
-        
+
     def asdict(self):
         return {'name': self.name, 'uri': self.uri, **self.config}
-    
+
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 
@@ -28,7 +28,7 @@ class SQLiteConnector(Connector):
         Returns:
             dict: Data in a format suitable for matplotlib.
         """
-        
+
         start_time = self._get_start_time(timespan)
         con = sqlite3.connect(self.uri)
         cur = con.cursor()
@@ -37,7 +37,7 @@ class SQLiteConnector(Connector):
             cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}')
         else:
             cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname} WHERE {fields["time"]} > {start_time}')
-        
+
         result = cur.fetchall()
         con.close()
 
