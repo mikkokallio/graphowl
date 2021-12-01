@@ -14,4 +14,5 @@
 |23.11.|6|Major UI restructuring into classes. Enable pylint and start fixing linter errors.|
 |28.11.|4|Make UI prettier and add navigation buttons in left pane.|
 |30.11.|6|Update documentation, continue improving linter score.|
-|Total||62|
+|1.12.|4|Create new view for editing dashboard config. Changes can be saved in yaml.|
+|Total|66||

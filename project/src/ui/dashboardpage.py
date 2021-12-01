@@ -46,7 +46,7 @@ class DashboardPage(Frame):
         fig = Figure(figsize=(12, 8), dpi=100,
                      facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
         fig.autofmt_xdate()
-        gridspec = fig.add_gridspec(cols, rows, hspace=0.5)
+        gridspec = fig.add_gridspec(rows, cols, hspace=0.5)
 
         graph_gen = (graph for graph in graphdata)
 

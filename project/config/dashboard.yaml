@@ -1,39 +1,39 @@
-title: Measurements
-timespan: none
-interval: none
+graphs:
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: temperature
+  title: Temperature
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: humidity
+  title: Humidity
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: pressure
+  title: Pressure
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: acceleration
+  title: Acceleration
+interval: 15 minutes
 layout:
   x: 2
   y: 2
 sources:
-  - name: SQLite
-    connector: SQLiteConnector
-    uri: config/demo_db.sqlite
-graphs:
-  - title: Temperature
-    connector: SQLite
-    collection: ruuvitags
-    fields:
-      time: time
-      value: temperature
-      name: name
-  - title: Humidity
-    connector: SQLite
-    collection: ruuvitags
-    fields:
-      time: time
-      value: humidity
-      name: name
-  - title: Pressure
-    connector: SQLite
-    collection: ruuvitags
-    fields:
-      time: time
-      value: pressure
-      name: name
-  - title: Acceleration
-    connector: SQLite
-    collection: ruuvitags
-    fields:
-      time: time
-      value: acceleration
-      name: name
+- connector: SQLiteConnector
+  name: SQLite
+  uri: config/demo_db.sqlite
+timespan: none
+title: Measurements

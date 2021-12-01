@@ -16,7 +16,7 @@ class ConfigHandler:
         self._filepath = filepath
 
     def load(self) -> dict:
-        """Loads configuration from a yaml file and creates a dashboard from it.
+        """Loads configuration from a yaml file and returns it.
 
         Returns:
             dict: The resulting dashboard data object.
@@ -24,3 +24,13 @@ class ConfigHandler:
 
         with open(self._filepath, 'r', encoding='utf8') as file:
             return yaml.safe_load(file)
+
+    def save(self, config):
+        """Saves configuration to a yaml file.
+
+        Returns:
+            bool: Save was successful
+        """
+
+        with open(self._filepath, 'w', encoding='utf8') as file:
+            file.write(yaml.dump(config))

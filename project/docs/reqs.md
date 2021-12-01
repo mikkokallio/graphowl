@@ -45,7 +45,7 @@ After the MVP, more features will be added, focusing mainly on those that are fe
 * [ ] User can "paint" horizontally on a graph to change the timespan to the selected interval. All other graphs in the dashboard also change to that time window.
 
 ### Edit dashboard view
-* [ ] The user can enter an edit mode, where controls for editing the dashboard are shown (e.g. change title, default timespan, adjust layout). User can save changes, and the yaml is updated accordingly.
+* [X] The user can enter an edit mode, where controls for editing the dashboard are shown (e.g. change title, default timespan, adjust layout). User can save changes, and the yaml is updated accordingly.
 * [ ] User can customize the color scheme of the dashboard.
 * [ ] User can save dashboards in the cloud. The destination may be a file share or a database. Secure handling of credentials is a key consideration.
 * [ ] User can create more dashboards, which are shown as tabs in the top bar.
