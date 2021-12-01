@@ -27,7 +27,7 @@ graphs:
     time: time
     value: acceleration
   title: Acceleration
-interval: 15 minutes
+interval: 10 minutes
 layout:
   x: 2
   y: 2

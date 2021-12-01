@@ -25,3 +25,20 @@ TIME_EXP = {'minutes': 60, 'minute': 60, 'mins': 60, 'min': 60,
             'hours': 3600, 'hour': 3600, 'h': 3600,
             'days': 86400, 'day': 86400, 'd': 86400,
             'weeks': 604800, 'week': 604800, 'w': 604800}
+
+TIMESPANS = ['none', '5 minutes', '15 minutes', '30 minutes', '1 hour',
+             '6 hours', '12 hours', '1 day']
+INTERVALS = ['none', '30 seconds', '1 minute', '2 minutes', '5 minutes',
+             '10 minutes', '15 minutes', '30 minutes']
+LAYOUTS = [1, 2, 3, 4]
+
+FORM_ROWS = [{'label': 'Dashboard title', 'var': ['title'],
+              'numeric': False, 'options': None},
+             {'label': 'Time span', 'var': ['timespan'],
+              'numeric': False, 'options': TIMESPANS},
+             {'label': 'Refresh interval', 'var': ['interval'],
+              'numeric': False, 'options': INTERVALS},
+             {'label': 'Layout x', 'var': ['layout', 'x'],
+              'numeric': True, 'options': LAYOUTS},
+             {'label': 'Layout y', 'var': ['layout', 'y'],
+              'numeric': True, 'options': LAYOUTS}]
