@@ -2,16 +2,16 @@ from tkinter import Frame
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib import patheffects
-from confighandler import ConfigHandler
+from dashboard import Dashboard
 from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_GRID, COLORS
 
 
 class DashboardPage(Frame):
-    def __init__(self, root, controller):
+    def __init__(self, root, controller, loader):
         Frame.__init__(self, root)
         self._root = root
-        loader = ConfigHandler('config/dashboard.yaml')
-        dboard = loader.load()
+        self._loader = loader
+        dboard = Dashboard(**self._loader.load())
         canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'], dboard.load_all(), self)
         canvas.draw()
         canvas.get_tk_widget().grid(row = 0, column = 0, sticky ="nsew")

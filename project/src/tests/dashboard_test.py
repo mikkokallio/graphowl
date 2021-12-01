@@ -13,7 +13,7 @@ class TestDashboard(unittest.TestCase):
                                          [dummy_source], [dummy_graph, dummy_graph, dummy_graph])
 
     def test_constructor_stores_correct_values(self):
-        dashboard = self.loader.load()
+        dashboard = Dashboard(**self.loader.load())
         self.assertEqual(dashboard.title, 'Test')
         self.assertEqual(dashboard.timespan, 43200)
         self.assertEqual(dashboard.interval, 300)

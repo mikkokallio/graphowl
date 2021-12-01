@@ -8,8 +8,10 @@ class TestConfigHandler(unittest.TestCase):
         self.loader = ConfigHandler('config/testdashboard.yaml')
 
     def test_constructor_stores_filepath(self):
-        self.assertEqual(self.loader.filepath, 'config/testdashboard.yaml')
+        self.assertEqual(self.loader._filepath, 'config/testdashboard.yaml')
 
-    def test_handler_load_creates_dashboard(self):
-        dashboard = self.loader.load()
+    def test_handler_loads_dashboard(self):
+        config = self.loader.load()
+        self.assertEqual(type(config), dict)
+        dashboard = Dashboard(**config)
         self.assertEqual(type(dashboard), Dashboard)

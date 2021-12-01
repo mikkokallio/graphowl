@@ -4,11 +4,13 @@ from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
 from ui.editgraphspage import EditGraphsPage
 from ui.editsourcespage import EditSourcesPage
+from confighandler import ConfigHandler
 
 
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
+        self._loader = ConfigHandler('config/dashboard.yaml')
 
         leftpane = Frame(self, bg=COLOR_DARK)
         main = Frame(self, bg=COLOR_DARKER)
@@ -18,7 +20,7 @@ class App(Tk):
         self.pages = {}
 
         for Page in (DashboardPage, EditConfigPage, EditGraphsPage, EditSourcesPage):
-            page = Page(main, self)
+            page = Page(main, self, self._loader)
             self.pages[Page] = page
             page.grid(row = 0, column = 0, sticky ="nsew")
 
