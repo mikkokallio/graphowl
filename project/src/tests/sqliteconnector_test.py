@@ -12,8 +12,7 @@ class TestSQLiteDbConnector(unittest.TestCase):
 
     def test_constructor_saves_attributes(self):
         self.assertNotEqual(self.source, None)
-        self.assertEqual(self.source.name, 'Tester')
-        self.assertEqual(self.source.uri, 'config/demo_db.sqlite')
+        self.assertEqual(self.source._uri, 'config/demo_db.sqlite')
 
     def test_data_can_be_fetched_with_no_timespan(self):
         data = self.source.get_data('ruuvitags',

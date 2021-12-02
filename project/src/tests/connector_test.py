@@ -4,7 +4,7 @@ from connectors.connector import Connector
 
 class TestConnector(unittest.TestCase):
     def setUp(self):
-        self.source = Connector('dummy', 'mock/mock')
+        self.source = Connector('mock/mock')
 
     def test_constructor_creates_connector(self):
         self.assertNotEqual(self.source, None)
@@ -22,4 +22,4 @@ class TestConnector(unittest.TestCase):
         self.assertEqual(output, desired_output)
 
     def test_get_data(self):
-        pass
+        self.assertNotEqual(self.source.get_data(), None)

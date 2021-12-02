@@ -5,15 +5,15 @@ from connectors.connector import Connector
 class SQLiteConnector(Connector):
     """Establishes connection to SQLite and loads data into appropriate format"""
 
-    def __init__(self, name: str, uri: str, **kwargs) -> None:
+    def __init__(self, uri: str, **kwargs) -> None:
         """Creates a connection to a particular database in a SQLite instance.
 
         Args:
             uri (str): Connection string for the database.
         """
 
-        super().__init__(name, uri)
-        self.config = kwargs
+        super().__init__(uri)
+        self._config = kwargs
 
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
@@ -27,7 +27,7 @@ class SQLiteConnector(Connector):
         """
 
         start_time = self._get_start_time(timespan)
-        con = sqlite3.connect(self.uri)
+        con = sqlite3.connect(self._uri)
         cur = con.cursor()
         # TODO: sanitize fields - parametrized query not possible
         if timespan is None:

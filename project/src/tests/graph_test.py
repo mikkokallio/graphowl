@@ -5,7 +5,7 @@ from connectors.connector import Connector
 
 class TestGraph(unittest.TestCase):
     def setUp(self):
-        self.sources = {'mocky': Connector('mocky', 'path')}
+        self.sources = {'mocky': Connector('path')}
         self.orig = {'title': 'Example-Graph',
                  'connector': 'mocky',
                  'collection': 'metrics',

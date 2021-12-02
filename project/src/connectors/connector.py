@@ -4,9 +4,9 @@ import time
 class Connector:
     """Abstract connector class for actual connectors to inherit"""
 
-    def __init__(self, name: str, uri: str, **kwargs):
-        self.name = name
-        self.uri = uri
+    def __init__(self, uri: str, **kwargs):
+        self._uri = uri
+        self._config = kwargs
 
     def _get_start_time(self, timespan: int) -> int:
         return 1000 * (time.time()-timespan) if timespan is not None else 0

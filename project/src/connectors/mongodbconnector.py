@@ -5,7 +5,7 @@ from connectors.connector import Connector
 class MongoDbConnector(Connector):
     """Establishes connection to MongoDb and loads data into appropriate format"""
 
-    def __init__(self, name: str, uri: str, cert: str, database: str, **kwargs) -> None:
+    def __init__(self, uri: str, cert: str, database: str, **kwargs) -> None:
         """Creates a connection to a particular database in a MongoDb instance.
 
         Args:
@@ -14,10 +14,8 @@ class MongoDbConnector(Connector):
             database (str): Database name.
         """
 
-        super().__init__(name, uri)
-        self.cert = cert
-        self.database = database
-        self.config = kwargs
+        super().__init__(uri)
+        self._config = kwargs
         if cert is None:
             self._client = pymongo.MongoClient(uri, tls=False)
         else:
