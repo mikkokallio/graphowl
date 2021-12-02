@@ -13,10 +13,14 @@ class Graph:
             collection (str): Name of collection in a database.
             fields (dict): Names of the time, value, and name columns in the collection.
         """
-        self.title = title
-        self.connector = connector
-        self.collection = collection
-        self.fields = fields
+        self._title = title
+        self._connector = connector
+        self._collection = collection
+        self._fields = fields
+
+    @property
+    def title(self):
+        return self._title
 
     def load(self, timespan=None):
         """Uses the connector to pull data from the data source.
@@ -24,4 +28,4 @@ class Graph:
         Returns:
             [dict]: Data to show in the corresponding UI widget.
         """
-        return self.connector.get_data(self.collection, self.fields, timespan)
+        return self._connector.get_data(self._collection, self._fields, timespan)
