@@ -20,24 +20,36 @@ class Dashboard:
             graphs (list): Graphs to display in the layout.
         """
 
-        self.title = title
-        self.layout = self.validate_layout(layout)
-        self.timespan = self.parse_time_config(timespan)
-        self.interval = self.parse_time_config(interval)
-        self.sources = {}
-        self.graphs = []
+        self._title = title
+        self._layout = self._validate_layout(layout)
+        self._timespan = self._parse_time_config(timespan)
+        self._interval = self._parse_time_config(interval)
+        self._sources = {}
+        self._graphs = []
 
         for source in sources:
-            self.sources.update({source['name']: globals()[source['connector']](**source)})
+            self._sources.update({source['name']: globals()[source['connector']](**source)})
 
         for graph in graphs:
-            self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
+            self._graphs.append(Graph(graph['title'], self._sources[graph['connector']], graph['collection'], graph['fields']))
 
-    def validate_layout(self, layout: dict):
+    @property
+    def title(self):
+        return self._title
+
+    @property
+    def layout(self):
+        return self._layout
+
+    @property
+    def interval(self):
+        return self._interval
+
+    def _validate_layout(self, layout: dict):
         """Turns layout dimensions into 1 if they aren't positive integers"""
         return {k:(v if type(v) is int and v>0 else 1) for k,v in layout.items()}
 
-    def parse_time_config(self, timestring: str):
+    def _parse_time_config(self, timestring: str):
         """Converts time strings to seconds.
 
         Args:
@@ -58,4 +70,4 @@ class Dashboard:
         Returns:
             list: List where each item contains data for one graph.
         """
-        return [{'title': graph.title, 'plots': graph.load(self.timespan)} for graph in self.graphs]
+        return [{'title': graph.title, 'plots': graph.load(self._timespan)} for graph in self._graphs]
