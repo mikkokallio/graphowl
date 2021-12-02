@@ -12,9 +12,8 @@ class TestMongoDbConnector(unittest.TestCase):
         with patch('pymongo.MongoClient', mongomock.MongoClient):
             self.source = MongoDbConnector(**self.config)
 
-    def test_constructor_creates_connector_with_client_and_db(self):
+    def test_constructor_creates_connector(self):
         self.assertNotEqual(self.source, None)
-        self.assertNotEqual(self.source._client, None)
         self.assertNotEqual(self.source._db, None)
 
     def test_data_is_fetched_from_database(self):

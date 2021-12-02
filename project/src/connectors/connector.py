@@ -12,10 +12,10 @@ class Connector:
         return 1000 * (time.time()-timespan) if timespan is not None else 0
 
     def _transform(self, data: dict) -> dict:
-        """Transforms raw MongoDb data into a dict to show in a graph.
+        """Transforms raw data into a dict to show in a graph.
 
         Args:
-            data (dict): Raw data fetched from MongoDb.
+            data (dict): Raw data fetched from data source.
 
         Returns:
             dict[str, tuple[list, list]]: A dictionary with a tuple for each plot,
