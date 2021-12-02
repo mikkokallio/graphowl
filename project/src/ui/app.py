@@ -14,8 +14,10 @@ class App(Tk):
 
         leftpane = Frame(self, bg=COLOR_DARK)
         main = Frame(self, bg=COLOR_DARKER)
-        leftpane.pack(side='left')
-        main.pack(side='right')
+        leftpane.grid(row=0, column=0)
+        main.grid(row=0, column=1)
+        self.grid_columnconfigure(0, weight=1, minsize=0.0)
+        self.grid_columnconfigure(1, weight=20, minsize=0.1)
 
         self.pages = {}
 

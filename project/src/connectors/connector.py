@@ -1,4 +1,5 @@
 import time
+from datetime import datetime as dt
 
 
 class Connector:
@@ -24,7 +25,7 @@ class Connector:
 
         plots = {row['name']:([],[]) for row in data}
         for row in data:
-            plots[row['name']][0].append(row['time'])
+            plots[row['name']][0].append(dt.fromtimestamp(row['time']/1000))
             plots[row['name']][1].append(row['value'])
         return plots
 
