@@ -1,5 +1,4 @@
 import yaml
-from dashboard import Dashboard
 
 
 class ConfigHandler:
@@ -27,9 +26,6 @@ class ConfigHandler:
 
     def save(self, config):
         """Saves configuration to a yaml file.
-
-        Returns:
-            bool: Save was successful
         """
 
         with open(self._filepath, 'w', encoding='utf8') as file:
