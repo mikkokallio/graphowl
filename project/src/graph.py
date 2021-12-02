@@ -18,15 +18,6 @@ class Graph:
         self.collection = collection
         self.fields = fields
 
-    def asdict(self) -> dict:
-        """Converts the graph back to a saveable format.
-
-        Returns:
-            dict: A dictionary representation of the graph object.
-        """
-        return {'title': self.title, 'connector': self.connector.name,
-                'collection': self.collection, 'fields': self.fields}
-
     def load(self, timespan=None):
         """Uses the connector to pull data from the data source.
 

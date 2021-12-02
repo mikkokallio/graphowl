@@ -22,9 +22,6 @@ class Dashboard:
 
         self.title = title
         self.layout = self.validate_layout(layout)
-        # TODO: Refactor this to only validate the time strings here and do conversion elsewhere?
-        self.timestring = timespan
-        self.intervalstring = interval
         self.timespan = self.parse_time_config(timespan)
         self.interval = self.parse_time_config(interval)
         self.sources = {}
@@ -35,16 +32,6 @@ class Dashboard:
 
         for graph in graphs:
             self.graphs.append(Graph(graph['title'], self.sources[graph['connector']], graph['collection'], graph['fields']))
-
-    def asdict(self):
-        """Generate a dict that can be saved as yaml
-        """
-
-        # TODO: Refactor away name vs title disparity
-        return {'name':self.title, 'timespan':self.timestring,
-                'interval':self.intervalstring, 'layout':self.layout,
-                'sources':[source.asdict() for source in self.sources.values()],
-                'graphs':[graph.asdict() for graph in self.graphs]}
 
     def validate_layout(self, layout: dict):
         """Turns layout dimensions into 1 if they aren't positive integers"""

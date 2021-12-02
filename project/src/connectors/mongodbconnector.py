@@ -24,9 +24,6 @@ class MongoDbConnector(Connector):
             self._client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
         self._db = self._client[database]
 
-    def asdict(self):
-        return {'name': self.name, 'uri': self.uri, 'cert': self.cert, 'database': self.database, **self.config}
-
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
 

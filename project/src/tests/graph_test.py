@@ -21,10 +21,6 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(self.graph.fields['value'], 'temperature')
         self.assertEqual(self.graph.fields['name'], 'alias')
 
-    def test_asdict_returns_the_same_dict(self):
-        restored = self.graph.asdict()
-        self.assertEqual(self.orig, restored)
-
     def test_load_gets_data(self):
         data = self.graph.load()
         self.assertEqual(type(data), dict)

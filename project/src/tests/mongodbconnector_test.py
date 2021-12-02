@@ -17,10 +17,6 @@ class TestMongoDbConnector(unittest.TestCase):
         self.assertNotEqual(self.source._client, None)
         self.assertNotEqual(self.source._db, None)
 
-    def test_asdict_converts_back_to_config(self):
-        restored = self.source.asdict()
-        self.assertEqual(restored, self.config)
-
     def test_data_is_fetched_from_database(self):
         collname = 'dummycoll'
         self.collection = self.source._db[collname]
