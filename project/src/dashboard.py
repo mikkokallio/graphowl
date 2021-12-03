@@ -1,5 +1,6 @@
 from connectors.mongodbconnector import MongoDbConnector
 from connectors.sqliteconnector import SQLiteConnector
+from connectors.restapiconnector import RESTAPIConnector
 from connectors.connector import Connector
 from graph import Graph
 from constants import TIME_EXP
