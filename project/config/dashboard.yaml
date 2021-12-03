@@ -27,6 +27,13 @@ graphs:
     time: time
     value: acceleration
   title: Acceleration
+- collection: ruuvitags
+  connector: REST-API
+  fields:
+    name: name
+    time: time
+    value: acceleration
+  title: Vaccination
 interval: 10 minutes
 layout:
   x: 2
@@ -35,5 +42,8 @@ sources:
 - connector: SQLiteConnector
   name: SQLite
   uri: config/demo_db.sqlite
+- connector: RESTAPIConnector
+  name: REST-API
+  uri: later
 timespan: none
 title: Measurements
