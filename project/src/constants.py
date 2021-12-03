@@ -42,3 +42,16 @@ FORM_ROWS = [{'label': 'Dashboard title', 'var': ['title'],
               'numeric': True, 'options': LAYOUTS},
              {'label': 'Layout y', 'var': ['layout', 'y'],
               'numeric': True, 'options': LAYOUTS}]
+
+GRAPH_ROWS = [{'label': 'Graph title', 'var': ['title'],
+               'numeric': False, 'options': None},
+              {'label': 'Source name', 'var': ['connector'],
+               'numeric': False, 'options': None},
+              {'label': 'Table / collection / endpoint', 'var': ['collection'],
+               'numeric': False, 'options': None},
+              {'label': 'Field: name', 'var': ['fields', 'name'],
+               'numeric': False, 'options': None},
+              {'label': 'Field: time', 'var': ['fields', 'time'],
+               'numeric': False, 'options': None},
+              {'label': 'Field: value', 'var': ['fields', 'value'],
+               'numeric': False, 'options': None}]
