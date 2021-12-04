@@ -5,7 +5,7 @@ graphs:
     name: name
     time: time
     value: temperature
-  title: Temperature
+  title: Temperatures
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -34,10 +34,10 @@ graphs:
     time: time
     value: acceleration
   title: Vaccination
-interval: 10 minutes
+interval: 2 minutes
 layout:
-  x: 2
-  y: 2
+  x: 4
+  y: 1
 sources:
 - connector: SQLiteConnector
   name: SQLite
@@ -46,4 +46,4 @@ sources:
   name: REST-API
   uri: later
 timespan: none
-title: Measurements
+title: Home IoT
