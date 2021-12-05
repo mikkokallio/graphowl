@@ -42,7 +42,7 @@ class TestMongoDbConnector(unittest.TestCase):
         self.collection.insert_many(objs)
         fields = { 'time': 'time', 'value': 'temperature', 'name': 'name'}
 
-        result = self.source.get_data(collname, fields, 2 * TIME_EXP['day'])
+        result = self.source.get_data(collname, fields, 100000 * TIME_EXP['day'])
         desired_result = {'balcony': ([datetime(2021, 12, 2, 20, 30, 14, 90000),
                                        datetime(2021, 12, 2, 20, 30, 10, 490000),
                                        datetime(2021, 12, 2, 20, 28, 47, 690000)],
