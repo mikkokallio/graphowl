@@ -5,7 +5,7 @@ graphs:
     name: name
     time: time
     value: temperature
-  title: Temperatures
+  title: Temperature
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -36,8 +36,8 @@ graphs:
   title: Vaccination
 interval: 2 minutes
 layout:
-  x: 4
-  y: 1
+  x: 2
+  y: 2
 sources:
 - connector: SQLiteConnector
   name: SQLite

@@ -8,7 +8,7 @@ from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_
 
 
 class DashboardPage(Frame):
-    def __init__(self, root, controller, loader):
+    def __init__(self, root, loader):
         Frame.__init__(self, root, bg=COLOR_DARK)
         self._root = root
         self._loader = loader

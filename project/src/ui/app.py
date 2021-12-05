@@ -22,7 +22,7 @@ class App(Tk):
         self.pages = {}
 
         for Page in (DashboardPage, EditConfigPage, EditGraphsPage, EditSourcesPage):
-            page = Page(main, self, self._loader)
+            page = Page(main, self._loader)
             self.pages[Page] = page
             page.grid(row = 0, column = 0, sticky ="nsew")
 
