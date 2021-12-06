@@ -55,3 +55,13 @@ GRAPH_ROWS = [{'label': 'Graph title', 'var': ['title'],
                'numeric': False, 'options': None},
               {'label': 'Field: value', 'var': ['fields', 'value'],
                'numeric': False, 'options': None}]
+
+SOURCE_ROWS = [{'label': 'Source name', 'var': ['name'],
+                'numeric': False, 'options': None},
+               {'label': 'Connector type', 'var': ['connector'],
+                'numeric': False, 'options': None},
+               {'label': 'URI', 'var': ['uri'],
+                'numeric': False, 'options': None},
+               #{'label': 'Other properties', 'var': ['props'],
+               # 'numeric': False, 'options': None}
+               ]
