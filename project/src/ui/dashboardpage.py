@@ -14,14 +14,23 @@ class DashboardPage(Frame):
         self._loader = loader
         self._axes = []
         self._legends = []
-        dboard = Dashboard(**self._loader.load())
-        label = ttk.Label(master=self, text=dboard.title, font=("Arial", 25),
+        self._hovering = None
+        self._dboard = Dashboard(**self._loader.load())
+        label = ttk.Label(master=self, text=self._dboard.title, font=("Arial", 25),
                               background=COLOR_DARK, foreground='white')
         label.grid(row=0, column=1, padx=100, pady=10)
-        self.canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'],
-                                       dboard.load_all(), self)
-        self.canvas.draw()
+        #self.canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'],
+        #                               dboard.load_all(), self)
+        #self.canvas.draw()
+        self._refresh()
         self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
+
+    def _refresh(self):
+        self.canvas = self.draw_layout(self._dboard.layout['y'], self._dboard.layout['x'],
+                                       self._dboard.load_all(), self)
+        self.canvas.draw()
+        #self.after(1000, self._refresh)
+        
 
     def draw_graph(self, axl, data):
         """Draw one graph widget"""
@@ -76,13 +85,11 @@ class DashboardPage(Frame):
         return FigureCanvasTkAgg(fig, master)
 
     def _on_hover(self, event):
-        if event.inaxes is not None:
-            n = self._axes.index(event.inaxes)
-            if n >= len(self._legends):
-                return
-            #print(n)
-            #self._legends[n].set_visible(False)
-            #print(self._legends[n])
-            #self._axes[0].set_visible(False)
-            #self._legends[0].set_visible(False)
-            #self.canvas.draw()
+        if event.inaxes is None and self._hovering is not False:
+            self._hovering = False
+            [leg.set_visible(True) for leg in self._legends]
+            self.canvas.draw()
+        if event.inaxes is not None and self._hovering is not True:
+            self._hovering = True
+            [leg.set_visible(False) for leg in self._legends]
+            self.canvas.draw()
