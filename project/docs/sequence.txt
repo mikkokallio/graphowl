@@ -1,0 +1,17 @@
+title GraphOwl dashboard initialization
+
+main->app: App()
+app->loader: ConfigHandler('dashboard.yaml')
+app->dashboardpage: DashboardPage(main, loader)
+dashboardpage->+loader: load()
+loader-->-dashboardpage: config
+dashboardpage->dashboard: Dashboard(config)
+dashboard->graphs: Graph(config)
+dashboard->sources: Connector(config)
+dashboardpage->+dashboard: load_all()
+dashboard->+graphs: load(timespan)
+graphs->+sources: get_data(timespan)
+sources-->-graphs: data
+graphs-->-dashboard: data
+dashboard-->-dashboardpage: data
+app->app: show_page(DashboardPage)
