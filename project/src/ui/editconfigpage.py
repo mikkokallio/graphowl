@@ -12,7 +12,7 @@ class EditConfigPage(Frame):
         label.grid(row=0, column=0, padx=100, pady=10)
 
         path = []
-        
+
         form = Form(self, FORM_ROWS, loader, path)
         form.grid(row=1, column=0)
 

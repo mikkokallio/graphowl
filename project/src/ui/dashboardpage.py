@@ -18,7 +18,8 @@ class DashboardPage(Frame):
         label = ttk.Label(master=self, text=dboard.title, font=("Arial", 25),
                               background=COLOR_DARK, foreground='white')
         label.grid(row=0, column=1, padx=100, pady=10)
-        self.canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'], dboard.load_all(), self)
+        self.canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'],
+                                       dboard.load_all(), self)
         self.canvas.draw()
         self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
 
@@ -46,7 +47,9 @@ class DashboardPage(Frame):
                 color = next(color_gen, None)
                 axl.plot(plot[0], plot[1], marker='', markersize=1.0, linewidth=0.75,
                          path_effects=[patheffects.Normal()], label=title, color=color)
-                [axl.plot(plot[0], plot[1], marker='', alpha=0.025, linewidth=2+1.15*n, color=color) for n in range(8)]
+                for n in range(8):
+                    axl.plot(plot[0], plot[1], marker='',
+                             alpha=0.025, linewidth=2+1.15*n, color=color)
                 axl.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.035, color=color)
             lgd = axl.legend(loc='lower center',
                              labelcolor='white', facecolor='black',
@@ -58,7 +61,8 @@ class DashboardPage(Frame):
         """Uses a generator to yield one graph at a time to put into the layout"""
         fig = Figure(figsize=(12, 6), dpi=100,
                      facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
-        gridspec = fig.add_gridspec(rows, cols, left=0.075, right=0.925, top=0.925, bottom=0.075, wspace=0.20, hspace=0.35)
+        gridspec = fig.add_gridspec(rows, cols, left=0.075, right=0.925, top=0.925, bottom=0.075,
+                                    wspace=0.20, hspace=0.35)
         graph_gen = (graph for graph in graphdata)
         xformatter = mdates.DateFormatter('%H:%M')
 

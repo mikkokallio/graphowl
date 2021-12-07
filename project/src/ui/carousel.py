@@ -15,12 +15,15 @@ class Carousel(Frame):
         nav = Frame(self)
         nav.grid(row=1, column=1)
 
-        prev = Button(master=nav, text="<", background=COLOR_BRITE, activebackground=NEON_ELECTRIC, command=self._show_prev)
-        prev.grid(row=0, column=0)
-        new = Button(master=nav, text="+", background=COLOR_BRITE, activebackground=NEON_ELECTRIC, command=self._add_new)
-        new.grid(row=0, column=1)
-        next = Button(master=nav, text=">", background=COLOR_BRITE, activebackground=NEON_ELECTRIC, command=self._show_next)
-        next.grid(row=0, column=2)
+        prev_b = Button(master=nav, text="<", background=COLOR_BRITE,
+                        activebackground=NEON_ELECTRIC, command=self._show_prev)
+        prev_b.grid(row=0, column=0)
+        new_b = Button(master=nav, text="+", background=COLOR_BRITE,
+                       activebackground=NEON_ELECTRIC, command=self._add_new)
+        new_b.grid(row=0, column=1)
+        next_b = Button(master=nav, text=">", background=COLOR_BRITE,
+                        activebackground=NEON_ELECTRIC, command=self._show_next)
+        next_b.grid(row=0, column=2)
 
         items = self._loader.load()[path]
 
@@ -32,9 +35,9 @@ class Carousel(Frame):
     def _show_form(self, current):
         form = self._forms[current]
         form.tkraise()
-    
+
     def _add_new(self):
-        new_item = {} # rows
+        new_item = {}
         for row in self._rows:
             for step in row['var']:
                 if step is not row['var'][-1]:

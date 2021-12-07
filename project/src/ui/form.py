@@ -23,11 +23,12 @@ class Form(Frame):
             label.grid(row=i+1, column=1, padx=100, pady=5)
             entry.grid(row=i+1, column=2, padx=100, pady=5, sticky=(constants.E, constants.W))
 
-        button = Button(master=self, text="Save", background=COLOR_BRITE, activebackground=NEON_ELECTRIC, command=self.save_config)
+        button = Button(master=self, text="Save", background=COLOR_BRITE,
+                        activebackground=NEON_ELECTRIC, command=self.save_config)
         button.grid(row=len(self._rows)+1, column=1, columnspan=2,
                     sticky=(constants.E, constants.W), padx = 100, pady = 5)
 
-    def save_config(self, *args):
+    def save_config(self):
         for i, row in enumerate(self._rows):
             value = self._vars[i].get() if not row['numeric'] else int(self._vars[i].get())
             path = self._path + row['var']
