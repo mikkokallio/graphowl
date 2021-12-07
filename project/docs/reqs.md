@@ -51,12 +51,15 @@ After the MVP, more features will be added, focusing mainly on those that are fe
 * [ ] User can create more dashboards, which are shown as tabs in the top bar.
 
 ### Edit graphs view
+* [X] A separate view for editing graphs exists.
+* [X] User can set the title, connection string, etc. of a graph.
+* [ ] User can add and delete graphs through UI.
 * [ ] User can adjust the graphs' position (drag and drop, or arrows).
 * [ ] User can adjust a graph's size (e.g. grab the bottom-right corner).
 * [ ] User can set thresholds and alerts. The graph can show the threshold as a horizontal line, and if an alert is triggered, the borders of the graph flash angrily red every few seconds.
-* [ ] User can set the title, connection string, etc. of a graph.
 * [ ] User can adjust the colors and other visual elements of the graph.
 
 ### Edit connectors view
-* [ ] User can add a new connector.
+* [X] A separate view for editing connectors exists.
 * [ ] User can configure a connector's name, connector class, database name, and other details.
+* [ ] User can add and delete connectors through UI.
