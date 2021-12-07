@@ -12,13 +12,15 @@ class DashboardPage(Frame):
         Frame.__init__(self, root, bg=COLOR_DARK)
         self._root = root
         self._loader = loader
+        self._axes = []
+        self._legends = []
         dboard = Dashboard(**self._loader.load())
         label = ttk.Label(master=self, text=dboard.title, font=("Arial", 25),
                               background=COLOR_DARK, foreground='white')
         label.grid(row=0, column=1, padx=100, pady=10)
-        canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'], dboard.load_all(), self)
-        canvas.draw()
-        canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
+        self.canvas = self.draw_layout(dboard.layout['y'], dboard.layout['x'], dboard.load_all(), self)
+        self.canvas.draw()
+        self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
 
     def draw_graph(self, axl, data):
         """Draw one graph widget"""
@@ -29,6 +31,13 @@ class DashboardPage(Frame):
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
+            if data['plots'] is None:
+                axl.axis([0, 10, 0, 10])
+                axl.text(5, 5, 'no data', style='italic',
+                         verticalalignment='center', horizontalalignment='center',
+                         bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+                return axl
+
             smallest = min([min(plot[1]) for plot in data['plots'].values()])
 
             color_gen = (color for color in COLORS)
@@ -39,10 +48,10 @@ class DashboardPage(Frame):
                          path_effects=[patheffects.Normal()], label=title, color=color)
                 [axl.plot(plot[0], plot[1], marker='', alpha=0.025, linewidth=2+1.15*n, color=color) for n in range(8)]
                 axl.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.035, color=color)
-            axl.legend(loc='lower center', 
-                       #bbox_to_anchor=(0.5, -0.35),
-                       labelcolor='white', facecolor='black',
-                       framealpha=0.5, edgecolor='none', ncol=3)
+            lgd = axl.legend(loc='lower center',
+                             labelcolor='white', facecolor='black',
+                             framealpha=0.5, edgecolor='none', ncol=3)
+            self._legends.append(lgd)
         return axl
 
     def draw_layout(self, rows, cols, graphdata, master):
@@ -53,9 +62,24 @@ class DashboardPage(Frame):
         graph_gen = (graph for graph in graphdata)
         xformatter = mdates.DateFormatter('%H:%M')
 
+        fig.canvas.mpl_connect("motion_notify_event", self._on_hover)
+
         for y in range(rows):
             for x in range(cols):
                 axl = fig.add_subplot(gridspec[y, x], frameon=True, facecolor=COLOR_DARKEST)
-                self.draw_graph(axl, next(graph_gen, None))
+                axl = self.draw_graph(axl, next(graph_gen, None))
                 axl.xaxis.set_major_formatter(xformatter)
+                self._axes.append(axl)
         return FigureCanvasTkAgg(fig, master)
+
+    def _on_hover(self, event):
+        if event.inaxes is not None:
+            n = self._axes.index(event.inaxes)
+            if n >= len(self._legends):
+                return
+            #print(n)
+            #self._legends[n].set_visible(False)
+            #print(self._legends[n])
+            #self._axes[0].set_visible(False)
+            #self._legends[0].set_visible(False)
+            #self.canvas.draw()

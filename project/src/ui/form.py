@@ -1,4 +1,5 @@
 from tkinter import Frame, Button, OptionMenu, StringVar, ttk, constants
+from services import resolve_path
 from constants import COLOR_DARK, COLOR_BRITE, NEON_ELECTRIC
 
 
@@ -14,7 +15,7 @@ class Form(Frame):
 
         for i, row in enumerate(self._rows):
             rowpath = self._path + row['var']
-            var = self._resolve_path(rowpath, self._config)
+            var = resolve_path(rowpath, self._config)
             self._vars.append(StringVar(self, value=var))
             label = ttk.Label(master=self, text=row['label'],
                               background=COLOR_DARK, foreground=COLOR_BRITE)
@@ -26,19 +27,9 @@ class Form(Frame):
         button.grid(row=len(self._rows)+1, column=1, columnspan=2,
                     sticky=(constants.E, constants.W), padx = 100, pady = 5)
 
-    # TODO: Consider moving to a service class
-    def _resolve_path(self, path, data, value=None):
-        pointer = data
-        for step in path[:-1]:
-            pointer = pointer[step]
-        if value:
-            pointer[path[-1]] = value
-        else:
-            return pointer[path[-1]]
-
     def save_config(self, *args):
         for i, row in enumerate(self._rows):
             value = self._vars[i].get() if not row['numeric'] else int(self._vars[i].get())
             path = self._path + row['var']
-            self._resolve_path(path, self._config, value=value)
+            resolve_path(path, self._config, value=value)
         self._loader.save(self._config)
