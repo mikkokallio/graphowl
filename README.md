@@ -23,6 +23,8 @@ The following docs describe the app further:
 
 **Note:** The app has been tested with Python `3.8`.
 
+Clone the latest version, or a release: [viikko4](https://github.com/mikkokallio/ot-harkka/releases/tag/viikko5)
+
 Run the following commands in the `project` folder.
 
 * To install, run `poetry install`.
