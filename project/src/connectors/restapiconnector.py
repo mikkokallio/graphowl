@@ -351,7 +351,7 @@ class RESTAPIConnector(Connector):
         #path1 = ['dataset', 'value']
         data = self._resolve_path(path1, jsn)
         #data = requests.get(url=self._uri, headers={"content-type":"text"})
-        print(data)
+        #print(data)
 
         #if timespan is None:
         #    cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}')
