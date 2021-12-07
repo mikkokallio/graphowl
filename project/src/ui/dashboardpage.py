@@ -32,7 +32,7 @@ class DashboardPage(Frame):
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
-            if data['plots'] is None:
+            if data['plots'] in [None, {}]:
                 axl.axis([0, 10, 0, 10])
                 axl.text(5, 5, 'no data', style='italic',
                          verticalalignment='center', horizontalalignment='center',
