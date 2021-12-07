@@ -15,4 +15,10 @@
 |28.11.|4|Make UI prettier and add navigation buttons in left pane.|
 |30.11.|6|Update documentation, continue improving linter score.|
 |1.12.|4|Create new view for editing dashboard config. Changes can be saved in yaml.|
-|Total|66||
+|2.12.|4|Improve encapsulation, clean up stuf|
+|3.12.|1|Separate form as UI component|
+|4.12.|1|Improve form's configurability|
+|5.12.|2|Add carousel|
+|6.12.|2|Separate carousel as UI component, add sources page|
+|7.12.|4|Update docs, improve linter score and coverage, fix small errors|
+|Total|80||
