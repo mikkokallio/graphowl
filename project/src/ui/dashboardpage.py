@@ -27,8 +27,7 @@ class DashboardPage(Frame):
         """Draw one graph widget"""
         axl.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
         axl.grid(color=COLOR_GRID)
-        [x.set_color(COLOR_LITE) for x in [
-            axl.spines['top'], axl.spines['bottom'], axl.spines['left'], axl.spines['right']]]
+        [spine.set_color(COLOR_LITE) for spine in axl.spines.values()]
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
