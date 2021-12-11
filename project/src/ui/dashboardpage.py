@@ -30,7 +30,6 @@ class DashboardPage(Frame):
                                        self._dboard.load_all(), self)
         self.canvas.draw()
         #self.after(1000, self._refresh)
-        
 
     def draw_graph(self, axl, data):
         """Draw one graph widget"""

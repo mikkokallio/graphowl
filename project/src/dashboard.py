@@ -32,7 +32,8 @@ class Dashboard:
             self._sources.update({source['name']: globals()[source['connector']](**source)})
 
         for graph in graphs:
-            self._graphs.append(Graph(graph['title'], self._sources[graph['connector']], graph['collection'], graph['fields']))
+            self._graphs.append(Graph(graph['title'], self._sources[graph['connector']],
+                                      graph['collection'], graph['fields']))
 
     @property
     def title(self):
@@ -48,7 +49,7 @@ class Dashboard:
 
     def _validate_layout(self, layout: dict):
         """Turns layout dimensions into 1 if they aren't positive integers"""
-        return {k:(v if type(v) is int and v>0 else 1) for k,v in layout.items()}
+        return {k:(v if isinstance(v, int) and v>0 else 1) for k,v in layout.items()}
 
     def _parse_time_config(self, timestring: str):
         """Converts time strings to seconds.
@@ -71,4 +72,5 @@ class Dashboard:
         Returns:
             list: List where each item contains data for one graph.
         """
-        return [{'title': graph.title, 'plots': graph.load(self._timespan)} for graph in self._graphs]
+        return [{'title': graph.title,
+                 'plots': graph.load(self._timespan)} for graph in self._graphs]

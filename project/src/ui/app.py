@@ -44,7 +44,7 @@ class App(Tk):
             btn.image = img # Necessary
 
     def show_page(self, view_class):
-        if view_class == DashboardPage and self._loader._changes:
+        if view_class == DashboardPage and self._loader.changes:
             self._loader.clear_changes()
             page = view_class(self._main, self._loader)
             page.grid(row = 0, column = 0, sticky ="nsew")

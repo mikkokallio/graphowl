@@ -11,7 +11,7 @@ class Carousel(Frame):
         self._rows = rows
         self._loader = loader
         self._path = path
-                
+
         nav = Frame(self)
         nav.grid(row=1, column=1)
 

@@ -18,7 +18,7 @@ class ConfigHandler:
     @property
     def changes(self):
         return self._changes
-    
+
     def clear_changes(self):
         self._changes = False
 

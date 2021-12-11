@@ -30,10 +30,12 @@ class SQLiteConnector(Connector):
         con = sqlite3.connect(self._uri)
         cur = con.cursor()
         # TODO: sanitize fields - parametrized query not possible
+        query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
+        condition = f' WHERE {fields["time"]} > {start_time}'
         if timespan is None:
-            cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}')
+            cur.execute(query)
         else:
-            cur.execute(f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname} WHERE {fields["time"]} > {start_time}')
+            cur.execute(query + condition)
 
         result = cur.fetchall()
         con.close()
