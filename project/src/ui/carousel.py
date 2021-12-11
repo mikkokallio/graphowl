@@ -39,15 +39,11 @@ class Carousel(Frame):
     def _add_new(self):
         new_item = {}
         for row in self._rows:
-            for step in row['var']:
-                if step is not row['var'][-1]:
-                    print('last')
-                    resolve_path(row['var'], new_item, {})
-                else:
-                    print('not last')
-                    resolve_path(row['var'], new_item, ' ')
-            print(new_item)
-        #self._forms.append(Form(self, self._rows, self._loader, [self._path, len(self._forms)]))
+            resolve_path(row['var'], new_item, ' ')
+        # first load, add, save
+        # then reload forms or add:
+        self._forms.append(Form(self, self._rows, self._loader, [self._path, len(self._forms)]))
+        # change to view new one
 
     def _show_next(self):
         self._current += 1

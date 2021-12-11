@@ -13,6 +13,14 @@ class ConfigHandler:
 
         # TODO: Validate path and throw error if invalid
         self._filepath = filepath
+        self._changes = False
+
+    @property
+    def changes(self):
+        return self._changes
+    
+    def clear_changes(self):
+        self._changes = False
 
     def load(self) -> dict:
         """Loads configuration from a yaml file and returns it.
@@ -28,5 +36,6 @@ class ConfigHandler:
         """Saves configuration to a yaml file.
         """
 
+        self._changes = True
         with open(self._filepath, 'w', encoding='utf8') as file:
             file.write(yaml.dump(config))

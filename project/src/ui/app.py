@@ -11,18 +11,19 @@ class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
         self._loader = ConfigHandler('config/dashboard.yaml')
+        self._current = None
 
         leftpane = Frame(self, bg=COLOR_DARK)
-        main = Frame(self, bg=COLOR_DARKER)
+        self._main = Frame(self, bg=COLOR_DARKER)
         leftpane.grid(row=0, column=0)
-        main.grid(row=0, column=1)
+        self._main.grid(row=0, column=1)
         self.grid_columnconfigure(0, weight=1, minsize=0.0)
         self.grid_columnconfigure(1, weight=20, minsize=0.1)
 
         self.pages = {}
 
         for Page in (DashboardPage, EditConfigPage, EditGraphsPage, EditSourcesPage):
-            page = Page(main, self._loader)
+            page = Page(self._main, self._loader)
             self.pages[Page] = page
             page.grid(row = 0, column = 0, sticky ="nsew")
 
@@ -42,6 +43,13 @@ class App(Tk):
             btn.pack(padx=10, pady=15)
             btn.image = img # Necessary
 
-    def show_page(self, controller):
-        page = self.pages[controller]
+    def show_page(self, view_class):
+        if view_class == DashboardPage and self._loader._changes:
+            self._loader.clear_changes()
+            page = view_class(self._main, self._loader)
+            page.grid(row = 0, column = 0, sticky ="nsew")
+            self.pages[DashboardPage].destroy()
+            self.pages[DashboardPage] = page
+
+        page = self.pages[view_class]
         page.tkraise()
