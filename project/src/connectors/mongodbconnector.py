@@ -16,13 +16,18 @@ class MongoDbConnector(Connector):
 
         super().__init__(uri)
         self._config = kwargs
-        try:
-            if cert is None:
-                client = pymongo.MongoClient(uri, tls=False)
-            else:
-                client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
-            self._db = client[database]
-        except:
+        if uri is None:
+            self._db = None
+        elif uri.startswith('mongodb://') or uri.startswith('mongodb+srv://'):
+            try:
+                if cert is None:
+                    client = pymongo.MongoClient(uri, tls=False)
+                else:
+                    client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
+                self._db = client[database]
+            except:
+                self._db = None
+        else:
             self._db = None
 
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
