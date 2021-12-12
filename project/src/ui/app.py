@@ -33,7 +33,7 @@ class App(Tk):
                    ('graph', EditGraphsPage), ('plug', EditSourcesPage)]
 
         for button in buttons:
-            img = PhotoImage(file=f'src/ui/{button[0]}.png')
+            img = PhotoImage(file=f'src/ui/icons/{button[0]}.png')
             img = img.subsample(6,6)
             btn = Button(leftpane, image=img, border=0, height=60, width=60,
                          background=COLOR_DARKER,
