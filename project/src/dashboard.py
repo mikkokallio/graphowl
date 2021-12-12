@@ -32,7 +32,8 @@ class Dashboard:
             self._sources.update({source['name']: globals()[source['connector']](**source)})
 
         for graph in graphs:
-            self._graphs.append(Graph(graph['title'], self._sources[graph['connector']],
+            connector = self._sources[graph['connector']] if graph['connector'] in self._sources else None
+            self._graphs.append(Graph(graph['title'], connector,
                                       graph['collection'], graph['fields']))
 
     @property

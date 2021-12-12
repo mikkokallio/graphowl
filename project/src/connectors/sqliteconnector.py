@@ -1,5 +1,6 @@
+from os.path import exists
 import sqlite3
-from connectors.connector import Connector
+from connectors.connector import Connector, ConnectorConfigurationError
 
 
 class SQLiteConnector(Connector):
@@ -25,10 +26,11 @@ class SQLiteConnector(Connector):
         Returns:
             dict: Data in a format suitable for matplotlib.
         """
-
-        start_time = self._get_start_time(timespan)
+        if not exists(self._uri):
+            raise ConnectorConfigurationError('database file missing')
         con = sqlite3.connect(self._uri)
         cur = con.cursor()
+        start_time = self._get_start_time(timespan)
         # TODO: sanitize fields - parametrized query not possible
         query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
         condition = f' WHERE {fields["time"]} > {start_time}'

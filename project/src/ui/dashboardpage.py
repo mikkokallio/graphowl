@@ -39,6 +39,12 @@ class DashboardPage(Frame):
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
+            if '_error_' in data['plots']:
+                axl.axis([0, 10, 0, 10])
+                axl.text(5, 5, data['plots']['_error_'], style='italic',
+                         verticalalignment='center', horizontalalignment='center',
+                         bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+                return axl
             if data['plots'] in [None, {}]:
                 axl.axis([0, 10, 0, 10])
                 axl.text(5, 5, 'no data', style='italic',

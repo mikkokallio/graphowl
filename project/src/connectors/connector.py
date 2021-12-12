@@ -31,3 +31,7 @@ class Connector:
 
     def get_data(self, *args):
         return {'plot1': ([1,2,3,4],[1,2,3,4]), 'plot2': ([1,2,3,4],[4,3,2,1])}
+
+class ConnectorConfigurationError(Exception):
+    """Connector uri or other attributes are misconfigured"""
+    pass

@@ -1,4 +1,4 @@
-from connectors.connector import Connector
+from connectors.connector import Connector, ConnectorConfigurationError
 
 
 class Graph:
@@ -28,4 +28,11 @@ class Graph:
         Returns:
             [dict]: Data to show in the corresponding UI widget.
         """
-        return self._connector.get_data(self._collection, self._fields, timespan)
+        try:
+            return self._connector.get_data(self._collection, self._fields, timespan)
+        except AttributeError:
+            return {'_error_':'missing connector'}
+        except ConnectorConfigurationError as error:
+            return {'_error_':error}
+        except ConnectionError as error:
+            return {'_error_':error}

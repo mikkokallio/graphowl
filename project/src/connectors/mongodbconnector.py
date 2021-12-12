@@ -1,5 +1,5 @@
 import pymongo
-from connectors.connector import Connector
+from connectors.connector import Connector, ConnectorConfigurationError
 
 
 class MongoDbConnector(Connector):
@@ -16,11 +16,14 @@ class MongoDbConnector(Connector):
 
         super().__init__(uri)
         self._config = kwargs
-        if cert is None:
-            client = pymongo.MongoClient(uri, tls=False)
-        else:
-            client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
-        self._db = client[database]
+        try:
+            if cert is None:
+                client = pymongo.MongoClient(uri, tls=False)
+            else:
+                client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
+            self._db = client[database]
+        except:
+            self._db = None
 
     def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the database.
@@ -32,9 +35,13 @@ class MongoDbConnector(Connector):
         Returns:
             dict: Data in a format suitable for matplotlib.
         """
-
-        coll = self._db[collname]
-        start_time = self._get_start_time(timespan)
-        result = coll.find({fields['time']:{'$gt':start_time}},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
-        data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
-        return self._transform(data)
+        if self._db is None:
+            raise ConnectorConfigurationError('invalid connection uri or cert')
+        try:
+            coll = self._db[collname]
+            start_time = self._get_start_time(timespan)
+            result = coll.find({fields['time']:{'$gt':start_time}},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
+            data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
+            return self._transform(data)
+        except:
+            raise ConnectionError('cannot access db or collection')
