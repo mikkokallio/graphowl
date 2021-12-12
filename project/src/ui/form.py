@@ -8,14 +8,15 @@ class Form(Frame):
     def __init__(self, root, rows, loader, path):
         Frame.__init__(self, root, bg=COLOR_DARK, border=1)
         self._loader = loader
-        self._config = self._loader.load()
         self._rows = rows
         self._path = path
         self._vars = []
 
+        config = self._loader.load()
+
         for i, row in enumerate(self._rows):
             rowpath = self._path + row['var']
-            var = resolve_path(rowpath, self._config)
+            var = resolve_path(rowpath, config)
             self._vars.append(StringVar(self, value=var))
             label = ttk.Label(master=self, text=row['label'],
                               background=COLOR_DARK, foreground=COLOR_BRITE)
@@ -29,8 +30,9 @@ class Form(Frame):
                     sticky=(constants.E, constants.W), padx = 100, pady = 5)
 
     def _save_config(self):
+        config = self._loader.load()
         for i, row in enumerate(self._rows):
             value = self._vars[i].get() if not row['numeric'] else int(self._vars[i].get())
             path = self._path + row['var']
-            resolve_path(path, self._config, value=value)
-        self._loader.save(self._config)
+            resolve_path(path, config, value=value)
+        self._loader.save(config)
