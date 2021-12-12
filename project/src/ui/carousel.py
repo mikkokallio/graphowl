@@ -34,7 +34,7 @@ class Carousel(Frame):
         forms = [Form(self, self._rows, self._loader, [self._path, n]) for n in range(len(items))]
         [form.grid(row=2, column=1) for form in forms]
         return forms
-    
+
     def _show_form(self):
         form = self._forms[self._current]
         form.tkraise()

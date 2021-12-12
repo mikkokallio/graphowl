@@ -21,9 +21,11 @@ class MongoDbConnector(Connector):
         elif uri.startswith('mongodb://') or uri.startswith('mongodb+srv://'):
             try:
                 if cert is None:
-                    client = pymongo.MongoClient(uri, tls=False)
+                    client = pymongo.MongoClient(
+                        uri, tls=False)
                 else:
-                    client = pymongo.MongoClient(uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
+                    client = pymongo.MongoClient(
+                        uri, tls=True, tlsCertificateKeyFile=f'certs/{cert}')
                 self._db = client[database]
             except:
                 self._db = None
@@ -45,8 +47,10 @@ class MongoDbConnector(Connector):
         try:
             coll = self._db[collname]
             start_time = self._get_start_time(timespan)
-            result = coll.find({fields['time']:{'$gt':start_time}},{ '_id': 0, fields['time']: 1, fields['value']: 1, fields['name']: 1 })
-            data = [{fields['time']: row[fields['time']], 'value': row[fields['value']], 'name': row[fields['name']]} for row in result]
+            result = coll.find({fields['time']:{'$gt':start_time}},
+                               {'_id':0, fields['time']:1, fields['value']:1, fields['name']:1})
+            data = [{fields['time']: row[fields['time']], 'value': row[fields['value']],
+                     'name': row[fields['name']]} for row in result]
             return self._transform(data)
         except:
             raise ConnectionError('cannot access db or collection')

@@ -1,11 +1,11 @@
 from tkinter import Frame, ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
-from matplotlib.dates import DateFormatter as datef
+from matplotlib.dates import DateFormatter
 from matplotlib import patheffects
 from matplotlib.ticker import MaxNLocator
 from dashboard import Dashboard
-from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_GRID, COLORS, MAXTICKS, LEGENDCOLS
+from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_GRID, COLORS, MAXTICKS, LEGENDCOLS, TIME_EXP
 
 
 class DashboardPage(Frame):
@@ -26,12 +26,12 @@ class DashboardPage(Frame):
         self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
 
     def _refresh(self):
-        self.canvas = self.draw_layout(self._y, self._x,
+        self.canvas = self._draw_layout(self._y, self._x,
                                        self._dboard.load_all(), self)
         self.canvas.draw()
         #self.after(1000, self._refresh)
 
-    def draw_graph(self, axl, data):
+    def _draw_graph(self, axl, data):
         """Draw one graph widget"""
         axl.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
         axl.grid(color=COLOR_GRID)
@@ -71,21 +71,22 @@ class DashboardPage(Frame):
                 self._legends.append(lgd)
         return axl
 
-    def draw_layout(self, rows, cols, graphdata, master):
+    def _draw_layout(self, rows, cols, graphdata, master):
         """Uses a generator to yield one graph at a time to put into the layout"""
         fig = Figure(figsize=(12, 6), dpi=100,
                      facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
         gridspec = fig.add_gridspec(rows, cols, left=0.075, right=0.925, top=0.925, bottom=0.075,
                                     wspace=0.20, hspace=0.35)
         graph_gen = (graph for graph in graphdata)
-        xformatter = datef('%H:%M') if self._dboard._timespan <= 60*60*24*2 else datef('%m-%d')
+        time_or_date = lambda span : '%m-%d' if span is None or span > 2 * TIME_EXP['days'] else '%H:%M'
+        xformatter = DateFormatter(time_or_date(self._dboard.timespan))
 
         fig.canvas.mpl_connect("motion_notify_event", self._on_hover)
 
         for y in range(rows):
             for x in range(cols):
                 axl = fig.add_subplot(gridspec[y, x], frameon=True, facecolor=COLOR_DARKEST)
-                axl = self.draw_graph(axl, next(graph_gen, None))
+                axl = self._draw_graph(axl, next(graph_gen, None))
                 axl.xaxis.set_major_formatter(xformatter)
                 axl.xaxis.set_major_locator(MaxNLocator(MAXTICKS[self._x]))
                 self._axes.append(axl)

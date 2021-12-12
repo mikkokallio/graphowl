@@ -10,7 +10,7 @@ from confighandler import ConfigHandler
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
-        self._loader = ConfigHandler('config/dashboard_orig.yaml')
+        self._loader = ConfigHandler('config/dashboard.yaml')
         self._current = None
 
         leftpane = Frame(self, bg=COLOR_DARK)

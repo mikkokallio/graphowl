@@ -45,6 +45,10 @@ class Dashboard:
         return self._layout
 
     @property
+    def timespan(self):
+        return self._timespan
+
+    @property
     def interval(self):
         return self._interval
 

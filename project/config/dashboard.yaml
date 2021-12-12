@@ -34,9 +34,23 @@ graphs:
     time: time
     value: acceleration
   title: Vaccination
+- collection: add
+  connector: add
+  fields:
+    name: add
+    time: add
+    value: add
+  title: Bogus entry
+- collection: add
+  connector: add
+  fields:
+    name: add
+    time: add
+    value: add
+  title: add
 interval: 2 minutes
 layout:
-  x: 2
+  x: 3
   y: 2
 sources:
 - connector: SQLiteConnector
@@ -45,5 +59,5 @@ sources:
 - connector: RESTAPIConnector
   name: REST-API
   uri: later
-timespan: none
+timespan: 30 days
 title: Statistics
