@@ -10,10 +10,10 @@ graphs:
   - gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: Weather1
+    name: t2m
     time: 3600
     value: 0
-  title: Weather
+  title: 2-meter temperature
 - collection:
   - wfs:FeatureCollection
   - wfs:member
@@ -25,10 +25,10 @@ graphs:
   - gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: Weather1
+    name: ws_10min
     time: 3600
     value: 1
-  title: Weather
+  title: ws_10min
 - collection:
   - wfs:FeatureCollection
   - wfs:member
@@ -40,10 +40,10 @@ graphs:
   - gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: Weather1
+    name: wg_10min
     time: 3600
     value: 2
-  title: Weather
+  title: wg_10min
 - collection:
   - wfs:FeatureCollection
   - wfs:member
@@ -55,20 +55,155 @@ graphs:
   - gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: Weather1
+    name: wd_10min
     time: 3600
     value: 3
-  title: Weather
+  title: wd_10min
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: rh
+    time: 3600
+    value: 4
+  title: 2-meter relative humidity
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: td
+    time: 3600
+    value: 5
+  title: td
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: r_1h
+    time: 3600
+    value: 6
+  title: r_1h
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: ri_10min
+    time: 3600
+    value: 7
+  title: ri_10min
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: snow_aws
+    time: 3600
+    value: 8
+  title: snow_aws
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: p_sea
+    time: 3600
+    value: 9
+  title: Mean sea level pressure
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: vis
+    time: 3600
+    value: 10
+  title: Horizontal visibility
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: n_man
+    time: 3600
+    value: 11
+  title: n_man
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: wawa
+    time: 3600
+    value: 12
+  title: wawa
 interval: 2 minutes
 layout:
-  x: 2
-  y: 2
+  x: 3
+  y: 4
 sources:
 - connector: SQLiteConnector
   name: SQLite
   uri: config/demo_db.sqlite
 - connector: RESTAPIConnector
   name: REST-API
-  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Kuopio&timestep=60&starttime=$TIMEZ&
-timespan: 1 day
-title: Statistics
+  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Helsinki&timestep=60&starttime=$TIMEZ&
+timespan: 2 days
+title: Helsinki weather
