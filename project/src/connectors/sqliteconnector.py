@@ -34,10 +34,7 @@ class SQLiteConnector(Connector):
         # TODO: sanitize fields - parametrized query not possible
         query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
         condition = f' WHERE {fields["time"]} > {start_time}'
-        if timespan is None:
-            cur.execute(query)
-        else:
-            cur.execute(query + condition)
+        cur.execute(query + condition)
 
         result = cur.fetchall()
         con.close()
