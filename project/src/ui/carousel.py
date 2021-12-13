@@ -35,7 +35,8 @@ class Carousel(Frame):
     def _update_forms(self):
         items = self._loader.load()[self._path]
         forms = [Form(self, self._rows, self._loader, [self._path, n]) for n in range(len(items))]
-        [form.grid(row=2, column=1) for form in forms]
+        for form in forms:
+            form.grid(row=2, column=1)
         return forms
 
     def _show_form(self):
@@ -54,7 +55,8 @@ class Carousel(Frame):
 
     def _delete(self):
         config = self._loader.load()
-        confirm = messagebox.askquestion('Delete', f'Do you want to delete this entry from {self._path}?')
+        confirm = messagebox.askquestion('Delete',
+                                         f'Do you want to delete this entry from {self._path}?')
         if confirm == 'yes':
             del config[self._path][self._current]
             self._loader.save(config)

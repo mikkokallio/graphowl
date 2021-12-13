@@ -1,4 +1,4 @@
-from tkinter import Frame, Tk, PhotoImage, Button
+from tkinter import Frame, Tk, PhotoImage, Button, Label
 from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
@@ -10,7 +10,7 @@ from confighandler import ConfigHandler
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
-        self._loader = ConfigHandler('config/dashboard.yaml')
+        self._loader = ConfigHandler('config/dashboard_live.yaml')
         self._current = None
 
         leftpane = Frame(self, bg=COLOR_DARK)

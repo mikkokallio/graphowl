@@ -27,16 +27,9 @@ graphs:
     time: time
     value: acceleration
   title: Acceleration
-- collection: ruuvitags
-  connector: REST-API
-  fields:
-    name: name
-    time: time
-    value: acceleration
-  title: New graph
 interval: 2 minutes
 layout:
-  x: 3
+  x: 2
   y: 2
 sources:
 - connector: SQLiteConnector
@@ -44,6 +37,6 @@ sources:
   uri: config/demo_db.sqlite
 - connector: RESTAPIConnector
   name: REST-API
-  uri: later
+  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Kuopio&timestep=60&starttime=2021-12-12T00:00:00Z&
 timespan: none
 title: Statistics

@@ -1,0 +1,74 @@
+graphs:
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: Weather1
+    time: 3600
+    value: 0
+  title: Weather
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: Weather1
+    time: 3600
+    value: 1
+  title: Weather
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: Weather1
+    time: 3600
+    value: 2
+  title: Weather
+- collection:
+  - wfs:FeatureCollection
+  - wfs:member
+  - omso:GridSeriesObservation
+  - om:result
+  - gmlcov:MultiPointCoverage
+  - gml:rangeSet
+  - gml:DataBlock
+  - gml:doubleOrNilReasonTupleList
+  connector: REST-API
+  fields:
+    name: Weather1
+    time: 3600
+    value: 3
+  title: Weather
+interval: 2 minutes
+layout:
+  x: 2
+  y: 2
+sources:
+- connector: SQLiteConnector
+  name: SQLite
+  uri: config/demo_db.sqlite
+- connector: RESTAPIConnector
+  name: REST-API
+  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Kuopio&timestep=60&starttime=$TIMEZ&
+timespan: 1 day
+title: Statistics

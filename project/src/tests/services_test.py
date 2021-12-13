@@ -4,7 +4,8 @@ from services import resolve_path
 
 class TestServices(unittest.TestCase):
     def setUp(self):
-        self.data = {'root': {'node1': {'child1': 'test', 'child2': 'text'}, 'node2': {'child1': 111, 'child2': 222}}}
+        self.data = {'root': {'node1': {'child1': 'test', 'child2': 'text'},
+                              'node2': {'child1': 111, 'child2': 222}}}
 
     def test_resolve_path_read(self):
         read = resolve_path(['root', 'node1', 'child2'], self.data)

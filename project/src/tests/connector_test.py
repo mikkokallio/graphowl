@@ -1,6 +1,6 @@
 import unittest
-from connectors.connector import Connector
 from datetime import datetime
+from connectors.connector import Connector
 
 
 class TestConnector(unittest.TestCase):
