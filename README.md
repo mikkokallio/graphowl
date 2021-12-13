@@ -8,9 +8,7 @@ You can configure the app to connect to various data sources (such as MongoDb or
 
 ## Current features of the app
 
-The main functionality -- showing graphs -- already works fine. You can also try and edit `config/dashboard.py`, especially the `title` fields and `layout` dimensions `x` and `y` to see how the dashboard view changes. The demo dashboard uses a snapshot from a live database, but that snapshot doesn't get updated, so changing `timespan` should be `none` because otherwise you'll get just a warning: "no data".
-
-You can also try out the different views on the left: The three icons below the owl logo take you to configuration views. Changing values and hitting the `save` button actually works, but the dashboard *is not* updated until you run the app again. (I'll fix that later.) Also, the `+` button (for adding new stuff) doesn't work yet.
+The main functionality (showing graphs) works fine and now you can also configure the dashboard through the UI. Try to edit and save some attributes, especially the `title` fields and `layout` dimensions `x` and `y` and go back to the dashboard view to see how it changes. You can also add new graphs and data sources using the `+` button in those views. Instructions on how to configure those will be added later! Note that changes to data sources and such may break the graphs, but feel free to try that too, to see different UI messages. See also how your changes affect the `config/dashboard.yaml` file. The demo dashboard uses a snapshot from a live database, but that snapshot doesn't get updated, so `timespan` should be `none` because otherwise you'll probably just get a warning: "no data".
 
 ## Documentation
 
