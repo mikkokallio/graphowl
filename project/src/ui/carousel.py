@@ -1,4 +1,4 @@
-from tkinter import Frame, Button
+from tkinter import Frame, Button, messagebox
 from constants import COLOR_DARK, COLOR_BRITE, NEON_ELECTRIC
 from services import resolve_path
 from ui.form import Form
@@ -21,9 +21,12 @@ class Carousel(Frame):
         new_b = Button(master=nav, text="+", background=COLOR_BRITE,
                        activebackground=NEON_ELECTRIC, command=self._add_new)
         new_b.grid(row=0, column=1)
+        del_b = Button(master=nav, text="🞪", background=COLOR_BRITE,
+                       activebackground=NEON_ELECTRIC, command=self._delete)
+        del_b.grid(row=0, column=2)
         next_b = Button(master=nav, text=">", background=COLOR_BRITE,
                         activebackground=NEON_ELECTRIC, command=self._show_next)
-        next_b.grid(row=0, column=2)
+        next_b.grid(row=0, column=3)
 
         self._forms = self._update_forms()
         self._current = 0
@@ -48,6 +51,14 @@ class Carousel(Frame):
         self._loader.save(config)
         self._forms = self._update_forms()
         self._show_next()
+
+    def _delete(self):
+        config = self._loader.load()
+        confirm = messagebox.askquestion('Delete', f'Do you want to delete this entry from {self._path}?')
+        if confirm == 'yes':
+            del config[self._path][self._current]
+            self._loader.save(config)
+            self._forms = self._update_forms()
 
     def _show_next(self):
         self._current += 1

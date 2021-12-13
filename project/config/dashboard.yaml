@@ -33,21 +33,7 @@ graphs:
     name: name
     time: time
     value: acceleration
-  title: Vaccination
-- collection: add
-  connector: add
-  fields:
-    name: add
-    time: add
-    value: add
-  title: Bogus entry
-- collection: add
-  connector: add
-  fields:
-    name: add
-    time: add
-    value: add
-  title: add
+  title: New graph
 interval: 2 minutes
 layout:
   x: 3
@@ -59,5 +45,5 @@ sources:
 - connector: RESTAPIConnector
   name: REST-API
   uri: later
-timespan: 30 days
+timespan: none
 title: Statistics
