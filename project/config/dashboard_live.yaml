@@ -1,203 +1,64 @@
 graphs:
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: t2m
+    name: t2m,td
     time: 3600
-    value: 0
-  title: 2-meter temperature
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+    value: 0,5
+  title: Temperature vs Dewpoint temperature
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: ws_10min
+    name: ws_10min,wg_10min
     time: 3600
-    value: 1
-  title: ws_10min
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
-  connector: REST-API
-  fields:
-    name: wg_10min
-    time: 3600
-    value: 2
-  title: wg_10min
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+    value: 1,2
+  title: Wind speed vs Wind gust
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
     name: wd_10min
     time: 3600
     value: 3
-  title: wd_10min
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+  title: Wind direction
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
     name: rh
     time: 3600
     value: 4
-  title: 2-meter relative humidity
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+  title: Relative humidity
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
-    name: td
+    name: r_1h,ri_10min
     time: 3600
-    value: 5
-  title: td
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
-  connector: REST-API
-  fields:
-    name: r_1h
-    time: 3600
-    value: 6
-  title: r_1h
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
-  connector: REST-API
-  fields:
-    name: ri_10min
-    time: 3600
-    value: 7
-  title: ri_10min
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+    value: 6,7
+  title: Amount of rain vs Rainfall intensity
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
     name: snow_aws
     time: 3600
     value: 8
-  title: snow_aws
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+  title: Snow
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
     name: p_sea
     time: 3600
     value: 9
   title: Mean sea level pressure
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
+- collection: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
   connector: REST-API
   fields:
     name: vis
     time: 3600
     value: 10
   title: Horizontal visibility
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
-  connector: REST-API
-  fields:
-    name: n_man
-    time: 3600
-    value: 11
-  title: n_man
-- collection:
-  - wfs:FeatureCollection
-  - wfs:member
-  - omso:GridSeriesObservation
-  - om:result
-  - gmlcov:MultiPointCoverage
-  - gml:rangeSet
-  - gml:DataBlock
-  - gml:doubleOrNilReasonTupleList
-  connector: REST-API
-  fields:
-    name: wawa
-    time: 3600
-    value: 12
-  title: wawa
 interval: 2 minutes
 layout:
   x: 3
-  y: 4
+  y: 3
 sources:
 - connector: SQLiteConnector
   name: SQLite
@@ -205,5 +66,5 @@ sources:
 - connector: RESTAPIConnector
   name: REST-API
   uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Helsinki&timestep=60&starttime=$TIMEZ&
-timespan: 2 days
+timespan: 7 days
 title: Helsinki weather

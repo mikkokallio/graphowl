@@ -73,7 +73,7 @@ class DashboardPage(Frame):
 
     def _draw_layout(self, rows, cols, graphdata, master):
         """Uses a generator to yield one graph at a time to put into the layout"""
-        fig = Figure(figsize=(12, 6), dpi=100,
+        fig = Figure(figsize=(12, 7), dpi=100,
                      facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
         gridspec = fig.add_gridspec(rows, cols, left=0.075, right=0.925, top=0.925, bottom=0.075,
                                     wspace=0.20, hspace=0.35)

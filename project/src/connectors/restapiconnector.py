@@ -38,14 +38,19 @@ class RESTAPIConnector(Connector):
         start_time = self._get_start_time(timespan)
         start_dt = str(dt.fromtimestamp(start_time/1000)).replace(' ', 'T').split('.')[0]
         try:
-            data = resolve_path([], {})
-            data = requests.get(url=self._uri.replace('$TIME', start_dt)).text
-            dct = xmltodict.parse(data)
-            meas = resolve_path(path, dct)
-            rows = [row.strip() for row in meas.split('\n')]
+            res = requests.get(url=self._uri.replace('$TIME', start_dt)).text
+            parsed = xmltodict.parse(res)
+            timeseries = resolve_path(path.split(','), parsed)
+            rows = [row.strip() for row in timeseries.split('\n')]
             result = [col.split(' ') for col in rows]
-            data = [{'time': start_time + i * fields['time'] * 1000, 'value': float(row[fields['value']]),
-                     'name': fields['name']} for i, row in enumerate(result)]
+            data = []
+            for i, row in enumerate(result):
+                values = [int(value) for value in str(fields['value']).split(',')]
+                names = fields['name'].split(',')
+                for j in range(len(values)):
+                    data.append({'time': start_time + i * fields['time'] * 1000,
+                                 'value': float(row[values[j]]),
+                                 'name': names[j]})
             return self._transform(data)
         except MissingSchema:
             raise ConnectorConfigurationError('URL missing http(s)')
