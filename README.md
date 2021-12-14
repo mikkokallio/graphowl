@@ -19,7 +19,7 @@ That one's now the default dashboard, named `config/dashboard_live.yaml`, but th
 ## Documentation
 
 The following docs describe the app further:
-* User instructions (TO BE ADDED)
+* [User instructions](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/instructions.md)
 * [Requirement specification](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/reqs.md)
 * [Architecture](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/architecture.md)
 * Testing documentation (TO BE ADDED)
