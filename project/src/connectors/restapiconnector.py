@@ -29,8 +29,8 @@ class RESTAPIConnector(Connector):
         """Fetches data from the REST API.
 
         Args:
-            endpoint (str): Endpoint appended to the address.
-            fields (dict): Names of the columns (e.g. timestamp, measurement, sensor_name).
+            path (str): Comma-separated list to traverse to find the payload data.
+            fields (dict): Additional configuration to find the data.
 
         Returns:
             dict: Data in a format suitable for matplotlib.
@@ -48,7 +48,7 @@ class RESTAPIConnector(Connector):
                 values = [int(value) for value in str(fields['value']).split(',')]
                 names = fields['name'].split(',')
                 for j in range(len(values)):
-                    data.append({'time': start_time + i * fields['time'] * 1000,
+                    data.append({'time': start_time + i * int(fields['time']) * 1000,
                                  'value': float(row[values[j]]),
                                  'name': names[j]})
             return self._transform(data)
