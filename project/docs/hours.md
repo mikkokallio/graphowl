@@ -21,4 +21,8 @@
 |5.12.|2|Add carousel|
 |6.12.|2|Separate carousel as UI component, add sources page|
 |7.12.|4|Update docs, improve linter score and coverage, fix small errors|
-|Total|80||
+|11.12.|4|Make dashboard layout and graphs update when config is changed and saved|
+|12.12.|8|Make graph datetimes and other text adjust by layout and timespan. Improve error handling and show meaningful messages in graphs if errors occur.|
+|13.12.|3|Enable graph/source deletion through UI and add confirmation dialog to delete.|
+|14.12.|4|Create initial REST API connector using XML source, and create new demo dashboard with it.|
+|Total|99||
