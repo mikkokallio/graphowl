@@ -18,6 +18,8 @@ See the instructions below on how to make changes to an existing dashboard, or c
 
 ### Creating new graphs
 
+Creating new graphs is quite error-prone. It is strongly recommended to use an existing graph and then make small changes rather than trying to build from scratch.
+
 1. Click the **graph** icon on the left. Graph configuration view opens.
 2. Use the `<` and `>` buttons to find the graph *after* which you'd like to place the new graph.
 **Note:** The graphs are laid out in the dashboard view left-right and top-down. So if you are using a 2x2 layout, the first two graphs in order will be on top, and the other two will be below. If you have 5 graphs in a 2x2 layout, the fifth one won't be shown until you change the layout. Conversely, if you have only 3 graphs in a 2x2 layout, the bottom-right one will be empty.
