@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.88441918"
-     inkscape:cx="158.86132"
-     inkscape:cy="687.45682"
+     inkscape:zoom="0.2211048"
+     inkscape:cx="920.37805"
+     inkscape:cy="1207.5722"
      inkscape:window-width="1500"
      inkscape:window-height="930"
      inkscape:window-x="-6"
@@ -38,6 +38,28 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <g
+       id="g2284"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -111.43217,69.145616 h 55.239513"
+         id="path181"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M -83.812414,41.525859 V 96.765372"
+         id="path2200"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+    </g>
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1214"
@@ -428,6 +450,132 @@
        d="m 46.080056,265.37721 9.349877,9.34989 10.199865,-10.19985"
        id="path10999"
        inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path193"
+       sodipodi:type="arc"
+       sodipodi:cx="-83.413147"
+       sodipodi:cy="154.36647"
+       sodipodi:rx="38.13052"
+       sodipodi:ry="38.13052"
+       sodipodi:start="2.3033697"
+       sodipodi:end="2.3032529"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m -108.91427,182.71483 a 38.13052,38.13052 0 0 1 -2.84798,-53.84865 38.13052,38.13052 0 0 1 53.848569,-2.84956 38.13052,38.13052 0 0 1 2.851125,53.84849 38.13052,38.13052 0 0 1 -53.848404,2.8527"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons/cross.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path294"
+       sodipodi:type="arc"
+       sodipodi:cx="-83.409836"
+       sodipodi:cy="69.17392"
+       sodipodi:rx="38.13052"
+       sodipodi:ry="38.13052"
+       sodipodi:start="2.3033697"
+       sodipodi:end="2.3032529"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m -108.91096,97.522277 a 38.13052,38.13052 0 0 1 -2.84798,-53.848651 38.13052,38.13052 0 0 1 53.84857,-2.849553 38.13052,38.13052 0 0 1 2.851125,53.848484 38.13052,38.13052 0 0 1 -53.848405,2.852698"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path296"
+       sodipodi:type="arc"
+       sodipodi:cx="-83.413147"
+       sodipodi:cy="240.61948"
+       sodipodi:rx="38.13052"
+       sodipodi:ry="38.13052"
+       sodipodi:start="2.3033697"
+       sodipodi:end="2.3032529"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m -108.91427,268.96783 a 38.13052,38.13052 0 0 1 -2.84798,-53.84865 38.13052,38.13052 0 0 1 53.848569,-2.84955 38.13052,38.13052 0 0 1 2.851125,53.84848 38.13052,38.13052 0 0 1 -53.848404,2.8527"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\left.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -71.130942,215.5235 -25.167799,25.1678 25.112845,25.11284"
+       id="path388"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\left.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -83.672605,33.448503 c 0,362.041747 0,362.640067 0,362.640067"
+       id="path1556" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1718"
+       sodipodi:type="arc"
+       sodipodi:cx="83.413147"
+       sodipodi:cy="337.45801"
+       sodipodi:rx="38.13052"
+       sodipodi:ry="38.13052"
+       sodipodi:start="2.3033697"
+       sodipodi:end="2.3032529"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 57.912026,365.80637 a 38.13052,38.13052 0 0 1 -2.847981,-53.84866 38.13052,38.13052 0 0 1 53.848565,-2.84955 38.13052,38.13052 0 0 1 2.85113,53.84849 38.13052,38.13052 0 0 1 -53.848403,2.85269"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\right.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="scale(-1,1)" />
+    <path
+       style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -95.695351,312.36161 25.167799,25.1678 -25.112845,25.11284"
+       id="path1720"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\right.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g2284-2"
+       transform="rotate(45,-186.78287,111.70841)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons/cross.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -111.43217,69.145616 h 55.239513"
+         id="path181-5"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M -83.812414,41.525859 V 96.765372"
+         id="path2200-9"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <rect
+       style="fill:#00ffcc;stroke:none;stroke-width:6.00001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       id="rect2340"
+       width="29.916056"
+       height="29.916056"
+       x="21.53956"
+       y="326.68332"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\box_on.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:6.00001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2440"
+       width="29.916056"
+       height="29.916056"
+       x="77.102112"
+       y="326.68332"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\box_off.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
   </g>
