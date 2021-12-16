@@ -29,7 +29,10 @@ class Dashboard:
         self._graphs = []
 
         for source in sources:
-            self._sources.update({source['name']: globals()[source['connector']](**source)})
+            try:
+                self._sources.update({source['name']: globals()[source['connector']](**source)})
+            except KeyError:
+                self._sources.update({source['name']: None})
 
         for graph in graphs:
             connector = self._sources[graph['connector']] if graph['connector'] in self._sources else None
