@@ -1,4 +1,4 @@
-from tkinter import Frame, Tk, PhotoImage, Button, Label
+from tkinter import Frame, Tk, PhotoImage, Button
 from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
@@ -35,7 +35,7 @@ class App(Tk):
         for button in buttons:
             img = PhotoImage(file=f'src/ui/icons/{button[0]}.png')
             img = img.subsample(6,6)
-            btn = Button(leftpane, image=img, border=0, height=60, width=60,
+            btn = Button(leftpane, image=img, border=1, height=60, width=60,
                          background=COLOR_DARKER,
                          highlightcolor='blue',
                          activebackground=COLOR_DARKEST,
