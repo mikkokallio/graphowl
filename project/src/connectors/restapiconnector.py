@@ -18,12 +18,6 @@ class RESTAPIConnector(Connector):
 
         super().__init__(uri)
         self._config = kwargs
-
-    def _resolve_path(self, path, data):
-        if len(path) == 1:
-            return data[path[0]]
-        else:
-            return self._resolve_path(path[1:], data[path[0]])
     
     def get_data(self, path: str, fields: dict, timespan: int) -> dict:
         """Fetches data from the REST API.
