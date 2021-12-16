@@ -61,15 +61,16 @@ class Carousel(Frame):
             del config[self._path][self._current]
             self._loader.save(config)
             self._forms = self._update_forms()
+            self._show_prev()
 
     def _show_next(self):
         self._current += 1
-        if self._current == len(self._forms):
+        if self._current >= len(self._forms):
             self._current = 0
         self._show_form()
 
     def _show_prev(self):
         self._current -= 1
-        if self._current == -1:
+        if self._current <= -1:
             self._current = len(self._forms) - 1
         self._show_form()
