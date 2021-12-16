@@ -2,6 +2,7 @@
 __pycache__
 src/tests/temp.yaml
 config/dashboard_orig.yaml
+config/dashboard_combo.yaml
 .coverage
 htmlcov
 temp
