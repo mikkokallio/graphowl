@@ -45,13 +45,14 @@ class Carousel(Frame):
 
         for i in range(len(self._forms)):
             icon = 'on' if i == self._current else 'off'
+            size = 12 if i == self._current else 8
             img = PhotoImage(file=f'src/ui/icons/box_{icon}.png')
             img = img.subsample(2,2)
-            btn = Button(self._indicator, image=img, border=0, height=12, width=12,
+            btn = Button(self._indicator, image=img, border=0, height=size, width=size,
                          background=COLOR_DARKER,
                          activebackground=COLOR_DARKEST,
                          command = lambda i=i: self._show_clicked(i))
-            btn.grid(row=0, column=i, padx=4, pady=4)
+            btn.grid(row=0, column=i, padx=8-size/2, pady=8-size/2)
             btn.image = img # Necessary
 
     def _update_forms(self):
