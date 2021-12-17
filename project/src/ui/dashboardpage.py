@@ -1,4 +1,4 @@
-from tkinter import Frame, ttk
+from tkinter import Frame, Label
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib.dates import DateFormatter
@@ -12,32 +12,47 @@ from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_
 class DashboardPage(Frame):
     def __init__(self, root, loader):
         Frame.__init__(self, root, bg=COLOR_DARK)
-        self._root = root
         self._loader = loader
-        self._axes = []
         self._legends = []
         self._hovering = None
         self._dboard = Dashboard(**self._loader.load())
-        self._x = self._dboard.layout['x']
-        self._y = self._dboard.layout['y']
-        label = ttk.Label(master=self, text=self._dboard.title, font=("Arial", 25),
-                              background=COLOR_DARK, foreground='white')
+        label = Label(master=self, text=self._dboard.title, font=("Arial", 25),
+                          background=COLOR_DARK, foreground='white')
         label.grid(row=0, column=1, padx=100, pady=10)
-        btn = CoolButton(self, imgfile='recycle', imgsize=6, size=60, cmd=self._refresh)
-        btn.grid(row=0, column=2, padx=10, pady=15)
-        self.canvas = None
-        self._refresh()
-        self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
 
-    def _refresh(self):
-        #if self.canvas:
-        #    for item in self.canvas.get_tk_widget().find_all():
-        #        self.canvas.get_tk_widget().delete(item)
-        self.canvas = self._draw_layout(self._y, self._x,
-                                       self._dboard.load_all(), self)
-        self.canvas.draw()
+        CoolButton(self, imgfile='recycle', imgsize=6, size=60,
+                   cmd=self._draw_canvas).grid(row=0, column=2, padx=10, pady=15)
 
-    def _draw_graph(self, axl, data):
+        self._fig = Figure(figsize=(12, 7), dpi=100,
+                          facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
+        self._fig.canvas.mpl_connect("motion_notify_event", self._on_hover)
+        self._gridspec = self._fig.add_gridspec(self._dboard.layout['x'], self._dboard.layout['y'],
+                                                left=0.075, right=0.925, top=0.925, bottom=0.075,
+                                                wspace=0.20, hspace=0.35)
+        self._canvas = FigureCanvasTkAgg(self._fig, self)
+        self._canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
+        self._draw_canvas()
+
+    def _draw_canvas(self):
+        self._draw_layout(self._dboard.layout['y'], self._dboard.layout['x'], self._dboard.load_all())
+        self._canvas.draw()
+
+    def _draw_layout(self, rows, cols, graphdata):
+        """Uses a generator to yield one graph at a time to put into the layout"""
+        graph_gen = (graph for graph in graphdata)
+        time_or_date = lambda span : '%m-%d' if not span or span > 2 * TIME_EXP['days'] else '%H:%M'
+        xformatter = DateFormatter(time_or_date(self._dboard.timespan))
+
+        [ax.clear() for ax in self._fig.get_axes()]
+        [self._fig.delaxes(ax) for ax in self._fig.get_axes()]
+        for y in range(rows):
+            for x in range(cols):
+                axl = self._fig.add_subplot(self._gridspec[y, x], facecolor=COLOR_DARKEST)
+                axl = self._draw_graph(axl, next(graph_gen, None), cols)
+                axl.xaxis.set_major_formatter(xformatter)
+                axl.xaxis.set_major_locator(MaxNLocator(MAXTICKS[cols]))
+
+    def _draw_graph(self, axl, data, cols):
         """Draw one graph widget"""
         axl.tick_params(color=COLOR_LITE, labelcolor=COLOR_BRITE)
         axl.grid(color=COLOR_GRID)
@@ -45,15 +60,10 @@ class DashboardPage(Frame):
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
-            if 'plots' not in data or data['plots'] in [None, {}]:
+            error = None if '_error_' not in data['plots'] else data['plots']['_error_']
+            if error or 'plots' not in data or data['plots'] in [None, {}]:
                 axl.axis([0, 10, 0, 10])
-                axl.text(5, 5, 'no data', style='italic',
-                         verticalalignment='center', horizontalalignment='center',
-                         bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
-                return axl
-            if '_error_' in data['plots']:
-                axl.axis([0, 10, 0, 10])
-                axl.text(5, 5, data['plots']['_error_'], style='italic',
+                axl.text(5, 5, error if error else 'no data', style='italic',
                          verticalalignment='center', horizontalalignment='center',
                          bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
                 return axl
@@ -70,40 +80,19 @@ class DashboardPage(Frame):
                     axl.plot(plot[0], plot[1], marker='',
                              alpha=0.025, linewidth=2+1.15*n, color=color)
                 axl.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.035, color=color)
-            if self._x in LEGENDCOLS and LEGENDCOLS[self._x] is not None:
+            if cols in LEGENDCOLS and LEGENDCOLS[cols] is not None:
                 lgd = axl.legend(loc='lower center',
                                 labelcolor='white', facecolor='black',
-                                framealpha=0.5, edgecolor='none', ncol=LEGENDCOLS[self._x])
+                                framealpha=0.5, edgecolor='none', ncol=LEGENDCOLS[cols])
                 self._legends.append(lgd)
         return axl
-
-    def _draw_layout(self, rows, cols, graphdata, master):
-        """Uses a generator to yield one graph at a time to put into the layout"""
-        fig = Figure(figsize=(12, 7), dpi=100,
-                     facecolor=COLOR_DARK, edgecolor=COLOR_GRID, linewidth=1.0)
-        gridspec = fig.add_gridspec(rows, cols, left=0.075, right=0.925, top=0.925, bottom=0.075,
-                                    wspace=0.20, hspace=0.35)
-        graph_gen = (graph for graph in graphdata)
-        time_or_date = lambda span : '%m-%d' if span is None or span > 2 * TIME_EXP['days'] else '%H:%M'
-        xformatter = DateFormatter(time_or_date(self._dboard.timespan))
-
-        fig.canvas.mpl_connect("motion_notify_event", self._on_hover)
-
-        for y in range(rows):
-            for x in range(cols):
-                axl = fig.add_subplot(gridspec[y, x], frameon=True, facecolor=COLOR_DARKEST)
-                axl = self._draw_graph(axl, next(graph_gen, None))
-                axl.xaxis.set_major_formatter(xformatter)
-                axl.xaxis.set_major_locator(MaxNLocator(MAXTICKS[self._x]))
-                self._axes.append(axl)
-        return FigureCanvasTkAgg(fig, master)
 
     def _on_hover(self, event):
         if event.inaxes is None and self._hovering is not False:
             self._hovering = False
             [leg.set_visible(True) for leg in self._legends]
-            self.canvas.draw()
+            self._canvas.draw()
         if event.inaxes is not None and self._hovering is not True:
             self._hovering = True
             [leg.set_visible(False) for leg in self._legends]
-            self.canvas.draw()
+            self._canvas.draw()
