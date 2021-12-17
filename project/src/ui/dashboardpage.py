@@ -1,11 +1,12 @@
-from tkinter import Frame, ttk, Button, PhotoImage
+from tkinter import Frame, ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib.dates import DateFormatter
 from matplotlib import patheffects
 from matplotlib.ticker import MaxNLocator
 from dashboard import Dashboard
-from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKER, COLOR_DARKEST, COLOR_LITE, COLOR_GRID, COLORS, MAXTICKS, LEGENDCOLS, TIME_EXP
+from ui.coolbutton import CoolButton
+from constants import COLOR_BRITE, COLOR_DARK, COLOR_DARKEST, COLOR_LITE, COLOR_GRID, COLORS, MAXTICKS, LEGENDCOLS, TIME_EXP
 
 
 class DashboardPage(Frame):
@@ -22,15 +23,8 @@ class DashboardPage(Frame):
         label = ttk.Label(master=self, text=self._dboard.title, font=("Arial", 25),
                               background=COLOR_DARK, foreground='white')
         label.grid(row=0, column=1, padx=100, pady=10)
-        img = PhotoImage(file=f'src/ui/icons/recycle.png')
-        img = img.subsample(6,6)
-        btn = Button(self, image=img, border=1, height=60, width=60,
-                         background=COLOR_DARKER,
-                         highlightcolor='blue',
-                         activebackground=COLOR_DARKEST,
-                         command = self._refresh)
+        btn = CoolButton(self, imgfile='recycle', imgsize=6, size=60, cmd=self._refresh)
         btn.grid(row=0, column=2, padx=10, pady=15)
-        btn.image = img # Necessary
         self.canvas = None
         self._refresh()
         self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")

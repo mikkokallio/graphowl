@@ -1,7 +1,6 @@
 from tkinter import Frame, Button, messagebox, PhotoImage
 from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST
-
-from constants import COLOR_DARK, COLOR_BRITE, NEON_ELECTRIC
+from ui.coolbutton import CoolButton
 from services import resolve_path
 from ui.form import Form
 
@@ -21,15 +20,9 @@ class Carousel(Frame):
                    ('cross', self._delete), ('right', self._show_next)]
 
         for i, button in enumerate(buttons):
-            img = PhotoImage(file=f'src/ui/icons/{button[0]}.png')
-            img = img.subsample(10,10)
-            btn = Button(nav, image=img, border=1, height=40, width=40,
-                         background=COLOR_DARKER,
-                         activebackground=COLOR_DARKEST,
-                         command = button[1])
+            btn = CoolButton(nav, imgfile=button[0], imgsize=10, size=40, cmd=button[1])
             btn.grid(row=0, column=i, padx=6, pady=6)
-            btn.image = img # Necessary
-
+  
         self._forms = self._update_forms()
         self._current = 0
 
