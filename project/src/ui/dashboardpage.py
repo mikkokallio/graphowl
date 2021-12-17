@@ -30,9 +30,9 @@ class DashboardPage(Frame):
         self.canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
 
     def _refresh(self):
-        if self.canvas:
-            for item in self.canvas.get_tk_widget().find_all():
-                self.canvas.get_tk_widget().delete(item)
+        #if self.canvas:
+        #    for item in self.canvas.get_tk_widget().find_all():
+        #        self.canvas.get_tk_widget().delete(item)
         self.canvas = self._draw_layout(self._y, self._x,
                                        self._dboard.load_all(), self)
         self.canvas.draw()

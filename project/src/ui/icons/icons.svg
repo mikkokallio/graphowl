@@ -11,6 +11,7 @@
    sodipodi:docname="icons.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -23,21 +24,406 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.2507576"
-     inkscape:cx="1138.9097"
-     inkscape:cy="207.07449"
+     inkscape:zoom="0.44220959"
+     inkscape:cx="659.18968"
+     inkscape:cy="515.59262"
      inkscape:window-width="1500"
      inkscape:window-height="930"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="true" />
   <defs
-     id="defs2" />
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2788">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.19277108"
+         offset="0"
+         id="stop2784" />
+      <stop
+         style="stop-color:#050406;stop-opacity:0"
+         offset="1"
+         id="stop2786" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2679">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.13654618"
+         offset="0"
+         id="stop2675" />
+      <stop
+         style="stop-color:#050406;stop-opacity:0"
+         offset="1"
+         id="stop2677" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2069">
+      <stop
+         style="stop-color:#050406;stop-opacity:0.01204819"
+         offset="0"
+         id="stop2065" />
+      <stop
+         style="stop-color:#050406;stop-opacity:0.57429719"
+         offset="1"
+         id="stop2067" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient2890"
+       gradientUnits="userSpaceOnUse"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073"
+       gradientTransform="translate(85.461561,-92.865386)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient2892"
+       gradientUnits="userSpaceOnUse"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996"
+       gradientTransform="translate(85.461547,-92.865381)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient2894"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="radialGradient2896"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.9145579,-0.0088106,0.00436677,1.9401615,-812.16669,-47.263425)"
+       cx="279.23074"
+       cy="54.57692"
+       fx="279.23074"
+       fy="54.57692"
+       r="49.499996" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="radialGradient3395"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.9145579,-0.0088106,0.00436677,1.9401615,-934.04078,-40.681893)"
+       cx="279.23074"
+       cy="54.57692"
+       fx="279.23074"
+       fy="54.57692"
+       r="49.499996" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="radialGradient3399"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.9145579,-0.0088106,0.00436677,1.9401615,-1038.3319,-41.280214)"
+       cx="279.23074"
+       cy="54.57692"
+       fx="279.23074"
+       fy="54.57692"
+       r="49.499996" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="radialGradient3403"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.9145579,-0.0088106,0.00436677,1.9401615,-1036.3296,66.417586)"
+       cx="279.23074"
+       cy="54.57692"
+       fx="279.23074"
+       fy="54.57692"
+       r="49.499996" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="radialGradient3407"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.9145579,-0.0088106,0.00436677,1.9401615,-1035.9386,172.91876)"
+       cx="279.23074"
+       cy="54.57692"
+       fx="279.23074"
+       fy="54.57692"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient3417"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient3419"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461547,-92.865381)"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient3421"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461561,-92.865386)"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient3431"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient3433"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461547,-92.865381)"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient3435"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461561,-92.865386)"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient3445"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient3447"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461547,-92.865381)"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient3449"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461561,-92.865386)"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient3459"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient3461"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461547,-92.865381)"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient3463"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461561,-92.865386)"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2069"
+       id="linearGradient3473"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461528,-92.865384)"
+       x1="253.84615"
+       y1="27.07692"
+       x2="312.23074"
+       y2="87.999992" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2679"
+       id="radialGradient3475"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461547,-92.865381)"
+       cx="272.46155"
+       cy="48.230766"
+       fx="272.46155"
+       fy="48.230766"
+       r="49.499996" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2788"
+       id="linearGradient3477"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(85.461561,-92.865386)"
+       x1="244.96155"
+       y1="21.57692"
+       x2="310.11539"
+       y2="88.423073" />
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0.2;fill:url(#radialGradient3407);fill-opacity:1;stroke-width:6.00001"
+       id="rect3405"
+       width="98.999992"
+       height="98.999992"
+       x="7.8644247"
+       y="226.84656"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:0.2;fill:url(#radialGradient3403);fill-opacity:1;stroke-width:6.00001"
+       id="rect3401"
+       width="98.999992"
+       height="98.999992"
+       x="7.473567"
+       y="120.34542"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g3443"
+       transform="translate(-309.72117,100.43609)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\graph.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0.65">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3445);fill-opacity:1;stroke-width:6.00001"
+         id="rect3437"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient3447);fill-opacity:1;stroke-width:6.00001"
+         id="rect3439"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3449);fill-opacity:1;stroke-width:6.00001"
+         id="rect3441"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <rect
+       style="opacity:0.2;fill:url(#radialGradient3395);fill-opacity:1;stroke-width:6.00001"
+       id="rect3393"
+       width="98.999992"
+       height="98.999992"
+       x="109.7624"
+       y="13.245955"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g3415"
+       transform="translate(-83.555817,94.45288)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0.65">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3417);fill-opacity:1;stroke-width:6.00001"
+         id="rect3409"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient3419);fill-opacity:1;stroke-width:6.00001"
+         id="rect3411"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3421);fill-opacity:1;stroke-width:6.00001"
+         id="rect3413"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
     <g
        id="g2284"
        inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plus.png"
@@ -73,14 +459,14 @@
        sodipodi:open="true"
        sodipodi:arc-type="arc"
        d="m 29.076744,196.20286 a 38.13052,38.13052 0 0 1 -4.989677,-51.24481 38.13052,38.13052 0 0 1 50.603471,-9.49825 38.13052,38.13052 0 0 1 13.932513,49.56625 38.13052,38.13052 0 0 1 -48.141264,18.25778"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 25.901717,197.2612 17.7746,-17.7746 -0.31288,-0.31288 v 0 0"
        id="path1588"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -91,21 +477,21 @@
        x="146.92302"
        y="71.18441"
        transform="rotate(45)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 57.785397,154.22523 c 9.82537,-9.82536 9.7196,-9.71959 0,0 z"
        id="path2192"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 67.839627,164.27946 c 9.82537,-9.82536 9.7196,-9.71959 0,0 z"
        id="path2472"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -113,14 +499,14 @@
        d="m 45.480117,185.52376 v 0"
        id="path2655"
        sodipodi:nodetypes="cc"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\path1214.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 17.944973,90.984337 c 71.39423,0 71.39423,0 71.39423,0"
        id="path3753"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\graph.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\graph.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -128,7 +514,7 @@
        d="m 19.958613,77.603859 24.40269,-24.402575 11.45865,11.458607 30.34423,-30.344166"
        id="path4085"
        sodipodi:nodetypes="cccc"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\graph.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\graph.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -233,16 +619,16 @@
        d="M 91.024193,28.929128 84.592243,45.98128 74.570363,36.25856 Z"
        id="path8258"
        sodipodi:nodetypes="cccc"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\graph.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\graph.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
        style="fill:none;fill-opacity:1;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path8526"
-       cx="154.85245"
+       cx="158.0274"
        cy="61.196072"
        r="26.965624"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -250,10 +636,10 @@
        id="rect8648"
        width="7.2836518"
        height="6.3731956"
-       x="160.42825"
-       y="-18.205597"
+       x="163.49509"
+       y="-19.027351"
        transform="rotate(15)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -261,10 +647,10 @@
        id="rect8748"
        width="7.2836518"
        height="6.3731956"
-       x="99.71405"
-       y="92.315422"
+       x="102.46371"
+       y="93.902901"
        transform="rotate(-30)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -272,10 +658,10 @@
        id="rect8750"
        width="7.2836518"
        height="6.3731956"
-       x="-23.058884"
-       y="128.03619"
+       x="-22.237129"
+       y="131.10303"
        transform="rotate(-75)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -283,10 +669,10 @@
        id="rect8752"
        width="7.2836518"
        height="6.3731956"
-       x="-134.64485"
-       y="66.226547"
+       x="-136.23238"
+       y="68.976196"
        transform="rotate(-120)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -294,10 +680,10 @@
        id="rect8754"
        width="7.2836518"
        height="6.3731956"
-       x="-169.79462"
-       y="-56.44928"
+       x="-172.86145"
+       y="-55.627525"
        transform="rotate(-165)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -305,10 +691,10 @@
        id="rect8756"
        width="7.2836518"
        height="6.3731956"
-       x="-107.717"
-       y="-167.60713"
+       x="-110.46665"
+       y="-169.19466"
        transform="rotate(150)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -316,10 +702,10 @@
        id="rect8758"
        width="7.2836518"
        height="6.3731956"
-       x="14.377198"
-       y="-203.11261"
+       x="13.555449"
+       y="-206.17944"
        transform="rotate(105)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -327,10 +713,10 @@
        id="rect8760"
        width="7.2836518"
        height="6.3731956"
-       x="125.29005"
-       y="-141.31618"
+       x="126.87753"
+       y="-144.06578"
        transform="rotate(60)"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\cog.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -404,15 +790,15 @@
        id="path10991"
        sodipodi:type="arc"
        sodipodi:cx="38.937778"
-       sodipodi:cy="244.23573"
+       sodipodi:cy="269.63577"
        sodipodi:rx="21.036158"
        sodipodi:ry="21.036158"
        sodipodi:start="0.59349234"
        sodipodi:end="5.6360058"
        sodipodi:open="true"
        sodipodi:arc-type="arc"
-       d="m 56.376598,256.00041 a 21.036158,21.036158 0 0 1 -23.319457,8.4328 21.036158,21.036158 0 0 1 -15.147941,-19.63286 21.036158,21.036158 0 0 1 14.07259,-20.41743 21.036158,21.036158 0 0 1 23.738373,7.1693"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       d="m 56.376598,281.40044 a 21.036158,21.036158 0 0 1 -23.319457,8.43281 21.036158,21.036158 0 0 1 -15.147941,-19.63286 21.036158,21.036158 0 0 1 14.07259,-20.41743 21.036158,21.036158 0 0 1 23.738373,7.1693"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -420,36 +806,36 @@
        id="path10993"
        sodipodi:type="arc"
        sodipodi:cx="72.014183"
-       sodipodi:cy="244.23573"
+       sodipodi:cy="269.63577"
        sodipodi:rx="21.036158"
        sodipodi:ry="21.036158"
        sodipodi:start="3.8010612"
        sodipodi:end="2.5559915"
        sodipodi:open="true"
        sodipodi:arc-type="arc"
-       d="M 55.38893,231.34694 A 21.036158,21.036158 0 0 1 79.191876,224.462 21.036158,21.036158 0 0 1 93.035995,245.0125 21.036158,21.036158 0 0 1 77.712997,264.48526 21.036158,21.036158 0 0 1 54.48307,255.86243"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       d="m 55.38893,256.74698 a 21.036158,21.036158 0 0 1 23.802946,-6.88494 21.036158,21.036158 0 0 1 13.844119,20.5505 21.036158,21.036158 0 0 1 -15.322998,19.47276 21.036158,21.036158 0 0 1 -23.229927,-8.62283"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        id="path10995"
        style="fill:#00ffcc;fill-opacity:1;stroke:none;stroke-width:9.03775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 38.894286,234.50486 a 11.152915,11.152915 0 0 0 -11.152876,11.15289 11.152915,11.152915 0 0 0 11.152876,11.15374 11.152915,11.152915 0 0 0 11.14063,-10.71677 5.9566706,5.9566706 0 0 1 -1.236482,1.09112 5.9566706,5.9566706 0 0 1 -8.253454,-1.68221 5.9566706,5.9566706 0 0 1 1.681336,-8.25432 5.9566706,5.9566706 0 0 1 2.725168,-0.95539 11.152915,11.152915 0 0 0 -6.057198,-1.78906 z m 9.709735,5.66664 -3.091206,2.04563 3.092087,-2.04388 a 11.152915,11.152915 0 0 0 -8.81e-4,-0.001 z"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       d="m 38.894286,259.90502 a 11.152915,11.152915 0 0 0 -11.152876,11.15289 11.152915,11.152915 0 0 0 11.152876,11.15374 11.152915,11.152915 0 0 0 11.14063,-10.71677 5.9566706,5.9566706 0 0 1 -1.236482,1.09112 5.9566706,5.9566706 0 0 1 -8.253454,-1.68221 5.9566706,5.9566706 0 0 1 1.681336,-8.25432 5.9566706,5.9566706 0 0 1 2.725168,-0.95539 11.152915,11.152915 0 0 0 -6.057198,-1.78906 z m 9.709735,5.66664 -3.091206,2.04563 3.092087,-2.04388 a 11.152915,11.152915 0 0 0 -8.81e-4,-0.001 z"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        id="path10997"
        style="fill:#00ffcc;fill-opacity:1;stroke:none;stroke-width:9.03775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 72.7231,234.50486 a 11.152915,11.152915 0 0 0 -11.152876,11.15289 11.152915,11.152915 0 0 0 11.152876,11.15374 11.152915,11.152915 0 0 0 11.14063,-10.71677 5.9566706,5.9566706 0 0 1 -1.236482,1.09112 5.9566706,5.9566706 0 0 1 -8.253454,-1.68221 5.9566706,5.9566706 0 0 1 1.681336,-8.25432 5.9566706,5.9566706 0 0 1 2.725168,-0.95539 11.152915,11.152915 0 0 0 -6.057198,-1.78906 z m 9.709735,5.66664 -3.091206,2.04563 3.092087,-2.04388 a 11.152915,11.152915 0 0 0 -8.81e-4,-0.001 z"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       d="m 72.7231,259.90502 a 11.152915,11.152915 0 0 0 -11.152876,11.15289 11.152915,11.152915 0 0 0 11.152876,11.15374 11.152915,11.152915 0 0 0 11.14063,-10.71677 5.9566706,5.9566706 0 0 1 -1.236482,1.09112 5.9566706,5.9566706 0 0 1 -8.253454,-1.68221 5.9566706,5.9566706 0 0 1 1.681336,-8.25432 5.9566706,5.9566706 0 0 1 2.725168,-0.95539 11.152915,11.152915 0 0 0 -6.057198,-1.78906 z m 9.709735,5.66664 -3.091206,2.04563 3.092087,-2.04388 a 11.152915,11.152915 0 0 0 -8.81e-4,-0.001 z"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#00ffcc;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 46.080056,265.37721 9.349877,9.34989 10.199865,-10.19985"
+       d="m 46.080056,290.77737 9.349877,9.34989 10.199865,-10.19985"
        id="path10999"
-       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\owl.png"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -559,12 +945,12 @@
          sodipodi:nodetypes="cc" />
     </g>
     <rect
-       style="fill:#00ffcc;stroke:none;stroke-width:6.00001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:#00ffcc;fill-opacity:1;stroke:none;stroke-width:6.00001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect2340"
        width="29.916056"
        height="29.916056"
        x="21.53956"
-       y="326.68332"
+       y="341.50018"
        inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\box_on.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
@@ -574,7 +960,7 @@
        width="29.916056"
        height="29.916056"
        x="77.102112"
-       y="326.68332"
+       y="341.50018"
        inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\box_off.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
@@ -634,6 +1020,174 @@
          d="M 320.60863,45.673498 V 30.600522 l -15.10112,15.043076 z"
          id="path1836"
          sodipodi:nodetypes="cccc" />
+    </g>
+    <g
+       id="g3391"
+       transform="translate(-7.1923076,-15.230769)">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient2894);fill-opacity:1;stroke-width:6.00001"
+         id="rect2884"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient2892);fill-opacity:1;stroke-width:6.00001"
+         id="rect2886"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient2890);fill-opacity:1;stroke-width:6.00001"
+         id="rect2888"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <rect
+       style="opacity:0.2;fill:url(#radialGradient2896);fill-opacity:1;stroke-width:6.00001"
+       id="rect2870"
+       width="98.999992"
+       height="98.999992"
+       x="231.63649"
+       y="6.6644239"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g3429"
+       transform="translate(-205.42989,101.03441)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\cog.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0.65">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3431);fill-opacity:1;stroke-width:6.00001"
+         id="rect3423"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient3433);fill-opacity:1;stroke-width:6.00001"
+         id="rect3425"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3435);fill-opacity:1;stroke-width:6.00001"
+         id="rect3427"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <rect
+       style="opacity:0.209;fill:url(#radialGradient3399);fill-opacity:1;stroke-width:6.00001"
+       id="rect3397"
+       width="98.999992"
+       height="98.999992"
+       x="5.4711404"
+       y="12.647634"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\graph.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g3457"
+       transform="translate(-307.71875,208.1339)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\plug.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0.65">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3459);fill-opacity:1;stroke-width:6.00001"
+         id="rect3451"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient3461);fill-opacity:1;stroke-width:6.00001"
+         id="rect3453"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3463);fill-opacity:1;stroke-width:6.00001"
+         id="rect3455"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <g
+       id="g3471"
+       transform="translate(-307.32789,314.63506)"
+       inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\owl.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0.65">
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3473);fill-opacity:1;stroke-width:6.00001"
+         id="rect3465"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#radialGradient3475);fill-opacity:1;stroke-width:6.00001"
+         id="rect3467"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="opacity:0.528846;fill:url(#linearGradient3477);fill-opacity:1;stroke-width:6.00001"
+         id="rect3469"
+         width="98.999992"
+         height="98.999992"
+         x="315.19232"
+         y="-87.788452"
+         inkscape:export-filename="C:\Users\mikkokallio\dev\ot-harkka\project\src\ui\icons\recycle.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
     </g>
   </g>
 </svg>

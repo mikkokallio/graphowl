@@ -10,7 +10,7 @@ class CoolButton(Frame):
         img = PhotoImage(file=f'src/ui/icons/{imgfile}.png')
         img = img.subsample(imgsize)
         btn = Button(self, image=img, border=0, height=size, width=size,
-                     background=COLOR_DARKER,
+                     background=COLOR_DARK,
                      activebackground=COLOR_DARKEST,
                      command = cmd)
         btn.image = img
