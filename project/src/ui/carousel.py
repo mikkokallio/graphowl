@@ -22,14 +22,14 @@ class Carousel(Frame):
         for i, button in enumerate(buttons):
             btn = CoolButton(nav, imgfile=button[0], imgsize=10, size=40, cmd=button[1])
             btn.grid(row=0, column=i, padx=6, pady=6)
-  
+
         self._forms = self._update_forms()
         self._current = 0
 
         self._indicator = None
 
         self._show_form()
-    
+
     def _update_indicator(self):
         if self._indicator:
             self._indicator.destroy()
