@@ -24,7 +24,7 @@ class Form(Frame):
             label.grid(row=i+1, column=1, padx=100, pady=5)
             entry.grid(row=i+1, column=2, padx=100, pady=5, sticky=(constants.E, constants.W))
 
-        button = Button(master=self, text="Save", background=COLOR_BRITE,
+        button = Button(master=self, text='Save', background=COLOR_BRITE,
                         activebackground=NEON_ELECTRIC, command=self._save_config)
         button.grid(row=len(self._rows)+1, column=1, columnspan=2,
                     sticky=(constants.E, constants.W), padx = 100, pady = 5)

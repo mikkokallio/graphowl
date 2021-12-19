@@ -1,3 +1,4 @@
+import pandas as pd
 import pymongo
 from connectors.connector import Connector, ConnectorConfigurationError
 
@@ -32,7 +33,7 @@ class MongoDbConnector(Connector):
         else:
             self._db = None
 
-    def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
+    def get_data(self, collname: str, fields: dict, transformations: dict, timespan: int) -> dict:
         """Fetches data from the database.
 
         Args:
@@ -49,8 +50,10 @@ class MongoDbConnector(Connector):
             start_time = self._get_start_time(timespan)
             result = coll.find({fields['time']:{'$gt':start_time}},
                                {'_id':0, fields['time']:1, fields['value']:1, fields['name']:1})
-            data = [{fields['time']: row[fields['time']], 'value': row[fields['value']],
-                     'name': row[fields['name']]} for row in result]
-            return self._transform(data)
-        except:
-            raise ConnectionError('cannot access db or collection')
+
+            df = pd.DataFrame.from_records(result)
+            df['time'] = df['time'].div(1000000)
+            df = df.pivot(index=fields['time'], columns=fields['name'], values=fields['value'])
+            return df
+        except AttributeError as error:
+            raise ConnectionError('cannot access db or collection') from error

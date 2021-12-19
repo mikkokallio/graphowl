@@ -36,8 +36,11 @@ class Dashboard:
 
         for graph in graphs:
             connector = self._sources[graph['connector']] if graph['connector'] in self._sources else None
-            self._graphs.append(Graph(graph['title'], connector,
-                                      graph['collection'], graph['fields']))
+            try:
+                self._graphs.append(Graph(graph['title'], connector,
+                                          graph['collection'], graph['fields'], graph['transformations']))
+            except KeyError:
+                self._graphs.append(Graph(None, None, None, None, None))
 
     @property
     def title(self):

@@ -1,4 +1,5 @@
 from os.path import exists
+import pandas as pd
 import sqlite3
 from connectors.connector import Connector, ConnectorConfigurationError
 
@@ -16,7 +17,7 @@ class SQLiteConnector(Connector):
         super().__init__(uri)
         self._config = kwargs
 
-    def get_data(self, collname: str, fields: dict, timespan: int) -> dict:
+    def get_data(self, collname: str, fields: dict, transformations: dict, timespan: int) -> dict:
         """Fetches data from the database.
 
         Args:
@@ -35,9 +36,10 @@ class SQLiteConnector(Connector):
         query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
         condition = f' WHERE {fields["time"]} > {start_time}'
         cur.execute(query + condition)
-
         result = cur.fetchall()
         con.close()
 
-        data = [{fields['time']: row[0], 'value': row[1], 'name': row[2]} for row in result]
-        return self._transform(data)
+        df = pd.DataFrame.from_records(result)
+        df[0] = df[0].div(1000000)
+        df = df.pivot(index=0, columns=2, values=1)
+        return df

@@ -1,7 +1,7 @@
 from tkinter import Frame, Button, messagebox, PhotoImage
 from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST
-from ui.coolbutton import CoolButton
 from services import resolve_path
+from ui.coolbutton import CoolButton
 from ui.form import Form
 
 

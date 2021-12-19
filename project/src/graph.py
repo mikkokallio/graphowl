@@ -4,7 +4,7 @@ from connectors.connector import Connector, ConnectorConfigurationError
 class Graph:
     """A data handling object representing a graph widget in the dashboard"""
 
-    def __init__(self, title: str, connector: Connector, collection: str, fields: dict):
+    def __init__(self, title: str, connector: Connector, collection: str, fields: dict, transformations: dict):
         """Creates an object capable of pulling data to display in a graph.
 
         Args:
@@ -17,6 +17,7 @@ class Graph:
         self._connector = connector
         self._collection = collection
         self._fields = fields
+        self._transformations = transformations
 
     @property
     def title(self):
@@ -29,9 +30,9 @@ class Graph:
             [dict]: Data to show in the corresponding UI widget.
         """
         try:
-            return self._connector.get_data(self._collection, self._fields, timespan)
+            return self._connector.get_data(self._collection, self._fields, self._transformations, timespan)
         except AttributeError:
-            return {'_error_':'missing connector'}
+            return {'_error_':'invalid graph configuration'}
         except ConnectorConfigurationError as error:
             return {'_error_':error}
         except ConnectionError as error:

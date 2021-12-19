@@ -1,0 +1,111 @@
+graphs:
+- collection: null
+  connector: THL-REST
+  fields:
+    name: Rokotusannos
+    time: Aika
+    value: val
+  title: Vaccinations taken / day
+  transformations: null
+- collection: null
+  connector: REST-API
+  fields:
+    name: t2m,td
+    time: null
+    value: null
+  title: Temperature vs Dewpoint temperature
+  transformations:
+    keep_cols: t2m,td
+- collection: null
+  connector: REST-API
+  fields:
+    name: ws_10min,wg_10min
+    time: null
+    value: null
+  title: Wind speed vs Wind gust
+  transformations:
+    keep_cols: ws_10min,wg_10min
+- collection: null
+  connector: REST-API
+  fields:
+    name: wd_10min
+    time: null
+    value: 3
+  title: Wind direction
+  transformations:
+    keep_cols: wd_10min
+- collection: null
+  connector: REST-API
+  fields:
+    name: null
+    time: null
+    value: null
+  title: Relative humidity
+  transformations:
+    keep_cols: rh
+- collection: null
+  connector: REST-API
+  fields:
+    name: null
+    time: null
+    value: null
+  title: Amount of rain vs Rainfall intensity
+  transformations:
+    keep_cols: r_1h,ri_10min
+- collection: null
+  connector: REST-API
+  fields:
+    name: null
+    time: null
+    value: null
+  title: Snow
+  transformations:
+    keep_cols: snow_aws
+- collection: null
+  connector: REST-API
+  fields:
+    name: null
+    time: null
+    value: null
+  title: Mean sea level pressure
+  transformations:
+    keep_cols: p_sea
+- collection: null
+  connector: REST-API
+  fields:
+    name: null
+    time: null
+    value: null
+  title: Horizontal visibility
+  transformations:
+    keep_cols: vis
+interval: 2 minutes
+layout:
+  x: 2
+  y: 2
+sources:
+- connector: SQLiteConnector
+  name: SQLite
+  transformations: null
+  uri: config/demo_db.sqlite
+- connector: RESTAPIConnector
+  name: REST-API
+  transformations:
+    delimiter: ' '
+    format: csv
+    header: add names
+    names: t2m,ws_10min,wg_10min,wd_10min,rh,td,r_1h,ri_10min,snow_aws,p_sea,vis,n_man,wawa,empty?
+    parse: xml
+    timestep: 3600
+    traverse: wfs:FeatureCollection,wfs:member,omso:GridSeriesObservation,om:result,gmlcov:MultiPointCoverage,gml:rangeSet,gml:DataBlock,gml:doubleOrNilReasonTupleList
+  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Helsinki&timestep=60&starttime=$TIMEZ&
+- connector: RESTAPIConnector
+  name: THL-REST
+  transformations:
+    delimiter: ;
+    format: csv
+    header: first row
+    pivot: true
+  uri: https://sampo.thl.fi/pivot/prod/fi/vaccreg/cov19cov/fact_cov19cov.csv?filter=measure-533175&row=cov_vac_dose-533170L&column=dateweek20201226-525459L
+timespan: 7 days
+title: Helsinki weather & Misc stats

@@ -1,5 +1,5 @@
 from tkinter import Frame, Button, PhotoImage
-from constants import COLOR_DARK, COLOR_DARKER, COLOR_DARKEST, COLOR_LITE
+from constants import COLOR_DARK, COLOR_DARKEST, COLOR_LITE
 
 
 class CoolButton(Frame):

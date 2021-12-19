@@ -11,7 +11,7 @@ from confighandler import ConfigHandler
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
-        self._loader = ConfigHandler('config/dashboard_live.yaml')
+        self._loader = ConfigHandler('config/dashboard_weather.yaml')
         self._current = None
 
         leftpane = Frame(self, bg=COLOR_DARK)

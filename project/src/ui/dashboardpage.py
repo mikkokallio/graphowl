@@ -1,3 +1,5 @@
+from threading import Timer
+from time import sleep
 from tkinter import Frame, Label
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
@@ -30,12 +32,21 @@ class DashboardPage(Frame):
                                                 left=0.075, right=0.925, top=0.925, bottom=0.075,
                                                 wspace=0.20, hspace=0.35)
         self._canvas = FigureCanvasTkAgg(self._fig, self)
-        self._canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky ="nsew")
+        self._canvas.get_tk_widget().grid(row = 1, column = 0, columnspan=3, sticky="nsew")
         self._draw_canvas()
+        Timer(10.0, self._refresher)
+        Timer(20.0, self._refresher)
+        Timer(30.0, self._refresher)
+        #self._refresher()
 
     def _draw_canvas(self):
         self._draw_layout(self._dboard.layout['y'], self._dboard.layout['x'], self._dboard.load_all())
         self._canvas.draw()
+
+    def _refresher(self):
+        while True:
+            self._draw_canvas()
+            sleep(10)
 
     def _draw_layout(self, rows, cols, graphdata):
         """Uses a generator to yield one graph at a time to put into the layout"""
@@ -60,26 +71,27 @@ class DashboardPage(Frame):
 
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
-            error = None if '_error_' not in data['plots'] else data['plots']['_error_']
-            if error or 'plots' not in data or data['plots'] in [None, {}]:
+            error = None if data['plots'] is None or '_error_' not in data['plots'] else data['plots']['_error_']
+            #if error or 'plots' not in data or data['plots'] in [None, {}]:
+            if error or 'plots' not in data:
                 axl.axis([0, 10, 0, 10])
                 axl.text(5, 5, error if error else 'no data', style='italic',
                          verticalalignment='center', horizontalalignment='center',
                          bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
                 return axl
 
-            smallest = min([min(plot[1]) for plot in data['plots'].values()])
+            smallest = data['plots'].min(numeric_only=True).min()
 
             color_gen = (color for color in COLORS)
 
             for title, plot in data['plots'].items():
+                plot = plot.dropna()
                 color = next(color_gen, None)
-                axl.plot(plot[0], plot[1], marker='', markersize=1.0, linewidth=0.75,
-                         path_effects=[patheffects.Normal()], label=title, color=color)
+                axl.plot(plot, marker='', markersize=1.0, linewidth=0.75, label=title, color=color)
                 for n in range(8):
-                    axl.plot(plot[0], plot[1], marker='',
+                    axl.plot(plot, marker='',
                              alpha=0.025, linewidth=2+1.15*n, color=color)
-                axl.fill_between(x=plot[0], y1=plot[1], y2=smallest, alpha=0.035, color=color)
+                axl.fill_between(x=plot.index, y1=plot, y2=smallest, alpha=0.035, color=color)
             if cols in LEGENDCOLS and LEGENDCOLS[cols] is not None:
                 lgd = axl.legend(loc='lower center',
                                 labelcolor='white', facecolor='black',

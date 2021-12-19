@@ -16,12 +16,11 @@ class TestSQLiteDbConnector(unittest.TestCase):
 
     def test_data_can_be_fetched_with_no_timespan(self):
         data = self.source.get_data('ruuvitags',
-                                    {'time':'time','value':'humidity','name':'name'}, None)
-        self.assertEqual(len(data), 4)
-        self.assertEqual(len(data['kitchen'][0]), 47)
+                                    {'time':'time','value':'humidity','name':'name'}, None, None)
+        self.assertEqual(data.shape, (204,4))
 
     def test_data_can_be_fetched_with_timespan(self):
         timespan = time.time() - 1637413815.185 + TIME_EXP['hour'] # Mock 1-hour span in stale db
         data = self.source.get_data('ruuvitags',
-                                    {'time':'time','value':'humidity','name':'name'},timespan)
-        self.assertEqual(len(data['kitchen'][0]), 8)
+                                    {'time':'time','value':'humidity','name':'name'}, None, timespan)
+        self.assertEqual(data.shape, (32,4))

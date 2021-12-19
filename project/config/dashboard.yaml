@@ -6,6 +6,7 @@ graphs:
     time: time
     value: temperature
   title: Temperature
+  transformations:
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -13,6 +14,7 @@ graphs:
     time: time
     value: humidity
   title: Humidity
+  transformations:
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -20,6 +22,7 @@ graphs:
     time: time
     value: pressure
   title: Pressure
+  transformations:
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -27,6 +30,7 @@ graphs:
     time: time
     value: acceleration
   title: Acceleration
+  transformations:
 interval: 2 minutes
 layout:
   x: 2
@@ -35,8 +39,6 @@ sources:
 - connector: SQLiteConnector
   name: SQLite
   uri: config/demo_db.sqlite
-- connector: RESTAPIConnector
-  name: REST-API
-  uri: http://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::observations::weather::multipointcoverage&place=Kuopio&timestep=60&starttime=2021-12-12T00:00:00Z&
+  transformations:
 timespan: none
 title: Statistics

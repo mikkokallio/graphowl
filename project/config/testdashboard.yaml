@@ -1,41 +1,44 @@
-title: Test
-timespan: 12 hours
-interval: 5 minutes
+graphs:
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: temperature
+  title: Temperature
+  transformations:
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: humidity
+  title: Humidity
+  transformations:
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: pressure
+  title: Pressure
+  transformations:
+- collection: ruuvitags
+  connector: SQLite
+  fields:
+    name: name
+    time: time
+    value: acceleration
+  title: Acceleration
+  transformations:
+interval: 2 minutes
 layout:
-  x: 3
+  x: 2
   y: 2
 sources:
-  - name: Mongo
-    connector: MongoDbConnector
-    uri: fakeconnectionstring
-    cert: 
-    database: sensors
-graphs:
-  - title: Temperature
-    connector: Mongo
-    collection: ruuvitags
-    fields:
-      time: time
-      value: temperature
-      name: alias
-  - title: Humidity
-    connector: Mongo
-    collection: ruuvitags
-    fields:
-      time: time
-      value: humidity
-      name: alias
-  - title: Pressure
-    connector: Mongo
-    collection: ruuvitags
-    fields:
-      time: time
-      value: pressure
-      name: alias
-  - title: Acceleration
-    connector: Mongo
-    collection: ruuvitags
-    fields:
-      time: time
-      value: acceleration
-      name: alias
+- connector: SQLiteConnector
+  name: SQLite
+  uri: config/demo_db.sqlite
+  transformations:
+timespan: none
+title: Statistics

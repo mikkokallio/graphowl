@@ -6,19 +6,19 @@ from dashboard import Dashboard
 class TestDashboard(unittest.TestCase):
     def setUp(self):
         self.loader = ConfigHandler('config/testdashboard.yaml')
-        self.dummy_source = {'name':'Dummy','connector':'Connector','uri':'dummy'}
+        self.dummy_source = {'name':'Dummy','connector':'Connector','uri':'dummy','transformations':{}}
         self.dummy_graph = {'title':'Graph','connector':'Dummy','collection':'dummy',
-                       'fields':{'time':'time','value':'dummy','name':'dummy'}}
+                       'fields':{'time':'time','value':'dummy','name':'dummy'}, 'transformations':{}}
         self.dashboard = Dashboard('Dummy', {'x':2,'y':2}, '8 hours', '10 minutes',
                                    [self.dummy_source],
                                    [self.dummy_graph, self.dummy_graph, self.dummy_graph])
 
     def test_constructor_stores_correct_values(self):
         dashboard = Dashboard(**self.loader.load())
-        self.assertEqual(dashboard.title, 'Test')
-        self.assertEqual(dashboard.timespan, 43200)
-        self.assertEqual(dashboard.interval, 300)
-        self.assertEqual(dashboard.layout['x'], 3)
+        self.assertEqual(dashboard.title, 'Statistics')
+        self.assertEqual(dashboard.timespan, None)
+        self.assertEqual(dashboard.interval, 120)
+        self.assertEqual(dashboard.layout['x'], 2)
         self.assertEqual(dashboard.layout['y'], 2)
         self.assertEqual(len(dashboard._graphs), 4)
         self.assertEqual(len(dashboard._sources), 1)
