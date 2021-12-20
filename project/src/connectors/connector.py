@@ -26,15 +26,9 @@ class Connector:
             return json.loads(data)
         return data
 
-    def _parse_tabular_csv(self, data, usecols):
+    def _parse_tabular_csv(self, data, usecols, names, header):
         """Parse csv into a dataframe"""
         buffer = io.StringIO(data)
-        if 'header' in self._trans and self._trans['header'] == 'add names':
-            header = None
-            names = self._trans['names'].split(',')
-        else:
-            header = 0
-            names = None
         usecols = None if 'pivot' in self._trans and self._trans['pivot'] == 'yes' else usecols
         return pd.read_csv(filepath_or_buffer = buffer, skipinitialspace=True, usecols=usecols,
                            sep=self._trans['delimiter'], names=names, header=header)
@@ -50,20 +44,29 @@ class Connector:
                 data = self._parse_xml_or_json(data, self._trans['parse'])
             if present('traverse'):
                 data = resolve_path(self._trans['traverse'].split(','), data)
-            if present('format') and self._trans['format'] == 'csv':
-                data = self._parse_tabular_csv(data, usecols)
+            if 'header' in self._trans and self._trans['header'] == 'add names':
+                names = self._trans['names'].replace('$VALUE', fields['value']).split(',')
+                header = None
             else:
-                data = pd.DataFrame.from_records(data)
+                header = 0
+                names = None
+            if present('format') and self._trans['format'] == 'csv':
+                data = self._parse_tabular_csv(data, usecols, names, header)
+            else:
+                data = pd.DataFrame.from_records(data, columns=names)
             if present('time_format'):
                 if self._trans['time_format'] == 'milliseconds':
                     data[fields['time']] = data[fields['time']].div(1000000)
             if present('pivot') and self._trans['pivot'] == 'yes':
-                data = data.pivot(index=fields['time'], columns=fields['name'], values=fields['value'])
+                data = data.pivot(index=fields['time'],
+                                  columns=fields['name'],
+                                  values=fields['value'])
                 if usecols:
                     data = data[usecols]
             if present('timestep'):
                 n = data.shape[0]
-                data.insert(0, 'time', [dt.fromtimestamp(start_time/1000 + i * self._trans['timestep']) for i in range(n)])
+                dtime = lambda i : dt.fromtimestamp(start_time/1000 + i * self._trans['timestep'])
+                data.insert(0, 'time', [dtime(i) for i in range(n)])
                 data = data.set_index('time')
             return data
         except pd.errors.EmptyDataError as error:
@@ -72,8 +75,8 @@ class Connector:
             raise ConnectorConfigurationError('column name(s) not found') from error
         except TypeError as error:
             raise ConnectorConfigurationError('cannot traverse path') from error
-        except KeyError as error:
-            raise ConnectorConfigurationError('invalid plot names') from error
+        #except KeyError as error:
+        #    raise ConnectorConfigurationError('invalid plot names') from error
 
     def get_data(self, *args):
         return {'plot1': ([1,2,3,4],[1,2,3,4]), 'plot2': ([1,2,3,4],[4,3,2,1])}

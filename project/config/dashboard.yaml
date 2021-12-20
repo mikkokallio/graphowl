@@ -6,7 +6,7 @@ graphs:
     time: time
     value: temperature
   title: Temperature
-  transformations:
+  transformations: null
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -14,7 +14,7 @@ graphs:
     time: time
     value: humidity
   title: Humidity
-  transformations:
+  transformations: null
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -22,7 +22,7 @@ graphs:
     time: time
     value: pressure
   title: Pressure
-  transformations:
+  transformations: null
 - collection: ruuvitags
   connector: SQLite
   fields:
@@ -30,16 +30,25 @@ graphs:
     time: time
     value: acceleration
   title: Acceleration
-  transformations:
+  transformations: null
 interval: 2 minutes
 layout:
   x: 2
   y: 2
+legend: 'yes'
 sources:
 - connector: SQLiteConnector
   name: SQLite
-  uri: config/demo_db.sqlite
   transformations:
+    delimiter: null
+    format: records
+    header: add names
+    names: time,$VALUE,name
+    parse: null
+    pivot: 'yes'
+    time_format: milliseconds
+    timestep: null
+    traverse: null
+  uri: config/demo_db.sqlite
 timespan: none
-title: Statistics
-legend: no
+title: SQLite demo dashboard

@@ -7,7 +7,13 @@ from constants import TIME_EXP
 class TestSQLiteDbConnector(unittest.TestCase):
     def setUp(self):
         self.config = {'name': 'Tester', 'connector': 'SQLiteConnector',
-                       'uri': 'config/demo_db.sqlite', 'transformations': {}}
+                       'uri': 'config/demo_db.sqlite',
+                       'transformations': {'format': 'records',
+                                           'header': 'add names',
+                                           'names': 'time,$VALUE,name',
+                                           'pivot': 'yes',
+                                           'time_format': 'milliseconds'
+                       }}
         self.source = SQLiteConnector(**self.config)
 
     def test_constructor_saves_attributes(self):

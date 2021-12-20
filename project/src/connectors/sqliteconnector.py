@@ -1,5 +1,4 @@
 from os.path import exists
-import pandas as pd
 import sqlite3
 from connectors.connector import Connector, ConnectorConfigurationError
 
@@ -37,10 +36,6 @@ class SQLiteConnector(Connector):
         query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
         condition = f' WHERE {fields["time"]} > {start_time}'
         cur.execute(query + condition)
-        result = cur.fetchall()
+        data = cur.fetchall()
         con.close()
-
-        df = pd.DataFrame.from_records(result)
-        df[0] = df[0].div(1000000)
-        df = df.pivot(index=0, columns=2, values=1)
-        return df
+        return self._apply_transformations(data, transformations, fields, start_time)
