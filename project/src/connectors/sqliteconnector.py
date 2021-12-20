@@ -7,14 +7,15 @@ from connectors.connector import Connector, ConnectorConfigurationError
 class SQLiteConnector(Connector):
     """Establishes connection to SQLite and loads data into appropriate format"""
 
-    def __init__(self, uri: str, **kwargs) -> None:
+    def __init__(self, uri: str, transformations: dict, **kwargs) -> None:
         """Creates a connection to a particular database in a SQLite instance.
 
         Args:
             uri (str): Connection string for the database.
         """
 
-        super().__init__(uri)
+        super().__init__(uri, transformations)
+        self._trans = transformations
         self._config = kwargs
 
     def get_data(self, collname: str, fields: dict, transformations: dict, timespan: int) -> dict:

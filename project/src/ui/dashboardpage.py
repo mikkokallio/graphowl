@@ -4,7 +4,6 @@ from tkinter import Frame, Label
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib.dates import DateFormatter
-from matplotlib import patheffects
 from matplotlib.ticker import MaxNLocator
 from dashboard import Dashboard
 from ui.coolbutton import CoolButton
@@ -40,7 +39,9 @@ class DashboardPage(Frame):
         #self._refresher()
 
     def _draw_canvas(self):
-        self._draw_layout(self._dboard.layout['y'], self._dboard.layout['x'], self._dboard.load_all())
+        self._draw_layout(self._dboard.layout['y'],
+                          self._dboard.layout['x'],
+                          self._dboard.load_all())
         self._canvas.draw()
 
     def _refresher(self):
@@ -72,7 +73,6 @@ class DashboardPage(Frame):
         if data is not None:
             axl.set_title(data['title'], fontdict={'color':'white','size':10})
             error = None if data['plots'] is None or '_error_' not in data['plots'] else data['plots']['_error_']
-            #if error or 'plots' not in data or data['plots'] in [None, {}]:
             if error or 'plots' not in data:
                 axl.axis([0, 10, 0, 10])
                 axl.text(5, 5, error if error else 'no data', style='italic',
@@ -93,7 +93,6 @@ class DashboardPage(Frame):
                              alpha=0.025, linewidth=2+1.15*n, color=color)
                 axl.fill_between(x=plot.index, y1=plot, y2=smallest, alpha=0.035, color=color)
             if self._dboard._legend and cols in LEGENDCOLS:
-                #cols in LEGENDCOLS and LEGENDCOLS[cols] is not None:
                 lgd = axl.legend(loc='lower center',
                                 labelcolor='white', facecolor='black',
                                 framealpha=0.5, edgecolor='none', ncol=LEGENDCOLS[cols])

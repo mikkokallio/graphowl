@@ -1,4 +1,5 @@
 import pandas as pd
+from requests.models import DecodeError
 import pymongo
 from connectors.connector import Connector, ConnectorConfigurationError
 
@@ -6,7 +7,7 @@ from connectors.connector import Connector, ConnectorConfigurationError
 class MongoDbConnector(Connector):
     """Establishes connection to MongoDb and loads data into appropriate format"""
 
-    def __init__(self, uri: str, cert: str, database: str, **kwargs) -> None:
+    def __init__(self, uri: str, transformations: dict, cert: str, database: str, **kwargs) -> None:
         """Creates a connection to a particular database in a MongoDb instance.
 
         Args:
@@ -15,7 +16,8 @@ class MongoDbConnector(Connector):
             database (str): Database name.
         """
 
-        super().__init__(uri)
+        super().__init__(uri, transformations)
+        self._trans = transformations
         self._config = kwargs
         if uri is None:
             self._db = None
@@ -48,12 +50,8 @@ class MongoDbConnector(Connector):
         try:
             coll = self._db[collname]
             start_time = self._get_start_time(timespan)
-            result = coll.find({fields['time']:{'$gt':start_time}},
-                               {'_id':0, fields['time']:1, fields['value']:1, fields['name']:1})
-
-            df = pd.DataFrame.from_records(result)
-            df['time'] = df['time'].div(1000000)
-            df = df.pivot(index=fields['time'], columns=fields['name'], values=fields['value'])
-            return df
-        except AttributeError as error:
+            data = coll.find({fields['time']:{'$gt':start_time}},
+                             {'_id':0, fields['time']:1, fields['value']:1, fields['name']:1})
+            return self._apply_transformations(data, transformations, fields, start_time)
+        except DecodeError as error:
             raise ConnectionError('cannot access db or collection') from error

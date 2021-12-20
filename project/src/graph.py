@@ -31,8 +31,8 @@ class Graph:
         """
         try:
             return self._connector.get_data(self._collection, self._fields, self._transformations, timespan)
-        except AttributeError:
-            return {'_error_':'invalid graph configuration'}
+        #except AttributeError:
+        #    return {'_error_':'invalid graph configuration'}
         except ConnectorConfigurationError as error:
             return {'_error_':error}
         except ConnectionError as error:

@@ -107,7 +107,7 @@ sources:
     delimiter: ;
     format: csv
     header: first row
-    pivot: true
+    pivot: 'yes'
   uri: https://sampo.thl.fi/pivot/prod/fi/vaccreg/cov19cov/fact_cov19cov.csv?filter=measure-533175&row=cov_vac_dose-533170L&column=dateweek20201226-525459L
 timespan: 7 days
 title: Helsinki weather & Misc stats

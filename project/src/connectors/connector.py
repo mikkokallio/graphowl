@@ -10,8 +10,9 @@ from services import resolve_path
 class Connector:
     """Abstract connector class for actual connectors to inherit"""
 
-    def __init__(self, uri: str, **kwargs):
+    def __init__(self, uri: str, transformations: dict, **kwargs):
         self._uri = uri
+        self._trans = transformations
         self._config = kwargs
 
     def _get_start_time(self, timespan: int) -> int:
@@ -34,24 +35,33 @@ class Connector:
         else:
             header = 0
             names = None
-        usecols = None if 'pivot' in self._trans else usecols
-        df = pd.read_csv(filepath_or_buffer = buffer, skipinitialspace=True, usecols=usecols,
-                         sep=self._trans['delimiter'], names=names, header=header)
-        return df
+        usecols = None if 'pivot' in self._trans and self._trans['pivot'] == 'yes' else usecols
+        return pd.read_csv(filepath_or_buffer = buffer, skipinitialspace=True, usecols=usecols,
+                           sep=self._trans['delimiter'], names=names, header=header)
 
-    def _apply_transformations(self, data, usecols, fields, start_time):
+    def _apply_transformations(self, data, trans, fields, start_time):
+        present = lambda key : key in self._trans and self._trans[key] is not None and len(str(self._trans[key])) > 0
         try:
-            if 'parse' in self._trans:
+            if trans is not None and 'keep_cols' in trans and trans['keep_cols'] is not None and len(str(trans['keep_cols'])) > 0:
+                usecols = trans['keep_cols'].split(',')
+            else:
+                usecols = None
+            if present('parse'):
                 data = self._parse_xml_or_json(data, self._trans['parse'])
-            if 'traverse' in self._trans:
+            if present('traverse'):
                 data = resolve_path(self._trans['traverse'].split(','), data)
-            if 'format' in self._trans:
+            if present('format') and self._trans['format'] == 'csv':
                 data = self._parse_tabular_csv(data, usecols)
-            if 'pivot' in self._trans:
+            else:
+                data = pd.DataFrame.from_records(data)
+            if present('time_format'):
+                if self._trans['time_format'] == 'milliseconds':
+                    data[fields['time']] = data[fields['time']].div(1000000)
+            if present('pivot') and self._trans['pivot'] == 'yes':
                 data = data.pivot(index=fields['time'], columns=fields['name'], values=fields['value'])
                 if usecols:
                     data = data[usecols]
-            if 'timestep' in self._trans:
+            if present('timestep'):
                 n = data.shape[0]
                 data.insert(0, 'time', [dt.fromtimestamp(start_time/1000 + i * self._trans['timestep']) for i in range(n)])
                 data = data.set_index('time')
@@ -64,23 +74,6 @@ class Connector:
             raise ConnectorConfigurationError('cannot traverse path') from error
         except KeyError as error:
             raise ConnectorConfigurationError('invalid plot names') from error
-
-    def _transform(self, data: dict) -> dict:
-        """Transforms raw data into a dict to show in a graph.
-
-        Args:
-            data (dict): Raw data fetched from data source.
-
-        Returns:
-            dict[str, tuple[list, list]]: A dictionary with a tuple for each plot,
-            which in turn contains an array for x and y coordinates each.
-        """
-
-        plots = {row['name']:([],[]) for row in data}
-        for row in data:
-            plots[row['name']][0].append(dt.fromtimestamp(row['time']/1000))
-            plots[row['name']][1].append(row['value'])
-        return plots
 
     def get_data(self, *args):
         return {'plot1': ([1,2,3,4],[1,2,3,4]), 'plot2': ([1,2,3,4],[4,3,2,1])}

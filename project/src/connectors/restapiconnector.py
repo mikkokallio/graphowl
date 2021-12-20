@@ -14,7 +14,7 @@ class RESTAPIConnector(Connector):
             uri (str): REST API's address.
         """
 
-        super().__init__(uri)
+        super().__init__(uri, transformations)
         self._trans = transformations
         self._config = kwargs
     
@@ -30,13 +30,11 @@ class RESTAPIConnector(Connector):
         """
         start_time = self._get_start_time(timespan)
         start_dt = str(dt.fromtimestamp(start_time/1000)).replace(' ', 'T').split('.')[0]
-        cols = transformations['keep_cols']
-        usecols = cols.split(',') if len(cols)>0 else None
         try:
             url = self._uri.replace('$TIME', start_dt)
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
             data = requests.get(url=url, headers=headers).text
-            return self._apply_transformations(data, usecols, fields, start_time)
+            return self._apply_transformations(data, transformations, fields, start_time)
         except MissingSchema as error:
             raise ConnectorConfigurationError('URL missing http(s)') from error
         except ConnectionError as error:

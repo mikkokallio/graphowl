@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import patch
-from datetime import datetime
 import mongomock
 from connectors.mongodbconnector import MongoDbConnector
 from constants import TIME_EXP
@@ -8,7 +7,9 @@ from constants import TIME_EXP
 
 class TestMongoDbConnector(unittest.TestCase):
     def setUp(self):
-        self.config = {'name': 'Mongo', 'connector': 'MongoDbConnector', 'uri': 'mongodb://mock', 'cert': 'mock.pem', 'database': 'values'}
+        self.config = {'name': 'Mongo', 'connector': 'MongoDbConnector', 'uri': 'mongodb://mock',
+                       'cert': 'mock.pem', 'database': 'values',
+                       'transformations': {'pivot': 'yes'}}
         with patch('pymongo.MongoClient', mongomock.MongoClient):
             self.source = MongoDbConnector(**self.config)
 
@@ -18,7 +19,7 @@ class TestMongoDbConnector(unittest.TestCase):
 
     def test_data_is_fetched_from_database(self):
         collname = 'dummycoll'
-        self.collection = self.source._db[collname]
+        collection = self.source._db[collname]
         objs = [
             {'_id':'61903f31274919d5fbb5728e',
              'time':1638469814090,'temperature':'3.78','moisture':"65.25",
@@ -39,7 +40,7 @@ class TestMongoDbConnector(unittest.TestCase):
              'time':1638469814090-TIME_EXP['day'],'temperature':'23.96','moisture':"32.32",
              "pressure":"999.78","name":"kitchen"}
             ]
-        self.collection.insert_many(objs)
+        collection.insert_many(objs)
         fields = { 'time': 'time', 'value': 'temperature', 'name': 'name'}
 
         result = self.source.get_data(collname, fields, None, 100000 * TIME_EXP['day'])
