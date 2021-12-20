@@ -35,6 +35,8 @@ class RESTAPIConnector(Connector):
         """
         start_time = self._get_start_time(timespan)
         start_dt = str(dt.fromtimestamp(start_time/1000)).replace(' ', 'T').split('.')[0]
+        cols = transformations['keep_cols']
+        usecols = cols.split(',') if len(cols)>0 else None
         try:
             url = self._uri.replace('$TIME', start_dt)
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
@@ -44,9 +46,11 @@ class RESTAPIConnector(Connector):
             if 'traverse' in self._trans:
                 data = resolve_path(self._trans['traverse'].split(','), data)
             if 'format' in self._trans:
-                data = self._parse_tabular_csv(data, fields, transformations)
+                data = self._parse_tabular_csv(data, usecols)
             if 'pivot' in self._trans:
                 data = data.pivot(index=fields['time'], columns=fields['name'], values=fields['value'])
+                if usecols:
+                    data = data[usecols]
             if 'timestep' in self._trans:
                 n = data.shape[0]
                 data.insert(0, 'time', [dt.fromtimestamp(start_time/1000 + i * self._trans['timestep']) for i in range(n)])
@@ -62,6 +66,8 @@ class RESTAPIConnector(Connector):
             raise ConnectorConfigurationError('column name(s) not found') from error
         except TypeError as error:
             raise ConnectorConfigurationError('cannot traverse path') from error
+        except KeyError as error:
+            raise ConnectorConfigurationError('invalid plot names') from error
 
     def _parse_xml_or_json(self, data, parse):
         """Tries to parse as xml, then json"""
@@ -71,7 +77,7 @@ class RESTAPIConnector(Connector):
             return json.loads(data)
         return data
 
-    def _parse_tabular_csv(self, data, fields, tr):
+    def _parse_tabular_csv(self, data, usecols):
         """Parse csv into a dataframe"""
         buffer = io.StringIO(data)
         if 'header' in self._trans and self._trans['header'] == 'add names':
@@ -80,7 +86,7 @@ class RESTAPIConnector(Connector):
         else:
             header = 0
             names = None
-        usecols = None if tr is None or 'keep_cols' not in tr else tr['keep_cols'].split(',')
+        usecols = None if 'pivot' in self._trans else usecols
         df = pd.read_csv(filepath_or_buffer = buffer, skipinitialspace=True, usecols=usecols,
                          sep=self._trans['delimiter'], names=names, header=header)
         return df

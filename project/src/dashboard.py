@@ -9,7 +9,7 @@ from constants import TIME_EXP
 class Dashboard:
     """Contains all graphs and other configuration and data"""
 
-    def __init__(self, title: str, layout: dict, timespan: str, interval: str, sources: list, graphs: list):
+    def __init__(self, title: str, layout: dict, legend: str, timespan: str, interval: str, sources: list, graphs: list):
         """Creates a dashboard object, which is the interface between the UI and data collection.
 
         Args:
@@ -23,6 +23,7 @@ class Dashboard:
 
         self._title = title
         self._layout = self._validate_layout(layout)
+        self._legend = True if legend == 'yes' else False
         self._timespan = self._parse_time_config(timespan)
         self._interval = self._parse_time_config(interval)
         self._sources = {}
@@ -49,6 +50,10 @@ class Dashboard:
     @property
     def layout(self):
         return self._layout
+
+    @property
+    def legend(self):
+        return self._legend
 
     @property
     def timespan(self):

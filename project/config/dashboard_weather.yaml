@@ -1,36 +1,37 @@
 graphs:
-- collection: null
+- collection: ''
   connector: THL-REST
   fields:
     name: Rokotusannos
     time: Aika
     value: val
   title: Vaccinations taken / day
-  transformations: null
-- collection: null
+  transformations:
+    keep_cols: ''
+- collection: ''
   connector: REST-API
   fields:
-    name: t2m,td
-    time: null
-    value: null
+    name: ''
+    time: ''
+    value: ''
   title: Temperature vs Dewpoint temperature
   transformations:
     keep_cols: t2m,td
-- collection: null
+- collection: ''
   connector: REST-API
   fields:
-    name: ws_10min,wg_10min
-    time: null
-    value: null
+    name: ''
+    time: ''
+    value: ''
   title: Wind speed vs Wind gust
   transformations:
     keep_cols: ws_10min,wg_10min
-- collection: null
+- collection: ''
   connector: REST-API
   fields:
-    name: wd_10min
-    time: null
-    value: 3
+    name: ''
+    time: ''
+    value: ''
   title: Wind direction
   transformations:
     keep_cols: wd_10min
@@ -81,8 +82,9 @@ graphs:
     keep_cols: vis
 interval: 2 minutes
 layout:
-  x: 2
-  y: 2
+  x: 1
+  y: 1
+legend: 'yes'
 sources:
 - connector: SQLiteConnector
   name: SQLite

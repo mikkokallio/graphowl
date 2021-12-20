@@ -92,7 +92,8 @@ class DashboardPage(Frame):
                     axl.plot(plot, marker='',
                              alpha=0.025, linewidth=2+1.15*n, color=color)
                 axl.fill_between(x=plot.index, y1=plot, y2=smallest, alpha=0.035, color=color)
-            if cols in LEGENDCOLS and LEGENDCOLS[cols] is not None:
+            if self._dboard._legend and cols in LEGENDCOLS:
+                #cols in LEGENDCOLS and LEGENDCOLS[cols] is not None:
                 lgd = axl.legend(loc='lower center',
                                 labelcolor='white', facecolor='black',
                                 framealpha=0.5, edgecolor='none', ncol=LEGENDCOLS[cols])
@@ -100,11 +101,12 @@ class DashboardPage(Frame):
         return axl
 
     def _on_hover(self, event):
-        if event.inaxes is None and self._hovering is not False:
-            self._hovering = False
-            [leg.set_visible(True) for leg in self._legends]
-            self._canvas.draw()
-        if event.inaxes is not None and self._hovering is not True:
-            self._hovering = True
-            [leg.set_visible(False) for leg in self._legends]
-            self._canvas.draw()
+        pass
+        #if event.inaxes is None and self._hovering is not False:
+        #    self._hovering = False
+        #    [leg.set_visible(True) for leg in self._legends]
+        #    self._canvas.draw()
+        #if event.inaxes is not None and self._hovering is not True:
+        #    self._hovering = True
+        #    [leg.set_visible(False) for leg in self._legends]
+        #    self._canvas.draw()

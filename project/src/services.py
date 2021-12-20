@@ -1,5 +1,6 @@
 def resolve_path(path, data, value=None):
-    if len(path) == 0:
+    """Fetch or set value from nested structure"""
+    if path is None or len(path) == 0:
         if value is not None:
             data = value
         else:

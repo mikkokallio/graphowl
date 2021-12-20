@@ -34,15 +34,16 @@ TIMESPANS = ['none', '5 minutes', '15 minutes', '30 minutes', '1 hour',
              '6 hours', '12 hours', '1 day', '2 days', '7 days', '30 days']
 INTERVALS = ['none', '30 seconds', '1 minute', '2 minutes', '5 minutes',
              '10 minutes', '15 minutes', '30 minutes']
+ONOFF = ['yes', 'no']
 LAYOUTS = [1, 2, 3, 4]
 
 # In the dashboard's main configuration view, show these rows in the form
 FORM_ROWS = [{'label': 'Dashboard title', 'var': ['title'],
               'numeric': False, 'options': None},
+             {'label': 'Show legend', 'var': ['legend'],
+              'numeric': False, 'options': ONOFF},
              {'label': 'Time span', 'var': ['timespan'],
               'numeric': False, 'options': TIMESPANS},
-             {'label': 'Refresh interval', 'var': ['interval'],
-              'numeric': False, 'options': INTERVALS},
              {'label': 'Layout x', 'var': ['layout', 'x'],
               'numeric': True, 'options': LAYOUTS},
              {'label': 'Layout y', 'var': ['layout', 'y'],
@@ -60,6 +61,8 @@ GRAPH_ROWS = [{'label': 'Graph title', 'var': ['title'],
               {'label': 'Field: time', 'var': ['fields', 'time'],
                'numeric': False, 'options': None},
               {'label': 'Field: value', 'var': ['fields', 'value'],
+               'numeric': False, 'options': None},
+              {'label': 'Keep plots', 'var': ['transformations', 'keep_cols'],
                'numeric': False, 'options': None}]
 
 # In the sources (connectors) configuration view, show these rows in the form
@@ -76,4 +79,4 @@ SOURCE_ROWS = [{'label': 'Source name', 'var': ['name'],
 # If the x dimension of the layout is n = 1...4,
 # this is how many horizontal ticks and legend cols there'll be
 MAXTICKS = {1:16, 2:8, 3:6, 4:4}
-LEGENDCOLS = {1:7, 2:3, 3:None, 4:None}
+LEGENDCOLS = {1:7, 2:3, 3:1, 4:1}

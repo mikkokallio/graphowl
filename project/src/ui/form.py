@@ -16,7 +16,10 @@ class Form(Frame):
 
         for i, row in enumerate(self._rows):
             rowpath = self._path + row['var']
-            var = resolve_path(rowpath, config)
+            try:
+                var = resolve_path(rowpath, config)
+            except TypeError:
+                var = None
             self._vars.append(StringVar(self, value=var))
             label = ttk.Label(master=self, text=row['label'],
                               background=COLOR_DARK, foreground=COLOR_BRITE)

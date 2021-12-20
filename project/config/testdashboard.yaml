@@ -42,3 +42,4 @@ sources:
   transformations:
 timespan: none
 title: Statistics
+legend: no
