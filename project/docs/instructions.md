@@ -34,13 +34,13 @@ To create a new data source or configure an existing one, click the [plug] butto
 
 |Parameter|Values|Purpose|
 |---|---|---|
-|Source name|any|This is the name that your graphs use to identify which data source to use for pulling their data.|
+|Source name|string|This is the name that your graphs use to identify which data source to use for pulling their data.|
 |Connector type|`RESTAPIConnector`, `MongoDbConnector`, `SQLiteConnector`|This value identifies whether the data comes from a REST API or a database of a particular type.|
-||||
-||||
-||||
-||||
-||||
+|URI|string|A string that uniquely identifies the data source you are connecting to. For a REST API, this is the http(s) address (URL) of the endpoint to get data from. For MongoDb, this is the connection string to a database instance. For SQLite, this is the path and filename of the database file.|
+|Database name|string|For MongoDb, this identifies the database within the MongoDb instance. For REST API or SQLite, leave this value empty.|
+|Certificate filename|string|For MongoDb, this is the filename of a certificate created for authentication. If your connection string includes your credentials, you don't need a certificate. For REST API or SQLite, leave this value empty.|
+|Parse result from format|`no parsing`, `xml`, `json`|This indicates what format the data source's response uses. REST APIs often use either XML or JSON, but also CSV is possible. If it's CSV, the parsing actually happens at the `Payload format` stage (see below), so no parsing is needed at this stage. Also, databases usually respond in a format that doesn't need XML or JSON parsing.|
+|Path to traverse|comma-separated string|If the result required parsing from XML or JSON, the response usually has a nested structure, and the payload data (the actual time series data) may be buried somewhere deeper in the structure. In this case, it's necessary to traverse the structure to get to the payload. In (ADD example), the first level in the structure is `dataset`, and under that there are several child levels, of which the correct one is `value`. So in this case, the path to traverse would be `dataset,value`.|
 ||||
 ||||
 ||||
