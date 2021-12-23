@@ -26,6 +26,24 @@ Creating new graphs is quite error-prone. It is strongly recommended to use an e
 3. Fill in all the fields in the new graph. If you don't know what you're doing (very likely!), use existing graphs from the demo as examples and try changing only small things first.
 4. Click **save** and go back to the dashboard view to see if it works. If you get an error, view the message and then your configuration again, and try to figure out what part of the configuration went wrong.
 
-### Creating new sources.
+### Configuring a data source
 
-This works much like creating new graphs except it is even more likely to not work. More detailed instructions to be added later!
+The for the graphs shown in the dashboard comes from different kinds of data sources, which can be databases or REST APIs, among other things. For connecting to data sources, GraphOwl has a few different connectors, currently supporting MongoDb, SQLite, and REST APIs.
+
+To create a new data source or configure an existing one, click the [plug] button to enter the data source configuration view. In that view, you can edit the parameters of a data source, as listed below.
+
+|Parameter|Values|Purpose|
+|---|---|---|
+|Source name|any|This is the name that your graphs use to identify which data source to use for pulling their data.|
+|Connector type|`RESTAPIConnector`, `MongoDbConnector`, `SQLiteConnector`|This value identifies whether the data comes from a REST API or a database of a particular type.|
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
