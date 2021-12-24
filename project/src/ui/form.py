@@ -20,6 +20,8 @@ class Form(Frame):
                 var = resolve_path(rowpath, config)
             except TypeError:
                 var = None
+            except KeyError:
+                var = None
             self._vars.append(StringVar(self, value=var))
             label = ttk.Label(master=self, text=row['label'],
                               background=COLOR_DARK, foreground=COLOR_BRITE)
