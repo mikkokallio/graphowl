@@ -42,8 +42,9 @@ To create a new data source or configure an existing one, click the [plug] butto
 |Parse result from format|`no parsing`, `xml`, `json`|This indicates what format the data source's response uses. REST APIs often use either XML or JSON, but also CSV is possible. If it's CSV, the parsing actually happens at the `Payload format` stage (see below), so no parsing is needed at this stage. Also, databases usually respond in a format that doesn't need XML or JSON parsing.|
 |Path to traverse|comma-separated string|If the result required parsing from XML or JSON, the response usually has a nested structure, and the payload data (the actual time series data) may be buried somewhere deeper in the structure. In this case, it's necessary to traverse the structure to get to the payload. In (ADD example), the first level in the structure is `dataset`, and under that there are several child levels, of which the correct one is `value`. So in this case, the path to traverse would be `dataset,value`. If the payload is at the root level of the structure, leave this value empty.|
 |Payload format|`records`,`csv`|Data from a database, or an XML  or JSON structure is often in a structured format, but it's also possible that it's CSV embedded into XML or JSON, or the whole response is just a CSV file. In that case, choose `csv`. Otherwise, choose `records`.|
-||||
-||||
-||||
-||||
-||||
+|CSV delimiter|character|A character (comma, semicolon, space, etc.) with which to split the CSV into columns.|
+|Pivot rows|`yes`, `no`|If the data has the data points for different plots on different rows rather than having the plots as different columns, you need to pivot the data. Pivoting uses the three `field` values from graph configuration, so check that those are correct for each graph.|
+|Header from|`already exists`, `add names`, `first row`|Determines whether column names already exist or need to be added manually, or taken from the first row in CSV data.|
+|Header names|comma-separated string|If column names are added by selecting `add names` in the selection above, list the column names here as a comma-separated list.|
+|Timestamp type|`milliseconds`, `datetime`|Determines what format timestamps use in the data. If the data already uses valid datetime, no conversion is needed. Otherwise, the app converts the timestamps from milliseconds or another format.|
+|Time step|number|If there is not time information in the data, the timestamps have to be generated. The first timestamp is based on the `timespan` in the dashboard configuration. All subsequent timestamps increase by the time step value from the previous timestamp, which is measured in seconds.|
