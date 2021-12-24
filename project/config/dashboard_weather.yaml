@@ -84,12 +84,8 @@ interval: 2 minutes
 layout:
   x: 2
   y: 2
-legend: 'yes'
+legend: 'no'
 sources:
-- connector: SQLiteConnector
-  name: SQLite
-  transformations: null
-  uri: config/demo_db.sqlite
 - connector: RESTAPIConnector
   name: REST-API
   transformations:

@@ -31,11 +31,12 @@ TIME_EXP = {'minutes': 60, 'minute': 60, 'mins': 60, 'min': 60,
 
 # Options in form dropdowns
 TIMESPANS = ['none', '5 minutes', '15 minutes', '30 minutes', '1 hour',
-             '6 hours', '12 hours', '1 day', '2 days', '7 days', '30 days']
+             '6 hours', '12 hours', '1 day', '2 days', '7 days', '2 weeks', '4 weeks']
 INTERVALS = ['none', '30 seconds', '1 minute', '2 minutes', '5 minutes',
              '10 minutes', '15 minutes', '30 minutes']
 ONOFF = ['yes', 'no']
 LAYOUTS = [1, 2, 3, 4]
+CONNECTORS = ['RESTAPIConnector', 'MongoDbConnector', 'SQLiteConnector']
 
 # In the dashboard's main configuration view, show these rows in the form
 FORM_ROWS = [{'label': 'Dashboard title', 'var': ['title'],
@@ -69,11 +70,31 @@ GRAPH_ROWS = [{'label': 'Graph title', 'var': ['title'],
 SOURCE_ROWS = [{'label': 'Source name', 'var': ['name'],
                 'numeric': False, 'options': None},
                {'label': 'Connector type', 'var': ['connector'],
-                'numeric': False, 'options': None},
+                'numeric': False, 'options': CONNECTORS},
                {'label': 'URI', 'var': ['uri'],
                 'numeric': False, 'options': None},
-               #{'label': 'Other properties', 'var': ['props'],
-               # 'numeric': False, 'options': None}
+               {'label': 'Database name', 'var': ['database'],
+                'numeric': False, 'options': None},
+               {'label': 'Certificate filename', 'var': ['cert'],
+                'numeric': False, 'options': None},
+               {'label': 'Parse result from format', 'var': ['transformations', 'parse'],
+                'numeric': False, 'options': ['no parsing', 'xml', 'json']},
+               {'label': 'Path to traverse', 'var': ['transformations', 'traverse'],
+                'numeric': False, 'options': None},
+               {'label': 'Payload format', 'var': ['transformations', 'format'],
+                'numeric': False, 'options': ['records', 'csv']},
+               {'label': 'CSV delimiter', 'var': ['transformations', 'delimiter'],
+                'numeric': False, 'options': None},
+               {'label': 'Pivot rows', 'var': ['transformations', 'pivot'],
+                'numeric': False, 'options': ONOFF},
+               {'label': 'Header from', 'var': ['transformations', 'header'],
+                'numeric': False, 'options': ['already exists', 'add names', 'first row']},
+               {'label': 'Header names', 'var': ['transformations', 'names'],
+                'numeric': False, 'options': None},
+               {'label': 'Timestamp type', 'var': ['transformations', 'time_format'],
+                'numeric': False, 'options': ['milliseconds', 'seconds', 'datetime']},
+               {'label': 'Time step', 'var': ['transformations', 'timestep'],
+                'numeric': True, 'options': None},
                ]
 
 # If the x dimension of the layout is n = 1...4,
