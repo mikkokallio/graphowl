@@ -16,15 +16,19 @@ See the instructions below on how to make changes to an existing dashboard, or c
 4. Click **save**.
 5. Click the **owl** symbol on the left. The dashboard reloads and shows the new layout and other changes.
 
-### Creating new graphs
+### Configuring graphs and data sources
 
-Creating new graphs is quite error-prone. It is strongly recommended to use an existing graph and then make small changes rather than trying to build from scratch.
+To configure graphs or data sources, click the [graph] or [source] button, respectively. **Note:** Creating new graphs or data sources is quite error-prone. It is strongly recommended to use an existing graph or data source and then make small changes rather than trying to build from scratch.
 
-1. Click the **graph** icon on the left. Graph configuration view opens.
-2. Use the `<` and `>` buttons to find the graph *after* which you'd like to place the new graph.
+* Use the `<` and `>` buttons to browse graphs or data sources.
+* Use the `x` button to delete a graph or data source.
+* Use the `+` button to create a new graph or data source.
+* Enter values (see Configuring a graph and Configuring a data source for details).
+* Click `Save` to save the changes.
+
+Once you have saved the changes, go back to the dashboard view to see if the changes worked as intended.  If you get an error, view the message and then your configuration again, and try to figure out what part of the configuration went wrong.
+
 **Note:** The graphs are laid out in the dashboard view left-right and top-down. So if you are using a 2x2 layout, the first two graphs in order will be on top, and the other two will be below. If you have 5 graphs in a 2x2 layout, the fifth one won't be shown until you change the layout. Conversely, if you have only 3 graphs in a 2x2 layout, the bottom-right one will be empty.
-3. Fill in all the fields in the new graph. If you don't know what you're doing (very likely!), use existing graphs from the demo as examples and try changing only small things first.
-4. Click **save** and go back to the dashboard view to see if it works. If you get an error, view the message and then your configuration again, and try to figure out what part of the configuration went wrong.
 
 ### Configuring a graph
 
