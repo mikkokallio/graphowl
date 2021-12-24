@@ -22,7 +22,7 @@ The following docs describe the app further:
 * [User instructions](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/instructions.md)
 * [Requirement specification](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/reqs.md)
 * [Architecture](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/architecture.md)
-* Testing documentation (TO BE ADDED)
+* [Testing document](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/testing.md)
 * [Work tracking sheet](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/hours.md)
 
 ## Usage
@@ -38,5 +38,3 @@ Run the following commands in the `project` folder.
 * To run tests, run `poetry run invoke test`.
 * For test coverage report, run `poetry run invoke coverage-report`.
 * To run the linter, run `poetry run invoke lint`.
-
-TO BE ADDED: Build phase
