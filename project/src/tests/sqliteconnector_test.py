@@ -1,6 +1,7 @@
 import unittest
 import time
 from connectors.sqliteconnector import SQLiteConnector
+from connectors.connector import ConnectorConfigurationError
 from constants import TIME_EXP
 
 
@@ -19,6 +20,10 @@ class TestSQLiteDbConnector(unittest.TestCase):
     def test_constructor_saves_attributes(self):
         self.assertNotEqual(self.source, None)
         self.assertEqual(self.source._uri, 'config/demo_db.sqlite')
+
+    def test_error_is_raised_if_bad_filepath(self):
+        self.source = SQLiteConnector('dummy', {})
+        self.assertRaises(ConnectorConfigurationError, self.source.get_data, '', None, None, None)
 
     def test_data_can_be_fetched_with_no_timespan(self):
         data = self.source.get_data('ruuvitags',
