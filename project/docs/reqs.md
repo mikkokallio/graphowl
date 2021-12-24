@@ -70,3 +70,9 @@ After the MVP, more features will be added, focusing mainly on those that are fe
 * [ ] User can adjust a graph's size (e.g. grab the bottom-right corner).
 * [ ] User can set thresholds and alerts. The graph can show the threshold as a horizontal line, and if an alert is triggered, the borders of the graph flash angrily red every few seconds.
 * [ ] User can adjust the colors and other visual elements of the graph.
+* [ ] Carousel indicator shaped like the dashboard, e.g. 2x2
+* [ ] User can select a dashboard file from list
+* [ ] User can see tooltops when viewing config forms
+* [ ] User sees a loader / splash screen whenever loading takes a while
+* [ ] Loading the graphs uses threading / async to make it faster
+* [ ] Configure colors centrally
