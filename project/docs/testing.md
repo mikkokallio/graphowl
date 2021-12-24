@@ -10,6 +10,8 @@ Except for the UI, most classes have unit tests written for them. The test class
 
 Test coverage is somewhere above 70%.
 
+![Test coverage](https://github.com/mikkokallio/ot-harkka/blob/master/project/docs/coverage.png "Test coverage")
+
 The REST API connector doesn't have unit tests, and some other classes have methods that are not tested.
 
 ## System testing
