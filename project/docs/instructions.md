@@ -26,9 +26,23 @@ Creating new graphs is quite error-prone. It is strongly recommended to use an e
 3. Fill in all the fields in the new graph. If you don't know what you're doing (very likely!), use existing graphs from the demo as examples and try changing only small things first.
 4. Click **save** and go back to the dashboard view to see if it works. If you get an error, view the message and then your configuration again, and try to figure out what part of the configuration went wrong.
 
+### Configuring a graph
+
+The dashboard consists of various graphs, which may have different data sources. To create a new graph or configure and existing one, click the [graph] button to enter the graph configuration view. In that view, you can edit the parameters of a graph, as listed below.
+
+|Parameter|Values|Purpose|
+|---|---|---|
+|Graph title|string|Title to be shown in the dashboard view above the graph.|
+|Source name|string|Source name as it's written in the data source's `Source name` parameter.|
+|Table / collection / endpoint|string|In a database data source, this identifies the table or collection within the database.|
+|Field: name|string|If pivoting, this column has the names of the plots.|
+|Field: time|string|If pivoting, this column has the timestamp.|
+|Field: value|string|If pivoting, this column has the data point values.|
+|Keep plots|comma-separated string|If empty, all plots are shown in the graph. Otherwise, only the listed plots are shown.|
+
 ### Configuring a data source
 
-The for the graphs shown in the dashboard comes from different kinds of data sources, which can be databases or REST APIs, among other things. For connecting to data sources, GraphOwl has a few different connectors, currently supporting MongoDb, SQLite, and REST APIs.
+The data for the graphs shown in the dashboard comes from different kinds of data sources, which can be databases or REST APIs, among other things. For connecting to data sources, GraphOwl has a few different connectors, currently supporting MongoDb, SQLite, and REST APIs.
 
 To create a new data source or configure an existing one, click the [plug] button to enter the data source configuration view. In that view, you can edit the parameters of a data source, as listed below.
 
