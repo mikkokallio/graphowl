@@ -1,3 +1,6 @@
+# Dashboard file
+DASHBOARD = 'config/dashboard_weather.yaml'
+
 # Vanity names for various colors
 COLOR_DARKEST='#121A28'
 COLOR_DARKER='#1A2340'

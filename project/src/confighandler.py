@@ -11,7 +11,6 @@ class ConfigHandler:
             filepath (str): Path to the configuration file
         """
 
-        # TODO: Validate path and throw error if invalid
         self._filepath = filepath
         self._changes = False
 
@@ -20,6 +19,8 @@ class ConfigHandler:
         return self._changes
 
     def clear_changes(self):
+        """Clears a flag that indicates whether there are any changes requiring graph reload
+        """
         self._changes = False
 
     def load(self) -> dict:

@@ -5,13 +5,14 @@ from connectors.connector import Connector, ConnectorConfigurationError
 
 
 class RESTAPIConnector(Connector):
-    """Fetches JSON data from a REST API"""
+    """Fetches data from a REST API"""
 
     def __init__(self, uri: str, transformations: dict, **kwargs) -> None:
         """Stores information for fetching data from the API.
 
         Args:
             uri (str): REST API's address.
+            transformations (dict): Changes applied to data.
         """
 
         super().__init__(uri, transformations)
@@ -24,6 +25,7 @@ class RESTAPIConnector(Connector):
         Args:
             path (str): Comma-separated list to traverse to find the payload data.
             fields (dict): Additional configuration to find the data.
+            transformations (dict): Changes applied to data.
 
         Returns:
             dict: Data in a format suitable for matplotlib.

@@ -11,6 +11,7 @@ class SQLiteConnector(Connector):
 
         Args:
             uri (str): Connection string for the database.
+            transformations (dict): Changes applied to data.
         """
 
         super().__init__(uri, transformations)
@@ -23,6 +24,7 @@ class SQLiteConnector(Connector):
         Args:
             table (str): Table from where data is fetched.
             fields (dict): Names of the columns (e.g. timestamp, measurement, sensor_name).
+            transformations (dict): Changes applied to data.
 
         Returns:
             dict: Data in a format suitable for matplotlib.

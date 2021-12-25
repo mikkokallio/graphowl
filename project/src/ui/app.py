@@ -1,5 +1,5 @@
 from tkinter import Frame, Tk
-from constants import COLOR_DARK, COLOR_DARKER
+from constants import COLOR_DARK, COLOR_DARKER, DASHBOARD
 from ui.dashboardpage import DashboardPage
 from ui.editconfigpage import EditConfigPage
 from ui.editgraphspage import EditGraphsPage
@@ -11,7 +11,7 @@ from confighandler import ConfigHandler
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
-        self._loader = ConfigHandler('config/dashboard_weather.yaml')
+        self._loader = ConfigHandler(DASHBOARD)
         self._current = None
 
         leftpane = Frame(self, bg=COLOR_DARK)

@@ -12,6 +12,7 @@ class MongoDbConnector(Connector):
 
         Args:
             uri (str): Connection string for the database.
+            transformations (dict): Changes applied to data.
             cert (str): Path to authentication certificate.
             database (str): Database name.
         """

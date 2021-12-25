@@ -23,4 +23,4 @@ class TestGraph(unittest.TestCase):
 
     def test_load_gets_data(self):
         data = self.graph.load()
-        self.assertNotEqual(data, None)
+        self.assertTrue(data is not None)

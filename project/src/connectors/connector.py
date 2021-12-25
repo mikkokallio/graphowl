@@ -75,11 +75,16 @@ class Connector:
             raise ConnectorConfigurationError('column name(s) not found') from error
         except TypeError as error:
             raise ConnectorConfigurationError('cannot traverse path') from error
-        #except KeyError as error:
-        #    raise ConnectorConfigurationError('invalid plot names') from error
+        except KeyError as error:
+            raise ConnectorConfigurationError('invalid plot names') from error
 
     def get_data(self, *args):
-        return {'plot1': ([1,2,3,4],[1,2,3,4]), 'plot2': ([1,2,3,4],[4,3,2,1])}
+        """A dummy implementation of the method for testing.
+
+        Returns:
+            DataFrame: An empty pandas dataframe, can be used for testing.
+        """
+        return pd.DataFrame()
 
 class ConnectorConfigurationError(Exception):
     """Connector uri or other attributes are misconfigured"""

@@ -1,6 +1,6 @@
 import unittest
-from datetime import datetime
 from connectors.connector import Connector
+import pandas
 
 
 class TestConnector(unittest.TestCase):
@@ -11,4 +11,4 @@ class TestConnector(unittest.TestCase):
         self.assertNotEqual(self.source, None)
 
     def test_get_data(self):
-        self.assertNotEqual(self.source.get_data(), None)
+        self.assertTrue(isinstance(self.source.get_data(), pandas.DataFrame))

@@ -3,6 +3,8 @@ from constants import COLOR_DARK
 
 
 def main():
+    """Starts the app
+    """
     app = App()
     app.title('GraphOwl')
     app.configure(bg=COLOR_DARK)

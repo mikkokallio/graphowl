@@ -27,12 +27,12 @@ class Graph:
         """Uses the connector to pull data from the data source.
 
         Returns:
-            [dict]: Data to show in the corresponding UI widget.
+            [DataFrame]: Data to show in the corresponding UI widget.
         """
         try:
             return self._connector.get_data(self._collection, self._fields, self._transformations, timespan)
-        #except AttributeError:
-        #    return {'_error_':'invalid graph configuration'}
+        except AttributeError:
+            return {'_error_':'invalid graph configuration'}
         except ConnectorConfigurationError as error:
             return {'_error_':error}
         except ConnectionError as error:
