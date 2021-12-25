@@ -10,7 +10,7 @@ See the instructions below on how to make changes to an existing dashboard, or c
 
 ### Adjusting layout
 
-1. Click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png" width="10%" /> on the left. A config view opens.
+1. Click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png" width="5%" /> on the left. A config view opens.
 2. Change the x and y dimensions to e.g. 2 and 2.
 3. Change the title and timespan if you like.
 4. Click **save**.
@@ -18,11 +18,11 @@ See the instructions below on how to make changes to an existing dashboard, or c
 
 ### Configuring graphs and data sources
 
-To configure graphs or data sources, click the [graph] or [source] button, respectively. **Note:** Creating new graphs or data sources is quite error-prone. It is strongly recommended to use an existing graph or data source and then make small changes rather than trying to build from scratch.
+To configure graphs or data sources, click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="5%" /> or <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plug.png" width="5%" /> button, respectively. **Note:** Creating new graphs or data sources is quite error-prone. It is strongly recommended to use an existing graph or data source and then make small changes rather than trying to build from scratch.
 
-* Use the `<` and `>` buttons to browse graphs or data sources.
-* Use the `x` button to delete a graph or data source.
-* Use the `+` button to create a new graph or data source.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/left.png" width="5%" /> and <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/right.png" width="5%" /> to browse graphs or data sources.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cross.png" width="5%" /> to delete a graph or data source.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plus.png" width="5%" /> to create a new graph or data source.
 * Enter values (see Configuring a graph and Configuring a data source for details).
 * Click `Save` to save the changes.
 
