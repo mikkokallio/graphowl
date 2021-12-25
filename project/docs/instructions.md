@@ -10,7 +10,7 @@ See the instructions below on how to make changes to an existing dashboard, or c
 
 ### Adjusting layout
 
-1. Click ![Button](https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png "Button"){width=10%} on the left. A config view opens.
+1. Click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png" width="10%" /> on the left. A config view opens.
 2. Change the x and y dimensions to e.g. 2 and 2.
 3. Change the title and timespan if you like.
 4. Click **save**.
