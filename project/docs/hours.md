@@ -25,4 +25,12 @@
 |12.12.|8|Make graph datetimes and other text adjust by layout and timespan. Improve error handling and show meaningful messages in graphs if errors occur.|
 |13.12.|3|Enable graph/source deletion through UI and add confirmation dialog to delete.|
 |14.12.|4|Create initial REST API connector using XML source, and create new demo dashboard with it.|
-|Total|99||
+|16.12.|2|Update button graphics, add error handling|
+|17.12.|2|Separate buttons are its own class, other UI updates|
+|18.12.|2|Make the refresh button actually work, plus some refactoring|
+|20.12.|10|Rewrite much of connector code: take pandas into use, make transformations modular and reusable|
+|21.12.|1|Add transformations also to SQLite connector|
+|23.12.|2|Update user instructions|
+|24.12.|4|Continue updating user instructions and other documentation|
+|25.12.|2|Finalization of project|
+|Total|124||
