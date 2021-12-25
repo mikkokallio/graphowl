@@ -10,19 +10,19 @@ See the instructions below on how to make changes to an existing dashboard, or c
 
 ### Adjusting layout
 
-1. Click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png" width="2%" /> on the left. A config view opens.
+1. Click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cog.png" width="3%" /> on the left. A config view opens.
 2. Change the x and y dimensions to e.g. 2 and 2.
 3. Change the title and timespan if you like.
 4. Click **save**.
-5. Click the **owl** symbol on the left. The dashboard reloads and shows the new layout and other changes.
+5. Click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="3%" /> symbol on the left. The dashboard reloads and shows the new layout and other changes.
 
 ### Configuring graphs and data sources
 
-To configure graphs or data sources, click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="2%" /> or <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plug.png" width="5%" />, respectively. **Note:** Creating new graphs or data sources is quite error-prone. It is strongly recommended to use an existing graph or data source and then make small changes rather than trying to build from scratch.
+To configure graphs or data sources, click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="3%" /> or <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plug.png" width="3%" />, respectively. **Note:** Creating new graphs or data sources is quite error-prone. It is strongly recommended to use an existing graph or data source and then make small changes rather than trying to build from scratch.
 
-* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/left.png" width="2%" /> and <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/right.png" width="2%" /> to browse graphs or data sources.
-* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cross.png" width="2%" /> to delete a graph or data source.
-* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plus.png" width="2%" /> to create a new graph or data source.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/left.png" width="3%" /> and <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/right.png" width="3%" /> to browse graphs or data sources.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/cross.png" width="3%" /> to delete a graph or data source.
+* Use <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plus.png" width="3%" /> to create a new graph or data source.
 * Enter values (see Configuring a graph and Configuring a data source for details).
 * Click `Save` to save the changes.
 
@@ -32,7 +32,7 @@ Once you have saved the changes, go back to the dashboard view to see if the cha
 
 ### Configuring a graph
 
-The dashboard consists of various graphs, which may have different data sources. To create a new graph or configure and existing one, click the [graph] button to enter the graph configuration view. In that view, you can edit the parameters of a graph, as listed below.
+The dashboard consists of various graphs, which may have different data sources. To create a new graph or configure and existing one, click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="3%" /> to enter the graph configuration view. In that view, you can edit the parameters of a graph, as listed below.
 
 |Parameter|Values|Purpose|
 |---|---|---|
@@ -48,7 +48,7 @@ The dashboard consists of various graphs, which may have different data sources.
 
 The data for the graphs shown in the dashboard comes from different kinds of data sources, which can be databases or REST APIs, among other things. For connecting to data sources, GraphOwl has a few different connectors, currently supporting MongoDb, SQLite, and REST APIs.
 
-To create a new data source or configure an existing one, click the [plug] button to enter the data source configuration view. In that view, you can edit the parameters of a data source, as listed below.
+To create a new data source or configure an existing one, click <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/plug.png" width="3%" /> to enter the data source configuration view. In that view, you can edit the parameters of a data source, as listed below.
 
 |Parameter|Values|Purpose|
 |---|---|---|
