@@ -14,7 +14,7 @@ See the instructions below on how to make changes to an existing dashboard, or c
 2. Change the x and y dimensions to e.g. 2 and 2.
 3. Change the title and timespan if you like.
 4. Click **save**.
-5. Click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/graph.png" width="3%" /> symbol on the left. The dashboard reloads and shows the new layout and other changes.
+5. Click the <img src="https://github.com/mikkokallio/ot-harkka/blob/master/project/src/ui/icons/owl.png" width="3%" /> symbol on the left. The dashboard reloads and shows the new layout and other changes.
 
 ### Configuring graphs and data sources
 
