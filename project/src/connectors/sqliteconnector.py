@@ -34,7 +34,6 @@ class SQLiteConnector(Connector):
         con = sqlite3.connect(self._uri)
         cur = con.cursor()
         start_time = self._get_start_time(timespan)
-        # TODO: sanitize fields - parametrized query not possible
         query = f'SELECT {fields["time"]}, {fields["value"]}, {fields["name"]} FROM {collname}'
         condition = f' WHERE {fields["time"]} > {start_time}'
         cur.execute(query + condition)
